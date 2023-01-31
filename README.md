@@ -6,7 +6,7 @@ An Application that functions as a food inventory management system. The goal of
 | Sr No.  	| Name                      	| Skills                       	| Email              	| Phone Number 	|
 |---------	|---------------------------	|------------------------------	|--------------------	|--------------	|
 | 1       	| Siddhantkumar Sunil Maske 	| Back End Developer, Database 	| smaske@stevens.edu 	| 5516896845   	|
-| 2       	|                           	|                              	|                    	|              	|
+| 2       	| Shivank Srivastava          | Front End Developer, Database | ssriva12@stevens.edu| 8622144953   	|
 | 3       	|                           	|                              	|                    	|              	|
 | 4       	|                           	|                              	|                    	|              	|
 

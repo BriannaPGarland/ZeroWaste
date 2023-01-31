@@ -4,7 +4,7 @@ An Application that functions as a food inventory management system. The goal of
 
 ## Team members and the roles 
 | Sr No.  	| Name                      	|  Email             	| Phone Number 	|
-|---------	|---------------------------	|---------------------|---------------|--------------	|
+|---------	|---------------------------	|---------------------|---------------|
 | 1       	| Siddhantkumar Sunil Maske 	| smaske@stevens.edu 	| 5516896845   	|
 | 2       	| Shivank Srivastava          | ssriva12@stevens.edu| 8622144953   	|
 | 3       	| Brianna Garland             | bgarland@stevens.edu| 9083434281    |

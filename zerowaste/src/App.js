@@ -1,8 +1,7 @@
 import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 
-function App() {
+const App = () => {
 	return (
 		<div className='app'>
 			<nav class="navbar background">

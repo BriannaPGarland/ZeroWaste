@@ -1,9 +1,10 @@
 import React from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
 import './App.css';
 
 function App() {
 	return (
-		<div>
+		<div className='app'>
 			<nav class="navbar background">
         <div class="logo">
             <img src= "zWlogo.png" />

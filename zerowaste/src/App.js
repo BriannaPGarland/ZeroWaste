@@ -5,15 +5,14 @@ const App = () => {
 	return (
 		<div className='app'>
 			<nav class="navbar background">
-        <div class="logo">
-            <img src= "zWlogo.png" />
-        </div>
+        		<div class="logo">
+            		<img src= "zWlogo.png" />
+        		</div >
 				<ul class="nav-list">
-				
-					<li><a >Home</a></li>
-					<li><a >Inventory</a></li>
-					<li><a >Recipies</a></li>
-					<li><a >Analytics</a></li>
+					<li><a>Home</a></li>
+					<li><a>Inventory</a></li>
+					<li><a>Recipies</a></li>
+					<li><a>Analytics</a></li>
 				</ul>
 			</nav>
 
@@ -56,7 +55,6 @@ const App = () => {
 			<footer className="footer">
 				<p className="text-footer">
 					Contact information and other footer stuff
-
 				</p>
 			</footer>
 		</div>

@@ -13,7 +13,7 @@
 }
 
 .cover {
-    background-color: white;
+    background-color: rgb(5, 19, 65);
     width: 30em;
     height: 35em;
     position: relative;
@@ -23,11 +23,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    color: white;
 }
 
 .alt-login {
     width: 80%;
     height: 3em;
+    color: white;
     display: flex;
     justify-content: space-around;
 }
@@ -48,7 +50,7 @@
 
 input {
     border: none;
-    background-color: rgb(229, 226, 226);
+    background-color: white;
     height: 4em;
     width: 80%;
     border-radius: 0.25em;
@@ -57,13 +59,13 @@ input {
 }
 
 input:focus {
-    outline-color: rgb(32, 177, 255);
+    outline-color: white;
 }
 
 .login-btn {
     width: 40%;
     height: 3em;
-    background-color: rgb(32, 177, 255);
+    background-color: rgb(71, 52, 145);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,3 +81,6 @@ input:focus {
     bottom: 0.5%;
 }
 
+.signup{
+    color: white;
+}

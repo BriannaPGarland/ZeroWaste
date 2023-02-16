@@ -22,6 +22,11 @@ const Login = () => {
         <div className="google"></div>
       </div>
 
+      <Link to="/Signup">
+        <div className="signup">
+          Create a new account
+        </div>
+        </Link>
     </div>
   )
 }

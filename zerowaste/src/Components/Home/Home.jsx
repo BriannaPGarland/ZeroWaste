@@ -4,18 +4,6 @@ import './Home.css';
 const Home = () => {
   return (
     <div>
-			<nav class="navbar background">
-        		<div class="logo">
-            		<img src= "zWlogo.png" />
-        		</div >
-				<ul class="nav-list">
-					<li><a>Home</a></li>
-					<li><a>Inventory</a></li>
-					<li><a>Recipies</a></li>
-					<li><a>Analytics</a></li>
-				</ul>
-			</nav>
-
 			<section class="section">
 				<div class="box-main">
 					<div class="firstHalf">

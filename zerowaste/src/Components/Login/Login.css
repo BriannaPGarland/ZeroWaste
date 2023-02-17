@@ -29,7 +29,6 @@
 .alt-login {
     width: 80%;
     height: 3em;
-    color: white;
     display: flex;
     justify-content: space-around;
 }
@@ -66,6 +65,7 @@ input:focus {
     width: 40%;
     height: 3em;
     background-color: rgb(71, 52, 145);
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;

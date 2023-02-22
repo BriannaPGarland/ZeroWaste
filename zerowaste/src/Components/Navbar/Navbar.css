@@ -13,6 +13,7 @@
     background: rgb(5, 19, 65);
 	background-blend-mode: darken;
 	background-size: cover;
+	
 }
 
 .nav-list {
@@ -34,6 +35,12 @@
 .nav-list li {
 	list-style: none;
 	padding: 26px 90px;
+	
+}
+
+.nav-list li:hover{
+	transform: scale(1.2);
+	transition: all 0.5s ease-in-out;
 }
 
 .profIcon{

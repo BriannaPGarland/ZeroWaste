@@ -1,8 +1,9 @@
 import React from 'react'
 import './Home.css';
-import searchIcon from "./search.PNG"
+import searchIcon from "./search.PNG";
 import FoodCard from './FoodCard.jsx';
 import { Link } from 'react-router-dom';
+import RotObj from './RotateObject.jsx';
 
 
 
@@ -26,14 +27,8 @@ const Home = () => {
 					</div>
 				</div>
 			</section>
-			<section class="section">
-				<div class="box-main">
-					<div class="secondHalf">
-						<h1 class="text-small" id="program">
-							This is where the cards go 
-						</h1>
-					</div>
-				</div>
+			<section>
+				<RotObj></RotObj>
 			</section>
 			<div className="buttonSec">
 				<button className="seeAll" onClick={handleClickScroll}>

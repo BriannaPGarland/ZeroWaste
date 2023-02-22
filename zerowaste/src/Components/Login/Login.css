@@ -13,9 +13,11 @@
     justify-content: center;
     align-items: center;
     
+    
 }
 
 .cover {
+    
     background-color: rgb(5, 19, 65);
     width: 30em;
     height: 35em;
@@ -46,7 +48,7 @@
     width: 45%;
     height: 90%;
     border-radius: 0.25em;
-    background-color: black;
+    background-color: transparent;
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -107,7 +109,7 @@ input:focus {
 .login-btn {
     width: 40%;
     height: 3em;
-    background-color: rgb(71, 52, 145);
+    background-image: linear-gradient(to top left,rgb(38, 0, 153), rgb(71, 52, 145));
     color: white;
     display: flex;
     justify-content: center;

@@ -189,7 +189,7 @@
 .addInvButt{
 	width: 17%;
     height: 3em;
-    background-color: rgb(71, 52, 145);
+    background-image: linear-gradient(to top left,rgb(38, 0, 153), rgb(71, 52, 145));
     color: white;
     display: flex;
     justify-content: center;
@@ -197,13 +197,12 @@
     transition: 0.5s;
     border-radius: 0.25em;
 	cursor: pointer;
-	background:rgb(71, 52, 145);
 	text-decoration:  none;
 }
 .seeAll{
 	width: 10%;
-    height: 3em;
-    background-color: rgb(71, 52, 145);
+	height: 3em;
+	background-image: linear-gradient(to top left,rgb(38, 0, 153), rgb(71, 52, 145));
     color: white;
     display: flex;
     justify-content: center;
@@ -217,8 +216,25 @@
 	box-shadow: 0px 0px 0.5px 1px white;	
 }
 .addInvButt:hover{
-	box-shadow: 0px 0px 0.5px 1px white;	
+	box-shadow: 0px 0px 0.5px 1px white;
+		
 
+}
+.rotateObj{
+	margin-left:180px;
+	margin-right:180px ;
+	height: 200px;
+	display: flex;
+	align-items: center;
+	background-color: rgb(5, 19, 65);
+	justify-content: space-between;
+	padding-bottom:80px;
+
+}
+
+.spefic:hover {
+	transform: scale(1.1);
+	transition: all 0.5s ease-in-out;
 }
 
 .buttonSec{
@@ -227,4 +243,29 @@
     align-items: center;
 	justify-content: space-around;
 	padding-bottom: 15px;
+}
+
+.leftArrow{
+	height:100px;
+	width:100px;
+	margin:30px;
+	border-radius: 200px;
+	
+}
+.leftArrow:hover{
+	box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
+	box-shadow: 0 0 0 2px white;
+	filter: brightness(120%);
+}
+.rightArrow{
+	height:100px;
+	width:100px;
+	transform:scaleX(-1);
+	margin:30px;
+	border-radius: 200px;
+}
+.rightArrow:hover{
+	box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
+	box-shadow: 0 0 0 2px white;
+	filter: brightness(120%);
 }

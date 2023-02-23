@@ -39,7 +39,7 @@ const Home = () => {
 				<div >
 					<div className = "searchSection">
 						<input className ="searchbar" type="text" placeholder="Search ..."></input>
-						<img className="searIcon" src={searchIcon}></img>
+						<img className="searIcon" src={searchIcon} alt=''></img>
 					</div>
 				</div>
 			</section>

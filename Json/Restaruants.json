@@ -1,0 +1,121 @@
+[{
+  "_id": {
+    "$oid": "63f6becd23ba3b0670216d44"
+  },
+  "phone": "000-000-0000",
+  "email": "test@gmail.com",
+  "address": "1 Castle Point Rd",
+  "inventory": [
+    {
+      "_id": {
+        "$oid": "63f6becd23ba3b0670216d45"
+      },
+      "restaurant_id": {
+        "$oid": "63f6becd23ba3b0670216d46"
+      },
+      "data": {
+        "name": "Apple",
+        "minimum_threshold": 20,
+        "total_amount": 100,
+        "current_package": {
+          "_id": {
+            "$oid": "63f6becd23ba3b0670216d47"
+          },
+          "shelf_life": "Wed Feb 22 2023 20:18:05 GMT-0500 (Eastern Standard Time)",
+          "date_purchased": "Wed Feb 22 2023 20:18:05 GMT-0500 (Eastern Standard Time)",
+          "quantity": 3
+        },
+        "storage": [
+          {
+            "_id": {
+              "$oid": "63f6becd23ba3b0670216d48"
+            },
+            "shelf_life": "Wed Feb 22 2023 20:18:05 GMT-0500 (Eastern Standard Time)",
+            "date_purchased": "Wed Feb 22 2023 20:18:05 GMT-0500 (Eastern Standard Time)",
+            "quantity": 5
+          }
+        ]
+      }
+    },
+    {
+      "_id": {
+        "$oid": "63f6becd23ba3b0670216d49"
+      },
+      "restaurant_id": {
+        "$oid": "63f6becd23ba3b0670216d4a"
+      },
+      "data": {
+        "name": "Apple",
+        "minimum_threshold": 100,
+        "total_amount": 300,
+        "current_package": {
+          "_id": {
+            "$oid": "63f6becd23ba3b0670216d4b"
+          },
+          "shelf_life": "Wed Feb 22 2023 20:18:05 GMT-0500 (Eastern Standard Time)",
+          "date_purchased": "Wed Feb 22 2023 20:18:05 GMT-0500 (Eastern Standard Time)",
+          "quantity": 30
+        },
+        "storage": [
+          {
+            "_id": {
+              "$oid": "63f6becd23ba3b0670216d4c"
+            },
+            "shelf_life": "Wed Feb 22 2023 20:18:05 GMT-0500 (Eastern Standard Time)",
+            "date_purchased": "Wed Feb 22 2023 20:18:05 GMT-0500 (Eastern Standard Time)",
+            "quantity": 400
+          }
+        ]
+      }
+    }
+  ],
+  "recipes": [
+    {
+      "_id": {
+        "$oid": "63f6becd23ba3b0670216d4d"
+      },
+      "name": "ExampleDish",
+      "restaurant_id": {
+        "$oid": "63f6becd23ba3b0670216d4e"
+      },
+      "ingredients": [
+        {
+          "name": "apple",
+          "amount": 5
+        },
+        {
+          "name": "pizza",
+          "amount": 3
+        }
+      ],
+      "daily_produced": 20,
+      "surplus_created": 5
+    },
+    {
+      "_id": {
+        "$oid": "63f6becd23ba3b0670216d4f"
+      },
+      "name": "ExampleDish",
+      "restaurant_id": {
+        "$oid": "63f6becd23ba3b0670216d50"
+      },
+      "ingredients": [
+        {
+          "name": "apple",
+          "amount": 5
+        },
+        {
+          "name": "pizza",
+          "amount": 3
+        }
+      ],
+      "daily_produced": 20,
+      "surplus_created": 4
+    }
+  ],
+  "money_saved": 0,
+  "is_food_claimed": false,
+  "owner_id": {
+    "$oid": "63f6becd23ba3b0670216d51"
+  }
+}]

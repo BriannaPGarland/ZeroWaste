@@ -1,0 +1,31 @@
+[{
+  "_id": {
+    "$oid": "63f6becd23ba3b0670216d54"
+  },
+  "restaurant_id": {
+    "$oid": "63f6becd23ba3b0670216d55"
+  },
+  "data": {
+    "name": "Apple",
+    "minimum_threshold": 30,
+    "total_amount": 10,
+    "current_package": {
+      "_id": {
+        "$oid": "63f6becd23ba3b0670216d56"
+      },
+      "shelf_life": "Wed Feb 22 2023 20:18:05 GMT-0500 (Eastern Standard Time)",
+      "date_purchased": "Wed Feb 22 2023 20:18:05 GMT-0500 (Eastern Standard Time)",
+      "quantity": 5
+    },
+    "storage": [
+      {
+        "_id": {
+          "$oid": "63f6becd23ba3b0670216d57"
+        },
+        "shelf_life": "Wed Feb 22 2023 20:18:05 GMT-0500 (Eastern Standard Time)",
+        "date_purchased": "Wed Feb 22 2023 20:18:05 GMT-0500 (Eastern Standard Time)",
+        "quantity": 10
+      }
+    ]
+  }
+}]

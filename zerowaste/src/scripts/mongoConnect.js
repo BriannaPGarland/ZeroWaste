@@ -36,18 +36,19 @@ let populateDB = async function(db,db_type){ //Test items to fill database
                 "restaurant_id": new ObjectId(), 
                 "data": {
                     "name": "Apple",
-                    "minimum_threshold":0000,
+                    "minimum_threshold":20,
+                    "total_amount" : 100,
                     "current_package":{
                         "_id": new ObjectId(),
                         "shelf_life": Date(), 
                         "date_purchased": Date(), 
-                        "quantity":0000,
+                        "quantity":3,
                     },
                     "storage":[{
                         "_id": new ObjectId(),
                         "shelf_life": Date(), 
                         "date_purchased": Date(), 
-                        "quantity":0000,
+                        "quantity":5,
                     }]
                 }
             },
@@ -55,18 +56,19 @@ let populateDB = async function(db,db_type){ //Test items to fill database
                 "restaurant_id": new ObjectId(), 
                 "data": {
                     "name": "Apple",
-                    "minimum_threshold":0000,
+                    "minimum_threshold":100,
+                    "total_amount" : 300,
                     "current_package":{
                         "_id": new ObjectId(),
                         "shelf_life": Date(), 
                         "date_purchased": Date(), 
-                        "quantity":0000,
+                        "quantity":30,
                     },
                     "storage":[{
                         "_id": new ObjectId(),
                         "shelf_life": Date(), 
                         "date_purchased": Date(), 
-                        "quantity":0000,
+                        "quantity":400,
                     }]
                 }
             }],
@@ -74,15 +76,15 @@ let populateDB = async function(db,db_type){ //Test items to fill database
                 "name" : "ExampleDish",
                 "restaurant_id": new ObjectId(), 
                 "ingredients": [{"name": "apple", "amount":5}, {"name": "pizza", "amount":3}], 
-                "daily_produced": 0000,
-                "surplus_created": 0000
+                "daily_produced": 20,
+                "surplus_created": 5
             },
         {   "_id" : new ObjectId(), 
                 "name" : "ExampleDish",
                 "restaurant_id": new ObjectId(), 
                 "ingredients": [{"name": "apple", "amount":5}, {"name": "pizza", "amount":3}], 
-                "daily_produced": 0000,
-                "surplus_created": 0000
+                "daily_produced": 20,
+                "surplus_created": 4
             }], 
             "money_saved":0000,
             "is_food_claimed": false,
@@ -95,8 +97,8 @@ let populateDB = async function(db,db_type){ //Test items to fill database
                 "name" : "ExampleDish",
                 "restaurant_id": new ObjectId(), 
                 "ingredients": [{"name": "apple", "amount":5}, {"name": "pizza", "amount":3}], 
-                "daily_produced": 0000,
-                "surplus_created": 0000
+                "daily_produced": 20,
+                "surplus_created": 5
             }
         )
     else if(db_type == "Ingredients")
@@ -105,18 +107,19 @@ let populateDB = async function(db,db_type){ //Test items to fill database
                 "restaurant_id": new ObjectId(), 
                 "data": {
                     "name": "Apple",
-                    "minimum_threshold":0000,
+                    "minimum_threshold":30,
+                    "total_amount" : 10,
                     "current_package":{
                         "_id": new ObjectId(),
                         "shelf_life": Date(), 
                         "date_purchased": Date(), 
-                        "quantity":0000,
+                        "quantity":5,
                     },
                     "storage":[{
                         "_id": new ObjectId(),
                         "shelf_life": Date(), 
                         "date_purchased": Date(), 
-                        "quantity":0000,
+                        "quantity":10,
                     }]
                 }
             }

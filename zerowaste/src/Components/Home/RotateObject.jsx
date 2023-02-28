@@ -12,7 +12,7 @@ class RotObj extends Component {
     return (
       <div className="rotateObj">
         
-        <img className="leftArrow" src={arrow}></img>
+        <img className="leftArrow" src={arrow} alt=""></img>
           
           <div className="spefic">
             <FoodCard ></FoodCard>
@@ -26,7 +26,7 @@ class RotObj extends Component {
           <div className="spefic">
             <FoodCard ></FoodCard>
           </div>
-          <img className="rightArrow"src={arrow}></img>
+          <img className="rightArrow"src={arrow} alt=""></img>
       </div>
     );
   }

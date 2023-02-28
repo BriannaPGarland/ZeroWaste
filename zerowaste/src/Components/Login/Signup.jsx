@@ -14,11 +14,12 @@ import Home from "../Home/Home";
 const Signup = () => {
   const { user } = useContext(AuthorizeContext);
   const [accCreationMessage, SetAccCreationMessage] = useState("");
-  const homePage = useNavigate();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Check if all required fields are filled out
     const { name, email, password, accountType } = e.target.elements;
     if (!name.value || !email.value || !password.value || !accountType.value) {
       alert("Please fill out all required fields.");
@@ -35,7 +36,7 @@ const Signup = () => {
       window.localStorage.setItem("user", JSON.stringify(userObject.user));
       SetAccCreationMessage("Account created successfully");
       setTimeout(() => {
-        homePage("/Home");
+        navigate("/Login");
       }, 3000);
     } catch (error) {
       console.log(error);
@@ -89,6 +90,7 @@ const Signup = () => {
             name="restaurantName"
             value={"Artichoke"}
           />
+
           <button className="login-btn" type="submit">
             Create account
           </button>
@@ -99,9 +101,6 @@ const Signup = () => {
           <div className="google"></div>
         </div>
 
-        <button className="login-btn" type="submit">
-          Create account
-        </button>
         <span>{accCreationMessage}</span>
       </div>
     </div>

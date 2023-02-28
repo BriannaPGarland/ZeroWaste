@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { Navbar, Analytics, Donations, Home, Login, Recipies, Signup, AddInv} from './Components';
 import { Routes, Route } from 'react-router-dom';
+import { AuthorizeContext, AuthorizeProvider } from "./Authorization/Authorize";
 
 
 const App = () => {

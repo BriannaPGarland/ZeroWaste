@@ -17,10 +17,15 @@ const Signup = () => {
   const homePage = useNavigate();
 
   const handleSubmit = async (e) => {
-    console.log(e);
+    e.preventDefault();
+
+    const { name, email, password, accountType } = e.target.elements;
+    if (!name.value || !email.value || !password.value || !accountType.value) {
+      alert("Please fill out all required fields.");
+      return;
+    }
+
     try {
-      e.preventDefault();
-      const { email, password } = e.target.elements;
       const userObject = await createUserWithEmailAndPassword(
         auth,
         email.value,
@@ -28,7 +33,7 @@ const Signup = () => {
       );
       console.log(userObject);
       window.localStorage.setItem("user", JSON.stringify(userObject.user));
-      SetAccCreationMessage("Account created sucessfully");
+      SetAccCreationMessage("Account created successfully");
       setTimeout(() => {
         homePage("/Home");
       }, 3000);
@@ -47,7 +52,9 @@ const Signup = () => {
             className="lgInput"
             type="text"
             placeholder="First & Last Name"
-            id="First & Last Name"
+            id="name"
+            name="name"
+            value={"test1 value"}
           />
           <input
             className="lgInput"
@@ -55,7 +62,7 @@ const Signup = () => {
             placeholder="email"
             id="email"
             name="email"
-            value="siddhantkumar052@gmail.com"
+            value={"siddhantkumar052@gmail.com"}
           />
           <input
             className="lgInput"
@@ -63,23 +70,26 @@ const Signup = () => {
             placeholder="password"
             id="password"
             name="password"
+            value="test1passwed88#"
           />
 
-          <div class="dropdown">
-            <button class="dropdown">Select Account Type</button>
-            <div class="dropdown-content">
-              <a>Restaurant</a>
-              <a>Community Of Need</a>
-            </div>
+          <div className="dropdown">
+            <select className="dropdown" id="accountType" name="accountType">
+              <option value="">Select Account Type</option>
+              <option value="restaurant">Restaurant</option>
+              <option value="communityOfNeed">Community Of Need</option>
+            </select>
           </div>
 
           <input
             className="lgInput"
             type="text"
             placeholder="Restaurant Name"
+            id="restaurantName"
+            name="restaurantName"
+            value={"Artichoke"}
           />
-
-          <button className="login-btn" to="/Home">
+          <button className="login-btn" type="submit">
             Create account
           </button>
         </form>
@@ -89,9 +99,9 @@ const Signup = () => {
           <div className="google"></div>
         </div>
 
-        <Link to="/Signup">
-          <div className="signup">Create a new account</div>
-        </Link>
+        <button className="login-btn" type="submit">
+          Create account
+        </button>
         <span>{accCreationMessage}</span>
       </div>
     </div>

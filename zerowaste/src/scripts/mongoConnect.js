@@ -34,7 +34,7 @@ let testDB = async function(db_type){ //Test items to fill database
         //dlet result =  await restaurant_db.getRecipes();
         // newIngredient = {"_id" : new ObjectId(), "data": {"name": "TestORANGE", "amount": 10, "Expiration": new Date()}}
         //let updateingredient = {"name": "TestORANGE", "amount": 10, "Expiration": new Date()}
-        //let newRecipe = {"_id" : new ObjectId(), "data": {"name": "WHATTHEFUCK","amount":200}}
+        //let newRecipe = {"_id" : new ObjectId(), "data": {"name": "Test","amount":200}}
         //let updateRecipe = {"name": "Test","amount":100, "Surplus": 20}
 
         //console.log(await restaurant_db.deleteRecipes());

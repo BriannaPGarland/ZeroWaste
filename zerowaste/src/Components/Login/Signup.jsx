@@ -48,7 +48,7 @@ const Signup = () => {
       <div className="cover">
         <h1 className="title">Create Account</h1>
         <h3>SIGN IN TO CONTINUE</h3>
-        <form onSubmit={handleSubmit}>
+        <form className="loginbox" onSubmit={handleSubmit}>
           <input
             className="lgInput"
             type="text"
@@ -63,7 +63,7 @@ const Signup = () => {
             placeholder="email"
             id="email"
             name="email"
-            value={"siddhantkumar052@gmail.com"}
+            //value={""}
           />
           <input
             className="lgInput"
@@ -71,7 +71,7 @@ const Signup = () => {
             placeholder="password"
             id="password"
             name="password"
-            value="test1passwed88#"
+            //alue=""
           />
 
           <div className="dropdown">

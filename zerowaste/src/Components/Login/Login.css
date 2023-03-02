@@ -16,6 +16,18 @@
     
 }
 
+.loginbox{
+  
+    width: 80%;
+    padding: 10px;
+    margin-left:15px;
+    padding-top: 40px;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    border-radius: 0.25em;
+}
+
 .cover {
     
     background-color: rgb(5, 19, 65);
@@ -66,6 +78,11 @@
     border-radius: 0.35em;
     text-align: center;
     padding: 2em;
+    margin-bottom:35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 58px;
 }
 .dropdown {
     display: inline-block;

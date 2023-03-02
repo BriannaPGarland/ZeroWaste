@@ -22,7 +22,7 @@ const Login = () => {
       <div className="cover">
         <h1 className="title">Login</h1>
         <h3>SIGN IN TO CONTINUE</h3>
-        <form onSubmit={handleLogin}>
+        <form className="loginbox" onSubmit={handleLogin}>
           <input
             className="lgInput"
             type="text"

@@ -12,12 +12,24 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    
+
+
+}
+
+.loginbox {
+
+    width: 80%;
+    padding: 10px;
+    margin-left: 15px;
+    padding-top: 40px;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    border-radius: 0.25em;
 }
 
 .cover {
-    
+
     background-color: rgb(5, 19, 65);
     width: 30em;
     height: 35em;
@@ -30,6 +42,7 @@
     justify-content: space-around;
     color: white;
 }
+
 .loginpage {
     margin: auto;
     width: 35%;
@@ -55,8 +68,13 @@
     cursor: pointer;
 }
 
-.google {background-image: url("./google.png");}
-.facebook {background-image: url("./facebook.png");} 
+.google {
+    background-image: url("./google.png");
+}
+
+.facebook {
+    background-image: url("./facebook.png");
+}
 
 .lgInput {
     border: none;
@@ -66,41 +84,51 @@
     border-radius: 0.35em;
     text-align: center;
     padding: 2em;
+    margin-bottom: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 58px;
 }
+
 .dropdown {
     display: inline-block;
     position: relative;
     background-color: white;
     border: none;
     height: 3em;
-    color:grey;
+    color: grey;
     width: 80%;
     border-radius: 0.25em;
     text-align: center;
-  }
-  .dropdown-content {
+}
+
+.dropdown-content {
     display: none;
     position: absolute;
     background-color: white;
     width: 100%;
     overflow: auto;
-    box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
-  }
-  .dropdown:hover .dropdown-content {
+    box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.4);
+}
+
+.dropdown:hover .dropdown-content {
     display: block;
-    backgrond-color:white;
-  }
-  .dropdown-content a {
+    background-color: white;
+}
+
+.dropdown-content a {
     display: block;
     background-color: white;
     color: grey;
     padding: 5px;
     text-decoration: none;
-  }
-  .dropdown-content a:hover {
+}
+
+.dropdown-content a:hover {
     color: #FFFFFF;
     background-color: #00A4BD;
-  }
+}
 
 input:focus {
     outline-color: white;
@@ -109,7 +137,7 @@ input:focus {
 .login-btn {
     width: 40%;
     height: 3em;
-    background-image: linear-gradient(to top left,rgb(38, 0, 153), rgb(71, 52, 145));
+    background-image: linear-gradient(to top left, rgb(38, 0, 153), rgb(71, 52, 145));
     color: white;
     display: flex;
     justify-content: center;
@@ -119,13 +147,15 @@ input:focus {
     cursor: pointer;
 }
 
-.login-btn:hover { transform: scale(1.25);}
+.login-btn:hover {
+    transform: scale(1.25);
+}
 
 .text {
     position: relative;
     bottom: 0.5%;
 }
 
-.signup{
+.signup {
     color: white;
 }

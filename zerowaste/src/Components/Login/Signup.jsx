@@ -1,44 +1,110 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
-
+import React, { useState } from "react";
+import {
+  Link,
+  useLocation,
+  useNavigate,
+  useNavigation,
+} from "react-router-dom";
+import { AuthorizeContext } from "../../Authorization/Authorize";
+import { useContext } from "react";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../Authorization/FirebaseConfig";
+import Home from "../Home/Home";
 
 const Signup = () => {
+  const { user } = useContext(AuthorizeContext);
+  const [accCreationMessage, SetAccCreationMessage] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Check if all required fields are filled out
+    const { name, email, password, accountType } = e.target.elements;
+    if (!name.value || !email.value || !password.value || !accountType.value) {
+      alert("Please fill out all required fields.");
+      return;
+    }
+
+    try {
+      const userObject = await createUserWithEmailAndPassword(
+        auth,
+        email.value,
+        password.value
+      );
+      console.log(userObject);
+      window.localStorage.setItem("user", JSON.stringify(userObject.user));
+      SetAccCreationMessage("Account created successfully");
+      setTimeout(() => {
+        navigate("/Login");
+      }, 3000);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
-    <div className= "loginpage"> 
+    <div className="loginpage">
       <div className="cover">
         <h1 className="title">Create Account</h1>
         <h3>SIGN IN TO CONTINUE</h3>
-        <input className="lgInput" type="text" placeholder="First & Last Name" />
-        <input className="lgInput" type="text" placeholder="username" />
-        <input className="lgInput" type="password" placeholder="password" />
+        <form className="loginbox" onSubmit={handleSubmit}>
+          <input
+            className="lgInput"
+            type="text"
+            placeholder="First & Last Name"
+            id="name"
+            name="name"
+            value={"test1 value"}
+          />
+          <input
+            className="lgInput"
+            type="text"
+            placeholder="email"
+            id="email"
+            name="email"
+            //value={""}
+          />
+          <input
+            className="lgInput"
+            type="password"
+            placeholder="password"
+            id="password"
+            name="password"
+            //alue=""
+          />
 
-        <div class="dropdown">
-          <button class="dropdown">Select Account Type</button>
-          <div class="dropdown-content">
-          <a >Restaurant</a>
-          <a >Community Of Need</a>
+          <div className="dropdown">
+            <select className="dropdown" id="accountType" name="accountType">
+              <option value="">Select Account Type</option>
+              <option value="restaurant">Restaurant</option>
+              <option value="communityOfNeed">Community Of Need</option>
+            </select>
           </div>
-        </div>
 
-        <input className="lgInput" type="text" placeholder="Restaurant Name" />
+          <input
+            className="lgInput"
+            type="text"
+            placeholder="Restaurant Name"
+            id="restaurantName"
+            name="restaurantName"
+            value={"Artichoke"}
+          />
 
-        <Link className="login-btn" to="/Home">
-          Create account
-        </Link>
+          <button className="login-btn" type="submit">
+            Create account
+          </button>
+        </form>
 
         <div className="alt-login">
           <div className="facebook"></div>
           <div className="google"></div>
         </div>
 
-        <Link to="/Signup">
-          <div className="signup">
-            Create a new account
-          </div>
-          </Link>
+        <span>{accCreationMessage}</span>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Signup
+export default Signup;

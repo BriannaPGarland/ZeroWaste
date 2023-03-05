@@ -55,7 +55,7 @@ const Signup = () => {
             placeholder="First & Last Name"
             id="name"
             name="name"
-            value={"test1 value"}
+            //value={"test1 value"}
           />
           <input
             className="lgInput"
@@ -71,7 +71,7 @@ const Signup = () => {
             placeholder="password"
             id="password"
             name="password"
-            //alue=""
+            //value=""
           />
 
           <div className="dropdown">
@@ -88,7 +88,7 @@ const Signup = () => {
             placeholder="Restaurant Name"
             id="restaurantName"
             name="restaurantName"
-            value={"Artichoke"}
+            //value={"Artichoke"}
           />
 
           <button className="login-btn" type="submit">

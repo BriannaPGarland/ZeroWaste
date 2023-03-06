@@ -19,9 +19,9 @@ const Login = () => {
 
   return (
     <div className="loginpage">
-      <div className="cover">
+      <div className="Logincover">
         <h1 className="title">Login</h1>
-        <h3>SIGN IN TO CONTINUE</h3>
+        <h3 className ="text">SIGN IN TO CONTINUE</h3>
         <form className="loginbox" onSubmit={handleLogin}>
           <input
             className="lgInput"

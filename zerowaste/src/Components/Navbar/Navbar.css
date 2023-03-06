@@ -19,9 +19,13 @@
 .nav-list {
 	display: flex;
 	align-items: center;
-	padding-left: 360px;
+	padding-left: 700px;
+	padding-right:50px;
+	margin:0px;
 }
-
+.dropbtnNav{
+	border:0px;
+}
 .logo {
 	justify-content: right;
 	align-items: right;
@@ -34,7 +38,12 @@
 
 .nav-list li {
 	list-style: none;
-	padding: 26px 100px;
+	padding: 40px 40px;
+}
+.ulNav {
+	padding:0px;
+	margin:0px;
+	border:0px;
 }
 
 .nav-list li:hover{
@@ -43,11 +52,15 @@
 }
 
 .profIcon{
-	width: 40px;
-	height:40px;
-	transform:scaleX(-1);
-	padding: 5px;
-
+	width: 10px !important;
+	height:10px !important;
+	padding-top: 30px;
+	padding-left:60px;
+	padding-right:60px;
+	background-image: url("./Icon.png") ;
+	background-repeat: no-repeat;
+	background-size:contain;
+	
 }
 
 .nav-list li a {
@@ -62,4 +75,18 @@
 .rightnav {
 	width: 30%;
 	text-align: right;
+}
+.dropdown{
+	display: inline-block;
+    position: relative;
+    background-color: white;
+    border: none;
+    height: 3em;
+    color: grey;
+    width: 80%;
+    border-radius: 0.25em;
+	text-align: center;
+	
+	padding-top:10px;
+	height:20px;
 }

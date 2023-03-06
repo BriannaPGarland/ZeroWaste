@@ -36,7 +36,7 @@ const Signup = () => {
       window.localStorage.setItem("user", JSON.stringify(userObject.user));
       SetAccCreationMessage("Account created successfully");
       setTimeout(() => {
-        navigate("/Login");
+        navigate("/Home");
       }, 3000);
     } catch (error) {
       console.log(error);
@@ -45,7 +45,7 @@ const Signup = () => {
 
   return (
     <div className="loginpage">
-      <div className="cover">
+      <div className="signcover">
         <h1 className="title">Create Account</h1>
         <h3>SIGN IN TO CONTINUE</h3>
         <form className="loginbox" onSubmit={handleSubmit}>
@@ -74,8 +74,8 @@ const Signup = () => {
             //value=""
           />
 
-          <div className="dropdown">
-            <select className="dropdown" id="accountType" name="accountType">
+          <div className="dropdownbox">
+            <select className="dropdownsgn" id="accountType" name="accountType">
               <option value="">Select Account Type</option>
               <option value="restaurant">Restaurant</option>
               <option value="communityOfNeed">Community Of Need</option>

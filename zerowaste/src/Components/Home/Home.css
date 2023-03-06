@@ -47,7 +47,7 @@
 }
 
 .nav-list {
-	display: flex;
+	display: flex !important;
 	align-items: center;
 	padding-left: 500px;
 }
@@ -146,7 +146,7 @@
 }
 .title{
 	color:white;
-	font-size:45px;
+	font-size:55px;
 	display: flex;
     flex-direction: column;
     align-items: center;

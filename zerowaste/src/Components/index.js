@@ -6,3 +6,4 @@ export { default as Signup } from './Login/Signup.jsx';
 export { default as Navbar } from './Navbar/Navbar.jsx';
 export { default as Recipies } from './Recipies/Recipies.jsx';
 export { default as AddInv } from './AddInv/AddInv.jsx';
+export { default as Landing } from './LandingPage/LandingPage.jsx';

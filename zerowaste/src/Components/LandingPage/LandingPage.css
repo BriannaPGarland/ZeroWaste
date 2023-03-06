@@ -1,0 +1,58 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+.Landtxt{
+    color:white;
+    padding-top:50px;
+    font-size: 24px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+	justify-content: space-around;
+	
+}
+.landing{
+    display: contents;
+   padding-top:140px;
+}
+.logoImg{
+    height:200px;
+    width: 700px;
+    background-image: url("./zWlogo.png") ;
+	background-repeat: no-repeat;
+    background-size:700px;
+
+    display: flex;
+    align-items: center;
+    margin-left:530px;
+}
+.SignUpButt{
+    margin-top:100px;
+    width: 17%;
+    height: 3em;
+    background-image: linear-gradient(to top left,rgb(38, 0, 153), rgb(71, 52, 145));
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    border-radius: 0.25em;
+	cursor: pointer;
+	text-decoration:  none;
+}
+.LGINButt{
+    margin-top:20px;
+    width: 17%;
+    height: 3em;
+    background-image: linear-gradient(to top left,rgb(40, 55, 139), rgb(98, 142, 209));
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    border-radius: 0.25em;
+	cursor: pointer;
+	text-decoration:  none;
+}

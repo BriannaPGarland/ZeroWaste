@@ -22,7 +22,6 @@ const Home = () => {
       <section class="section">
         <div class="box-main">
           <div class="firstHalf">
-			Restaurent Name To Be here
             <h1 class="title">{user.email}</h1>
           </div>
         </div>

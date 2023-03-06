@@ -19,7 +19,7 @@
 .loginbox {
 
     width: 80%;
-    padding: 10px;
+    padding: 0px;
     margin-left: 15px;
     padding-top: 40px;
     justify-content: center;
@@ -28,8 +28,22 @@
     border-radius: 0.25em;
 }
 
-.cover {
+.Logincover {
 
+    background-color: rgb(5, 19, 65);
+    width: 30em;
+    height: 32em;
+    position: relative;
+    border-radius: 1em;
+    box-shadow: 0 0.188em 1.550em rgb(156, 156, 156);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+}
+.signcover {
+    padding-top:15px;
     background-color: rgb(5, 19, 65);
     width: 30em;
     height: 35em;
@@ -75,15 +89,18 @@
 .facebook {
     background-image: url("./facebook.png");
 }
+.text{
+    padding-bottom:0px;
+}
 
 .lgInput {
     border: none;
     background-color: white;
-    height: 4em;
+    height: 3em;
     width: 80%;
     border-radius: 0.35em;
     text-align: center;
-    padding: 2em;
+    padding: 0em;
     margin-bottom: 35px;
     display: flex;
     flex-direction: column;
@@ -101,6 +118,21 @@
     width: 80%;
     border-radius: 0.25em;
     text-align: center;
+}
+.dropdownsgn{
+    padding-top:10px;
+    height:20px;
+    display: inline-block;
+    position: relative;
+    background-color: white;
+    border: none;
+    height: 3em;
+    color: grey;
+    width: 80%;
+    border-radius: 0.25em;
+    text-align: center;
+    margin-bottom:35px;
+    margin-left:57px;
 }
 
 .dropdown-content {
@@ -135,6 +167,7 @@ input:focus {
 }
 
 .login-btn {
+    margin-left:165px;
     width: 40%;
     height: 3em;
     background-image: linear-gradient(to top left, rgb(38, 0, 153), rgb(71, 52, 145));

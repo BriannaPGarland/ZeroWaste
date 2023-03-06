@@ -1,0 +1,110 @@
+.AddNewButt{
+    margin-top:20px;
+    margin-bottom: 50px;
+    width: 10%;
+    height: 2em;
+    background-image: linear-gradient(to top left,rgb(40, 55, 139), rgb(98, 142, 209));
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    border-radius: 0.25em;
+	cursor: pointer;
+	text-decoration:  none;
+}
+.recipeItem{
+    margin:10px;
+    margin-right:90px;
+    margin-left:90px;
+}
+.rectitle{
+    color: white;
+    padding-bottom:10px;
+    padding-top:10px;
+}
+.amountbar{
+    display:flex;
+    background-color:white;
+    width:550px;
+}
+.amountvalue{
+    background-color:transparent;
+    padding:10px;
+    color:black;
+}
+.amountButtons{
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    margin-top:10px;
+    margin-left: 340px;
+    background-color:transparent;
+}
+.pencil{
+    background-color: white;
+
+}
+.trash{
+    background-color: white;
+ 
+}
+.trashButt{
+    margin-top:1px;
+    background-color:white;
+    height:30px;
+    width:35px;
+}
+.editButt{
+    background-color:white;
+    height:30px;
+    width:35px;
+    margin-top:1px;
+    margin-right:4px;
+}
+.rec{
+    background-color:white;
+}
+.LeftListRecipes:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+.Reccolumns{
+    float: left;
+    width: 50%;
+}
+.NewIngriedient{
+    width: 20%;
+    height: 3em;
+    background-image: linear-gradient(to top left,rgb(40, 55, 139), rgb(98, 142, 209));
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    border-radius: 0.25em;
+    cursor: pointer;
+    margin-bottom:35px;
+    margin-top:35px;
+
+}
+.SaveRecipe{
+    width: 20%;
+    height: 3em;
+    background-image: linear-gradient(to top left, rgb(38, 0, 153), rgb(71, 52, 145));
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    border-radius: 0.25em;
+    cursor: pointer;
+}
+.ingtext{
+    margin-top:35px;
+    font-size:35px;
+}
+      
+      
+

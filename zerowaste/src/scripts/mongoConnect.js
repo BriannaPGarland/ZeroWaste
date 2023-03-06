@@ -1,26 +1,18 @@
+//Restaurant API Methods for MongoDB
 const restaurant_db = require('./RestaurantsDB')
 
 // Unique Identifier for Objects
 const ObjectId = require('mongodb').ObjectId;
 
-//MongoClient
-const MongoClient = require('mongodb').MongoClient;
-
 // server location
-const url = 'mongodb://0.0.0.0:27017/';
-
-//Init MongoClient
-MongoClient.connect(url).then((client) => {      
-    // database name
-    const db =  client.db("ZeroWasteDB");
-    testDB("Restaurants")
-})
+const url = "mongodb+srv://Admin:vXtZ9j7tYBhjYIhM@zerowaste.ylulala.mongodb.net/test?retryWrites=true&w=majority"
 
 
 let testDB = async function(db_type){ //Test items to fill database
     //console.log(db,db_type);
     if (db_type == "Restaurants"){
         restaurant_db.insertRestaurant({
+            "_id": new ObjectId(),
             "contact_info": {"owner": "John Smith" , "phone": "000-000-0000","email": "test@test.com",},
             "address": {"street": "", "city": "", "state": "", "zip": "", "country":""},
             "ingredients": [{"_id" : new ObjectId(), "data": {"name": "TestORANGE", "amount":20}}],
@@ -84,4 +76,6 @@ let testDB = async function(db_type){ //Test items to fill database
             }
         )
 }
+
+testDB("Restaurants")
 

@@ -1,21 +1,23 @@
 const MongoClient = require('mongodb').MongoClient;
-const server_url = 'mongodb://0.0.0.0:27017/';
-const ObjectId = require('mongodb').ObjectId;
+const server_url = "mongodb+srv://Admin:vXtZ9j7tYBhjYIhM@zerowaste.ylulala.mongodb.net/test?retryWrites=true&w=majority"
 
-function Helper(operation,object){
-    return  MongoClient.connect(server_url).then((client) => {
-        return client.db("ZeroWasteDB")
-    }).then( async (db) =>{
-        if (operation == "Insert")
-            await db.collection("Restaurants").insertOne(object)
-        else if (operation == "Update")
-            await db.collection("Restaurants").updateOne({"_id": object._id}, {$set: object.updated})
-        else if (operation == "Delete")
-            await db.collection("Restaurants").findOneAndDelete({"_id":object._id}) 
-        else if (operation == "Get"){
-            return await db.collection("Restaurants").findOne({"_id": object._id})
-        }  
-    })   
+
+async function Helper(operation,object){
+    //const client = new MongoClient(server_url)
+    //await client.connect()
+    //return client.db("ZeroEa")
+    const client = await new MongoClient(server_url)
+    await client.connect()
+    const db = await client.db("ZeroWaste")
+    if (operation == "Insert")
+        await db.collection("Restaurants").insertOne(object)
+    else if (operation == "Update")
+        await db.collection("Restaurants").updateOne({"_id": object._id}, {$set: object.updated})
+    else if (operation == "Delete")
+        await db.collection("Restaurants").findOneAndDelete({"_id":object._id}) 
+    else if (operation == "Get"){
+        return await db.collection("Restaurants").findOne({"_id": object._id})
+    }   
 }
 
 async function insertRestaurant(object){

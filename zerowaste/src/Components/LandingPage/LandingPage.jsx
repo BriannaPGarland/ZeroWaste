@@ -16,9 +16,9 @@ const Landing = () => {
             </Link>
         </div>
         <div className="buttonSec">
-                <Link className="LGINButt" to="/Login">
-               Login
-                </Link>
+          <Link className="LGINButt" to="/Login">
+            Login
+          </Link>
         </div>
       
     </div>

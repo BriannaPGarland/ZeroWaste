@@ -4,6 +4,8 @@ import './Home.css';
 import React, { Component } from 'react';
  
 class FoodCard extends Component {
+
+
   render() {
     return (
       <div className="foodcard">

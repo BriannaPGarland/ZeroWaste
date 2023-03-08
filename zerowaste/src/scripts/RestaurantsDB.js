@@ -1,44 +1,52 @@
-const MongoClient = require('mongodb').MongoClient;
-const server_url = "mongodb+srv://Admin:vXtZ9j7tYBhjYIhM@zerowaste.ylulala.mongodb.net/test?retryWrites=true&w=majority"
-
-
+const { connect } = require('../Utils/mongoPool.js');
+ 
 async function Helper(operation,object){
-    //const client = new MongoClient(server_url)
-    //await client.connect()
-    //return client.db("ZeroEa")
-    const client = await new MongoClient(server_url)
-    await client.connect()
+    const client = await connect();
     const db = await client.db("ZeroWaste")
+    let chosenCollection = ""
+    if (object["useMockDB"] && object["useMockDB"]===true){
+        chosenCollection = "MockRestaurants"
+    }
+    else{
+        chosenCollection = "Restaurants"
+    }
     if (operation == "Insert")
-        await db.collection("Restaurants").insertOne(object)
+        await db.collection(chosenCollection).insertOne(object)
     else if (operation == "Update")
-        await db.collection("Restaurants").updateOne({"_id": object._id}, {$set: object.updated})
+        await db.collection(chosenCollection).updateOne({"_id": object._id}, {$set: object.updated})
     else if (operation == "Delete")
-        await db.collection("Restaurants").findOneAndDelete({"_id":object._id}) 
+        await db.collection(chosenCollection).findOneAndDelete({"_id":object._id}) 
     else if (operation == "Get"){
-        return await db.collection("Restaurants").findOne({"_id": object._id})
+        return await db.collection(chosenCollection).findOne({"_id": object._id})
     }   
+
+    result = await db.collection(chosenCollection).findOne({"_id": object._id}) 
+
+    return result
+    
+
+    
 }
 
 async function insertRestaurant(object){
     if (typeof(object) != "object" || object["_id"] == null){
         return "Cannot Insert Restaurant"
     }
-    await Helper("Insert",object)
+    return  Helper("Insert",object)
 }
 
 async function deleteRestaurant(object){
     if (typeof(object) != "object" || object["_id"] == null){
         return "Cannot Delete Restaurant"
     }
-    await Helper("Delete",object)
+    return await Helper("Delete",object)
 }
 
 async function updateRestaurant(object){ //will have the new modified fields but the SAME ID
-    if (typeof(object) != "object" || object["_id"] == null){
+    if (typeof(object) != "object" || object["_id"] == null || object["updated"]==null){
         return "Cannot Update Restaurant"
     }
-    await Helper("Update",object)
+    return await Helper("Update",object)
 }
 
 async function getRestaurant(object){
@@ -76,7 +84,7 @@ async function updateIngredients(object, updateIngredient){
         }
     }
     let newObj = {"_id": object._id, "updated": {"ingredients":Ingredients}}
-    updateRestaurant(newObj)
+    return updateRestaurant(newObj)
 }
 
 async function updateRecipes(object, updatedRecipe){
@@ -91,7 +99,7 @@ async function updateRecipes(object, updatedRecipe){
         }
     }
     let newObj = {"_id": object._id, "updated": {"recipes":Recipes}}
-    updateRestaurant("Update",newObj)
+    return updateRestaurant("Update",newObj)
 }
 
 async function insertIngredients(object,newIngredient){
@@ -101,7 +109,7 @@ async function insertIngredients(object,newIngredient){
     }
     Ingredients.push(newIngredient)
     let newObj = {"_id": object._id, "updated": {"ingredients":Ingredients}}
-    updateRestaurant("Update",newObj)
+    return updateRestaurant("Update",newObj)
 
 }
 
@@ -112,7 +120,7 @@ async function insertRecipes(object, newRecipe){
     }
     Recipes.push(newRecipe)
     let newObj = {"_id": object._id, "updated": {"recipes":Recipes}}
-    updateRestaurant("Update",newObj)
+    return updateRestaurant("Update",newObj)
 }
 
 async function deleteIngredients(object,IngredientName){
@@ -122,7 +130,7 @@ async function deleteIngredients(object,IngredientName){
     }
     Ingredients = Ingredients.filter( each => each.data.name !=IngredientName)
     let newObj = {"_id": object._id, "updated": {"ingredients":Ingredients}}
-    updateRestaurant("Update",newObj)
+    return updateRestaurant("Update",newObj)
 }
 
 async function deleteRecipes(object, RecipeName){
@@ -132,7 +140,7 @@ async function deleteRecipes(object, RecipeName){
     }
     Recipes = Recipes.filter( each => each.data.name !=RecipeName)
     let newObj = {"_id": object._id, "updated": {"recipes":Recipes}}
-    updateRestaurant("Update",newObj)
+    return updateRestaurant("Update",newObj)
 }
 
 

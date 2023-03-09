@@ -101,4 +101,3 @@ let testDB = async function(db_type){ //Test items to fill database
 }
 
 testDB("Restaurants")
-

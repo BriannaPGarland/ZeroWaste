@@ -66,3 +66,4 @@ node_modules/react-router/LICENSE.md
 node_modules/react-router/package.json
 node_modules/react-router/README.md
 *.json
+zerowaste/package-lock.json

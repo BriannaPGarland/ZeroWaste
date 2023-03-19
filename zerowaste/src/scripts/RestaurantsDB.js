@@ -5,7 +5,7 @@ async function Helper(operation,object){
     const db = await client.db("ZeroWaste")
     let chosenCollection = ""
     if (object["useMockDB"] && object["useMockDB"]===true){
-        chosenCollection = "MockRestaurants"
+        chosenCollection = "Testing"
     }
     else{
         chosenCollection = "Restaurants"

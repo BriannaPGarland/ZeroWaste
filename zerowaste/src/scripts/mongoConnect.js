@@ -90,7 +90,6 @@ let testDB = async function(db_type){ //Test items to fill database
         )
     else if(db_type == "Users"){
             const masterObjectId = new ObjectId() //Used for all objectIds for testing purposes
-
             let User = {   "_id" : masterObjectId, 
                 "first_name": "Bob",
                 "last_name": "Ross",

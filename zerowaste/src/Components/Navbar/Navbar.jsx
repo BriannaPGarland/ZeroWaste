@@ -1,9 +1,18 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link  } from 'react-router-dom';
+//import { useHistory } from 'react-router-dom';
 import './Navbar.css';
 import profIcon from "./Icon.png";
 
 const Navbar = () => {
+  const SignOutButton = () => {
+  
+      window.localStorage.removeItem('user');
+      window.location.href = '/';
+     
+  }
+  
+
   return (
     <div>
       <nav class="navbar background">
@@ -24,7 +33,7 @@ const Navbar = () => {
             <div class="dropdown-content">
               <a> <Link to="/Account">Account</Link></a>
               <a> <Link to="/Settings">Settings</Link></a>
-              <a> <Link to="/">Sign Out</Link></a>
+              <a onClick={SignOutButton}> Sign Out</a>
             </div>
         </div>
        
@@ -35,3 +44,4 @@ const Navbar = () => {
 }
 
 export default Navbar
+

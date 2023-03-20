@@ -23,6 +23,11 @@ const Login = () => {
         <h1 className="title">Login</h1>
         <h3 className ="text">SIGN IN TO CONTINUE</h3>
         <form className="loginbox" onSubmit={handleLogin}>
+        {errorMessage.length > 0 &&
+        <h2>
+           {errorMessage}
+        </h2>
+      }
           <input
             className="lgInput"
             type="text"
@@ -36,6 +41,7 @@ const Login = () => {
             placeholder="password"
             // value="test1passwed88#"
             onChange={(e) => setPassword(e.target.value)}
+            
           />
           <button className="login-btn" type="submit">
             Login

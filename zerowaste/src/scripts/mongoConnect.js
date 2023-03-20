@@ -1,6 +1,7 @@
 //Restaurant API Methods for MongoDB
 const restaurant_db = require('./restaurantsDB')
 
+const users_db = require('./usersDB')
 // Unique Identifier for Objects
 const ObjectId = require('mongodb').ObjectId;
 
@@ -87,17 +88,32 @@ let testDB = async function(db_type){ //Test items to fill database
                 }
             }
         )
-    else if(db_type == "Accounts")
-        db.collection(db_type).insertOne(
-            {   "_id" : new ObjectId(), 
+    else if(db_type == "Users"){
+            const masterObjectId = new ObjectId() //Used for all objectIds for testing purposes
+            let User = {   "_id" : masterObjectId, 
                 "first_name": "Bob",
                 "last_name": "Ross",
                 "phone": "000-000-0000", 
                 "email": "test@gmail.com", 
                 "address": "1 Castle Point Rd", 
-                "AccountType": "Restaurant",                 
+                "AccountType": "Restaurant",
+                "useMockDB": true                 
             }
-        )
+            let User2 = {
+                "_id" : masterObjectId, 
+                "first_name": "Bob",
+                "last_name": "Ross",
+                "phone": "000-000-0000", 
+                "email": "test@gmail.com", 
+                "address": "1 Castle Point Rd", 
+                "AccountType": "Restaurant",
+                "useMockDB": true,
+                "updated": {"phone": "999-999-9999", "email": "blckwalk@gmail.com"}
+
+            }
+        await users_db.insertUser(User)
+        await users_db.updateUser(User2)
+    }
 }
 
-testDB("Restaurants")
+//testDB("Users")

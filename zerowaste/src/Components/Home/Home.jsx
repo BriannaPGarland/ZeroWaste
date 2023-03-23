@@ -5,6 +5,7 @@ import FoodCard from "./FoodCard.jsx";
 import { Link } from "react-router-dom";
 import RotObj from "./RotateObject.jsx";
 import { AuthorizeContext } from "../../Authorization/Authorize";
+import testData from "./testData";
 
 const Home = () => {
   const { user } = useContext(AuthorizeContext);
@@ -22,7 +23,7 @@ const Home = () => {
       <section class="section">
         <div class="box-main">
           <div class="firstHalf">
-            <h1 class="title">{user.email}</h1>
+            <h1 class="title">Applebees</h1>
           </div>
         </div>
       </section>
@@ -53,33 +54,26 @@ const Home = () => {
         <Link className="addInvButt" to="/AddInv">
           Add Item To Inventory
         </Link>
-      </div>
+      </div >
+
+      
+
+
+
       <section class="inventoryDisp">
-        <FoodCard></FoodCard>
-        <FoodCard></FoodCard>
-        <FoodCard></FoodCard>
-        <FoodCard></FoodCard>
-        <FoodCard></FoodCard>
+        {testData.map(ingredient => (
+          <FoodCard
+            key={ingredient.name}
+            name={ingredient.name}
+            exp ={ingredient.expiration}
+            amount = {ingredient.amount}
+            units = {ingredient.units}
+
+          />
+        ))}
       </section>
-      <section class="inventoryDisp">
-        <FoodCard></FoodCard>
-        <FoodCard></FoodCard>
-        <FoodCard></FoodCard>
-        <FoodCard></FoodCard>
-        <FoodCard></FoodCard>
-      </section>
-      <section class="inventoryDisp">
-        <FoodCard></FoodCard>
-        <FoodCard></FoodCard>
-        <FoodCard></FoodCard>
-        <FoodCard></FoodCard>
-        <FoodCard></FoodCard>
-      </section>
-      <footer className="footer">
-        <p className="text-footer">
-          Contact information and other footer stuff
-        </p>
-      </footer>
+      
+     
     </div>
   );
 };

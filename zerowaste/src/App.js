@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import {
   Navbar,
@@ -18,11 +18,12 @@ import AccountPage from "./Components/AccountPage/AccountPage";
 import AddRecipe from "./Components/Recipies/AddRecipe";
 
 const App = () => {
+
   return (
     <AuthorizeProvider>
       <div className="app">
         <div className="navbar">
-          <Navbar />
+          < Navbar />
         </div>
         <div className="main">
           <div className="routes">

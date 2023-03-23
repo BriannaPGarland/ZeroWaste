@@ -33,6 +33,7 @@ const Signup = () => {
         password.value
       );
       console.log(userObject);
+      // puttin the user credential s in the local storage and useing it to maintain the session
       window.localStorage.setItem("user", JSON.stringify(userObject.user));
       SetAccCreationMessage("Account created successfully");
       setTimeout(() => {

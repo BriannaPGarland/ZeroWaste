@@ -10,15 +10,15 @@ class FoodCard extends Component {
     return (
       <div className="foodcard">
           <div className="foodname">
-                Food Name
+              Name: Sugar
           </div>
           <hr></hr>
           <div className="foodamount">
-                Amount        ___
+                Amount        2lbs
           </div>
           <hr></hr>
           <div className="foodamount">
-                Expires: --/--/--
+                Expires: 04/24/2024
           </div>
       </div>
     );

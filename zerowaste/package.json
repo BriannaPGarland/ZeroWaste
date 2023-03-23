@@ -6,21 +6,32 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "bootstrap": "^5.2.3",
+    "carousel": "^0.0.3",
     "dotenv": "^16.0.3",
     "firebase": "^9.17.1",
+    "dotenv": "^16.0.3",
     "mongoose": "^7.0.1",
     "nextjs": "^0.0.3",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.7.2",
+    "react-bootstrap-carousel": "^4.1.1",
     "react-dom": "^18.2.0",
     "react-modal": "^3.16.1",
+    "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.9.0",
+<<<<<<< HEAD
     "react-scripts": "^2.1.3",
+    "react-snap-carousel": "^0.3.1",
+=======
+    "react-scripts": "^5.0.1",
+>>>>>>> eb777ea5dbf272db65607b858ca75071d3752790
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jasmine",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -40,9 +51,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "jasmine": "^4.5.0",
-    "jest": "^27.5.1"
   }
 }

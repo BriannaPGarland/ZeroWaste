@@ -39,7 +39,7 @@ const Signup = () => {
         password.value
       );
       console.log(userObject);
-      // puttin the user credential s in the local storage and useing it to maintain the session
+      // puttin the user credential s in the local storage and useing  to maintain the session
       window.localStorage.setItem("user", JSON.stringify(userObject.user));
       SetAccCreationMessage("Account created successfully");
       setTimeout(() => {
@@ -47,9 +47,6 @@ const Signup = () => {
       }, 3000);
     } catch (error) {
       setErrorMessage(error)
-      //console.log(errorMessage);
-     // alert(error);
-     // openModal();
     }
   };
  
@@ -157,7 +154,7 @@ const Signup = () => {
           <div className="google"></div>
         </div>
 
-        <span>{accCreationMessage}</span>
+        {/* <span>{accCreationMessage}</span> */}
       </div>
     </div>
   );

@@ -1,16 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
-import {
-  Navbar,
-  Analytics,
-  Donations,
-  Home,
-  Login,
-  Recipies,
-  Signup,
-  AddInv,
-  Landing
-} from "./Components";
+import { Navbar, Analytics, Donations, Home, Login, Recipies, Signup, AddInv, Landing } from "./Components";
 import { Routes, Route } from "react-router-dom";
 import { AuthorizeProvider } from "./Authorization/Authorize";
 import SettingPage from "./Components/SettPage/SettPage";

@@ -10,7 +10,6 @@
     "carousel": "^0.0.3",
     "dotenv": "^16.0.3",
     "firebase": "^9.17.1",
-    "dotenv": "^16.0.3",
     "mongoose": "^7.0.1",
     "nextjs": "^0.0.3",
     "react": "^18.2.0",
@@ -20,12 +19,9 @@
     "react-modal": "^3.16.1",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.9.0",
-<<<<<<< HEAD
+
     "react-scripts": "^2.1.3",
     "react-snap-carousel": "^0.3.1",
-=======
-    "react-scripts": "^5.0.1",
->>>>>>> eb777ea5dbf272db65607b858ca75071d3752790
     "web-vitals": "^2.1.4"
   },
   "scripts": {

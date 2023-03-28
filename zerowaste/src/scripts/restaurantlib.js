@@ -1,13 +1,15 @@
 //Restaurant API Methods for MongoDB
 const restaurant_db = require('./restaurantsDB')
 
-async function sortStorageByShelfLife(ingredients) {
-    ingredients.sort((a, b) => {
+const notify = require('./notify')
+
+async function sortStorageByShelfLife(Storage) {
+    Storage.sort((a, b) => {
       const dateA = new Date(a.shelf_life);
       const dateB = new Date(b.shelf_life);
       return dateA - dateB;
     });
-  return ingredients;
+    return Storage;
 }
 
 async function consumeIngredients(object, name, amount){
@@ -48,7 +50,43 @@ async function consumeIngredients(object, name, amount){
 	}
 }
 
+async function deleteExpiredStoredIngredient(object,name){
+
+
+}
+
+
+
+async function updateExpiringSoon(ingredients){
+    let expiringIngredients = []
+
+    let currentDate = Date.parse(new Date());
+    for (let i = 0; i < ingredients.length; i++) {
+        let ingredient = ingredients[i];
+        let storage = ingredient.storage;
+
+        for (let j = 0; j < storage.length; j++) {
+            let bundle = storage[j];
+            let shelfLife = Date.parse(bundle.shelf_life);
+
+            // Calculate difference in days between today and shelf life
+            let timeDiff = shelfLife - currentDate;
+            let diffInDays = Math.round(timeDiff / (1000 * 3600 * 24));
+            if (diffInDays <= 2) {
+                expiringIngredients.push({
+                    ingredient: ingredient.name,
+                    storageId: bundle._id,
+                    daysUntilExpiration: diffInDays,
+                });
+            }
+        }
+    }
+    return expiringIngredients
+}
+
+
 module.exports = {
     sortStorageByShelfLife,
-    consumeIngredients
+    consumeIngredients,
+    updateExpiringSoon
 }

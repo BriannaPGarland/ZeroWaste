@@ -69,3 +69,4 @@ node_modules/react-router/README.md
 zerowaste/package-lock.json
 .DS_Store
 .DS_Store
+backend/node_modules/.bin/nodemon

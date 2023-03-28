@@ -21,9 +21,9 @@ const Home = () => {
     <div>
       <section class="section">
         <div class="box-main">
-          <div class="firstHalf">
+          {/* <div class="firstHalf">
             <h1 class="title">{user.email}</h1>
-          </div>
+          </div> */}
         </div>
       </section>
       <section>

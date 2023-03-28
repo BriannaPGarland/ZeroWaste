@@ -1602,3 +1602,11 @@ backend/node_modules/whatwg-url/lib/VoidFunction.js
 backend/node_modules/whatwg-url/LICENSE.txt
 backend/node_modules/whatwg-url/README.md
 backend/node_modules/whatwg-url/webidl2js-wrapper.js
+backend/node_modules/object-assign/readme.md
+backend/node_modules/object-assign/license
+backend/node_modules/object-assign/index.js
+backend/node_modules/cors/README.md
+backend/node_modules/cors/LICENSE
+backend/node_modules/cors/lib/index.js
+backend/node_modules/cors/HISTORY.md
+backend/node_modules/cors/CONTRIBUTING.md

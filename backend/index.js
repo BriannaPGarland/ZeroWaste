@@ -7,6 +7,8 @@ const app = express();
 mongoose.connect(mongoString);
 const database = mongoose.connection;
 app.use(express.json());
+var cors = require("cors");
+app.use(cors());
 
 app.use("/api", routes);
 

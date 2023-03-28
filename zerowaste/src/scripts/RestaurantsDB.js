@@ -1,31 +1,29 @@
 const { connect } = require('../Utils/mongoPool.js');
  
-async function Helper(operation,object){
+//Restaurant Library Methods 
+const restaurant_lib = require('./restaurantlib')
+
+/// Below are the restaurant ASYNC functions that have CRUD Database functions
+async function Helper(operation,object){ //Master CRUD Handler
     const client = await connect();
     const db = await client.db("ZeroWaste")
     let chosenCollection = ""
-    if (object["useMockDB"] && object["useMockDB"]===true){
-        chosenCollection = "Testing"
-    }
-    else{
-        chosenCollection = "Restaurants"
-    }
+    // if (object["useMockDB"] && object["useMockDB"]===true){
+    //     chosenCollection = "Testing"
+    // }
+    // else{
+    //     chosenCollection = "Restaurants"
+    // }
+	chosenCollection = "Testing"
     if (operation == "Insert")
         await db.collection(chosenCollection).insertOne(object)
     else if (operation == "Update")
         await db.collection(chosenCollection).updateOne({"_id": object._id}, {$set: object.updated})
     else if (operation == "Delete")
         await db.collection(chosenCollection).findOneAndDelete({"_id":object._id}) 
-    else if (operation == "Get"){
-        return await db.collection(chosenCollection).findOne({"_id": object._id})
-    }   
-
+     
     result = await db.collection(chosenCollection).findOne({"_id": object._id}) 
-
     return result
-    
-
-    
 }
 
 async function insertRestaurant(object){
@@ -78,8 +76,9 @@ async function updateIngredients(object, updateIngredient){
         return "Restaurant does not exist"
     }
     for (let i = 0; i < Ingredients.length; i++) {
-        if (Ingredients[i].data.name == updateIngredient.name){
-            Ingredients[i].data = updateIngredient
+        if (Ingredients[i].name == updateIngredient.name){
+			Ingredients[i] = updateIngredient
+            Ingredients[i].storage = await restaurant_lib.sortStorageByShelfLife(Ingredients[i].storage)
             break;
         }
     }
@@ -93,8 +92,8 @@ async function updateRecipes(object, updatedRecipe){
         return "Restaurant does not exist"
     }
     for (let i = 0; i < Recipes.length; i++){
-        if (Recipes[i].data.name == updatedRecipe.name){
-            Recipes[i].data = updatedRecipe
+        if (Recipes[i].name == updatedRecipe.name){
+            Recipes[i] = updatedRecipe
             break;
         }
     }
@@ -110,7 +109,6 @@ async function insertIngredients(object,newIngredient){
     Ingredients.push(newIngredient)
     let newObj = {"_id": object._id, "updated": {"ingredients":Ingredients}}
     return updateRestaurant("Update",newObj)
-
 }
 
 async function insertRecipes(object, newRecipe){
@@ -128,7 +126,7 @@ async function deleteIngredients(object,IngredientName){
     if (!Array.isArray(Ingredients)|| typeof(IngredientName) != "string"){
         return "Restaurant does not exist"
     }
-    Ingredients = Ingredients.filter( each => each.data.name !=IngredientName)
+    Ingredients = Ingredients.filter( each => each.name !=IngredientName)
     let newObj = {"_id": object._id, "updated": {"ingredients":Ingredients}}
     return updateRestaurant("Update",newObj)
 }
@@ -138,11 +136,10 @@ async function deleteRecipes(object, RecipeName){
     if (!Array.isArray(Recipes)|| typeof(IngredientName) != "string"){
         return "Restaurant does not exist"
     }
-    Recipes = Recipes.filter( each => each.data.name !=RecipeName)
+    Recipes = Recipes.filter( each => each.name !=RecipeName)
     let newObj = {"_id": object._id, "updated": {"recipes":Recipes}}
     return updateRestaurant("Update",newObj)
 }
-
 
 module.exports ={ //acount for null values after testing
     getRestaurant, // works
@@ -159,4 +156,5 @@ module.exports ={ //acount for null values after testing
     updateRecipes,//works
     insertRecipes,//works
     deleteRecipes//works
+
 }

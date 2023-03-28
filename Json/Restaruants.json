@@ -7,36 +7,29 @@
   "address": "1 Castle Point Rd",
   "inventory": [
     {
-      "_id": {
-        "$oid": "63f6becd23ba3b0670216d45"
+      "name": "Apple",
+      "minimum_threshold": 20, 
+      "total_amount": 100,
+      "current_package": {
+        "_id": {
+          "$oid": "63f6becd23ba3b0670216d47"
+        },
+        "shelf_life": "Wed Feb 22 2023 20:18:05 GMT-0500 (Eastern Standard Time)",
+        "date_purchased": "Wed Feb 22 2023 20:18:05 GMT-0500 (Eastern Standard Time)",
+        "quantity": 3
       },
-      "restaurant_id": {
-        "$oid": "63f6becd23ba3b0670216d46"
-      },
-      "data": {
-        "name": "Apple",
-        "minimum_threshold": 20,
-        "total_amount": 100,
-        "current_package": {
+      "storage": [
+        {
           "_id": {
-            "$oid": "63f6becd23ba3b0670216d47"
+            "$oid": "63f6becd23ba3b0670216d48"
           },
           "shelf_life": "Wed Feb 22 2023 20:18:05 GMT-0500 (Eastern Standard Time)",
           "date_purchased": "Wed Feb 22 2023 20:18:05 GMT-0500 (Eastern Standard Time)",
-          "quantity": 3
-        },
-        "storage": [
-          {
-            "_id": {
-              "$oid": "63f6becd23ba3b0670216d48"
-            },
-            "shelf_life": "Wed Feb 22 2023 20:18:05 GMT-0500 (Eastern Standard Time)",
-            "date_purchased": "Wed Feb 22 2023 20:18:05 GMT-0500 (Eastern Standard Time)",
-            "quantity": 5
-          }
-        ]
-      }
-    },
+          "quantity": 5
+        }
+      ]
+    }
+    ,
     {
       "_id": {
         "$oid": "63f6becd23ba3b0670216d49"

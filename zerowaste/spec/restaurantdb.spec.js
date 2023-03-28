@@ -13,8 +13,8 @@ describe("Testing RestaurantDB API Features ", function() {
 		"_id": masterObjectId,
 		"contact_info": {"owner": "John Smith" , "phone": "000-000-0000","email": "test@test.com",},
 		"address": {"street": "", "city": "", "state": "", "zip": "", "country":""},
-		"ingredients": [{"_id" : masterObjectId, "data": {"name": "TestORANGE", "amount":20}}],
-		"recipes": [{"_id" : masterObjectId, "data": {"name": "TestPIE", "amount":2}}],
+		"ingredients": [{"name": "Tomatoes", "TotalAmount":20, "storage":[{"_id": new ObjectId(), "amount": 100, "shelf_life": new Date()}]}],
+		"recipes": [{"name": "Pizza", "ingredients": []}],
 		"money_saved": 12000,
 		"is_food_claimed": false,
 		"useMockDB":true
@@ -40,8 +40,8 @@ describe("Testing RestaurantDB API Features ", function() {
 			"_id": newMasterId,
 			"contact_info": {"owner": "John Smith" , "phone": "000-000-0000","email": "test@test.com",},
 			"address": {"street": "", "city": "", "state": "", "zip": "", "country":""},
-			"ingredients": [{"_id" : newMasterId, "data": {"name": "TestORANGE", "amount":20}}],
-			"recipes": [{"_id" : newMasterId, "data": {"name": "TestPIE", "amount":2}}],
+			"ingredients": [{"name": "Tomatoes", "TotalAmount":20, "storage":[{"_id": masterObjectId, "amount": 100, "shelf_life": new Date()}]}],
+			"recipes": [{"name": "Pizza", "ingredients": [{"name":"Tomatoes", "amount":20}]}],
 			"money_saved": 12000,
 			"is_food_claimed": false,
 			"useMockDB":true
@@ -50,8 +50,8 @@ describe("Testing RestaurantDB API Features ", function() {
 			"_id": newMasterId,
 			"contact_info": {"owner": "John Smith" , "phone": "000-000-0000","email": "test@test.com",},
 			"address": {"street": "", "city": "", "state": "", "zip": "", "country":""},
-			"ingredients": [{"_id" : newMasterId, "data": {"name": "TestORANGE", "amount":20}}],
-			"recipes": [{"_id" : newMasterId, "data": {"name": "TestPIE", "amount":2}}],
+			"ingredients": [{"name": "Tomatoes", "TotalAmount":20, "storage":[{"_id": masterObjectId, "amount": 100, "shelf_life": new Date()}]}],
+			"recipes": [{"name": "Pizza", "ingredients": [{"name":"Tomatoes", "amount":20}]}],
 			"money_saved": 0,
 			"is_food_claimed": true,
 			"useMockDB":true

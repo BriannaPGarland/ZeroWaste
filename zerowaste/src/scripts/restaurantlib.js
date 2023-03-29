@@ -52,10 +52,7 @@ async function consumeIngredients(object, name, amount){
 
 async function deleteExpiredStoredIngredient(object,name){
 
-
 }
-
-
 
 async function updateExpiringSoon(ingredients){
     let expiringIngredients = []

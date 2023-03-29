@@ -3,26 +3,26 @@ import './Home.css';
 
 import React, { Component } from 'react';
  
-class FoodCard extends Component {
 
+export default function FoodCard (props) {
+  const { name,exp,amount,units } = props;
 
-  render() {
+  
+
     return (
       <div className="foodcard">
           <div className="foodname">
-                Food Name
+                {name}
           </div>
           <hr></hr>
           <div className="foodamount">
-                Amount        ___
+                Amount        {amount} {units}
           </div>
           <hr></hr>
           <div className="foodamount">
-                Expires: --/--/--
+                Expires: {exp}
           </div>
       </div>
     );
-  }
+  
 }
- 
-export default FoodCard;

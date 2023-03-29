@@ -26,16 +26,46 @@ const RotObj = () => {
     <div className="rotateObj">
       <img className="leftArrow" src={arrow} alt="" onClick={() => handleArrowClick(-1)}></img>
       <div className="spefic" style={focusedIndex === 0 ? focusStyle : defaultStyle}>
-        <FoodCard />
+
+      <FoodCard
+            key= "first"
+            name= "Sugar"
+            exp = "March 31st"
+            amount = "3"
+            units="lbs"
+
+          />
       </div>
       <div className="spefic" style={focusedIndex === 1 ? focusStyle : defaultStyle}>
-        <FoodCard />
+      <FoodCard
+            key= "first"
+            name= "Burger Meat"
+            exp = "April 31st"
+            amount = "10"
+            units="lbs"
+
+          />
       </div>
       <div className="spefic" style={focusedIndex === 2 ? focusStyle : defaultStyle}>
-        <FoodCard />
+      <FoodCard
+            key= "first"
+            name= "Guacamole"
+            exp = "May 31st"
+            amount = "3"
+            units="containers"
+
+          />
       </div>
       <div className="spefic" style={focusedIndex === 3 ? focusStyle : defaultStyle}>
-        <FoodCard />
+      <FoodCard
+            key= "first"
+            name= "Rice"
+            exp = "March 31st"
+            amount = "2"
+            units="lbs"
+
+          />
+
       </div>
       <img className="rightArrow" src={arrow} alt="" onClick={() => handleArrowClick(1)}></img>
     </div>

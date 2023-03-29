@@ -16,6 +16,21 @@ router.post("/post", async (req, res) => {
   }
 });
 
+router.post("/addInv", async (req, res) => {
+  const data = new Inventory({
+    name: req.body.name,
+    units: req.body.units,
+    numberOfUnits: req.body.numberOfUnits,
+  });
+
+  try {
+    const dataToSave = await data.save();
+    res.status(200).json(dataToSave);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
 router.get("/getAll", async (req, res) => {
   try {
     const allData = await Model.find();

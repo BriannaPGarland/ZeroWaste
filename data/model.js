@@ -1,18 +1,24 @@
 const mongoose = require("mongoose");
 
+const inventorySchema = new mongoose.Schema({
+  name: String,
+  units: String,
+  numberOfUnits: Number,
+});
+
 const dataSchema = new mongoose.Schema({
   recipe: {
     required: true,
     type: String,
   },
-  ingridients: {
+  ingredients: {
     required: true,
     type: Array,
   },
-  // date:{
-  //   required:true,
-  //   date: Date()
-  // }
+  inventory: {
+    type: [inventorySchema],
+    default: [],
+  },
 });
 
 module.exports = mongoose.model("Data", dataSchema);

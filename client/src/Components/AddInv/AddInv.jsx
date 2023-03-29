@@ -3,7 +3,6 @@ import "./AddInv.css";
 import { Link } from "react-router-dom";
 import mongoose from "mongoose";
 
-// Define a schema for the inventory items
 const invSchema = new mongoose.Schema({
   name: String,
   units: String,

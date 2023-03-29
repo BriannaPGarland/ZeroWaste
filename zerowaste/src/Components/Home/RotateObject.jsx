@@ -26,6 +26,7 @@ const RotObj = () => {
     <div className="rotateObj">
       <img className="leftArrow" src={arrow} alt="" onClick={() => handleArrowClick(-1)}></img>
       <div className="spefic" style={focusedIndex === 0 ? focusStyle : defaultStyle}>
+
       <FoodCard
             key= "first"
             name= "Sugar"
@@ -64,6 +65,7 @@ const RotObj = () => {
             units="lbs"
 
           />
+
       </div>
       <img className="rightArrow" src={arrow} alt="" onClick={() => handleArrowClick(1)}></img>
     </div>

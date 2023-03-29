@@ -54,7 +54,7 @@ const Home = () => {
 
   return (
     <div>
-      <button onClick={SignOutButton}>Logout</button>
+      {/* <button onClick={SignOutButton}>Logout</button> */}
       <section class="section">
         <div class="box-main">
           <div class="firstHalf">

@@ -6,14 +6,25 @@ import profIcon from "./Icon.png";
 import { AuthorizeContext} from "../../Authorization/Authorize";
 const Navbar = () => {
   const { setUser } = useContext(AuthorizeContext);
-  const SignOutButton = () => {
-    // alert(window.localStorage.getItem('user'));
-      window.localStorage.removeItem('user');
-      setUser(null);
-      if(window.localStorage.getItem('user')== null || window.localStorage.getItem('user')==""){
-        window.location.href = '/';}
+  // const SignOutButton = () => {
+  //   // // alert(window.localStorage.getItem('user'));
+  //   //   window.localStorage.removeItem('user');
+  //   //   setUser(null);
+  //   //   if(window.localStorage.getItem('user')== null || window.localStorage.getItem('user')==""){
+  //   //     window.location.href = '/';}
      
-  }
+  // }
+  const SignOutButton = () => {
+    auth.signOut()
+    .then(() => {
+      // Sign-out successful.
+      console.log('User signed out successfully.');
+      window.location.href = '/';
+      
+    })
+    .catch((error) => {
+      console.log('Error signing out:', error);
+    });
   
 
   return (

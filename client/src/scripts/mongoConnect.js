@@ -1,33 +1,24 @@
-const restaurant_db = require('./RestaurantsDB')
+//Restaurant API Methods for MongoDB
+const restaurant_db = require('./restaurantsDB')
 
 // Unique Identifier for Objects
 const ObjectId = require('mongodb').ObjectId;
 
-//MongoClient
-const MongoClient = require('mongodb').MongoClient;
-
-// server location
-const url = 'mongodb://0.0.0.0:27017/';
-
-//Init MongoClient
-MongoClient.connect(url).then((client) => {      
-    // database name
-    const db =  client.db("ZeroWasteDB");
-    testDB("Restaurants")
-})
-
-
 let testDB = async function(db_type){ //Test items to fill database
     //console.log(db,db_type);
     if (db_type == "Restaurants"){
-        restaurant_db.insertRestaurant({
+        const masterObjectId = new ObjectId() //Used for all objectIds for testing purposes
+        /*
+        await restaurant_db.insertRestaurant({
+            "_id": masterObjectId,
             "contact_info": {"owner": "John Smith" , "phone": "000-000-0000","email": "test@test.com",},
             "address": {"street": "", "city": "", "state": "", "zip": "", "country":""},
-            "ingredients": [{"_id" : new ObjectId(), "data": {"name": "TestORANGE", "amount":20}}],
-            "recipes": [{"_id" : new ObjectId(), "data": {"name": "TestPIE", "amount":2}}],
+            "ingredients": [{"_id" : masterObjectId, "data": {"name": "TestORANGE", "amount":20}}],
+            "recipes": [{"_id" : masterObjectId, "data": {"name": "TestPIE", "amount":2}}],
             "money_saved": 12000,
             "is_food_claimed": false,
-        })
+            "useMockDB":true
+        })*/
        // restaurant_db("Delete",{_id: new ObjectId("63fc343bfc34ed0474a4f19a")} )
         //let result =  await restaurant_db.getIngredients(new ObjectId("63fe546d4e7664aef7f40a5e"));
         //let obj = { "_id": new ObjectId("63ffda769c9384f917cbc006")}
@@ -36,8 +27,32 @@ let testDB = async function(db_type){ //Test items to fill database
         //let updateingredient = {"name": "TestORANGE", "amount": 10, "Expiration": new Date()}
         //let newRecipe = {"_id" : new ObjectId(), "data": {"name": "Test","amount":200}}
         //let updateRecipe = {"name": "Test","amount":100, "Surplus": 20}
+        let Restaurant = {
+			"_id": masterObjectId,
+			"contact_info": {"owner": "John Smith" , "phone": "000-000-0000","email": "test@test.com",},
+			"address": {"street": "", "city": "", "state": "", "zip": "", "country":""},
+			"ingredients": [{"_id" : masterObjectId, "data": {"name": "TestORANGE", "amount":20}}],
+			"recipes": [{"_id" : masterObjectId, "data": {"name": "TestPIE", "amount":2}}],
+			"money_saved": 12000000,
+			"is_food_claimed": false,
+			"useMockDB":true
+		}
 
-        //console.log(await restaurant_db.deleteRecipes());
+        let updatedRestaurant = {
+			"_id": masterObjectId,
+			"contact_info": {"owner": "John Smith" , "phone": "000-000-0000","email": "test@test.com",},
+			"address": {"street": "", "city": "", "state": "", "zip": "", "country":""},
+			"ingredients": [{"_id" : masterObjectId, "data": {"name": "TestORANGE", "amount":20}}],
+			"recipes": [{"_id" : masterObjectId, "data": {"name": "TestPIE", "amount":2}}],
+			"money_saved": 12000,
+			"is_food_claimed": false,
+			"updated":{"money_saved": 0, "is_food_claimed": true},
+			"useMockDB":true
+		}
+		
+		await restaurant_db.insertRestaurant(Restaurant)
+		let result = await restaurant_db.updateRestaurant(updatedRestaurant)
+        console.log(result);
     }
     else if(db_type == "Recipes")
         db.collection(db_type).insertOne(
@@ -84,4 +99,6 @@ let testDB = async function(db_type){ //Test items to fill database
             }
         )
 }
+
+testDB("Restaurants")
 

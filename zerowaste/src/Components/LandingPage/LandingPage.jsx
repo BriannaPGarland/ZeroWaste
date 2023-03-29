@@ -7,7 +7,7 @@ import CarouselComponent from './CarouselComponent';
 const Landing = () => {
   return (
     <div className="landing">
-    <div style={{height:"15em"}}>
+    <div>
       < CarouselComponent/>
     </div>
     <div className="landing-content">

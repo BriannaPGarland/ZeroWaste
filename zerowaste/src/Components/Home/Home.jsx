@@ -40,8 +40,6 @@ const Home = () => {
       
     })
     .catch((error) => {
-     // window.location.href = '/';
-      // An error happened.
       console.log('Error signing out:', error);
     });
 

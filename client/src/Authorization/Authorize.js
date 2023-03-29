@@ -21,7 +21,7 @@ const AuthorizeProvider = (props) => {
   }, []);
 
   return (
-    <AuthorizeContext.Provider value={{ user }}>
+    <AuthorizeContext.Provider value={{ user,setUser }}>
       {props.children}
     </AuthorizeContext.Provider>
   );

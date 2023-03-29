@@ -1,6 +1,12 @@
 //Restaurant API Methods for MongoDB
 const restaurant_db = require('./restaurantsDB')
 
+//Restaurant Library Methods 
+const restaurant_lib = require('./restaurantlib')
+
+//User API Methods for MongoDB
+const users_db = require('./usersDB')
+
 // Unique Identifier for Objects
 const ObjectId = require('mongodb').ObjectId;
 
@@ -31,8 +37,8 @@ let testDB = async function(db_type){ //Test items to fill database
 			"_id": masterObjectId,
 			"contact_info": {"owner": "John Smith" , "phone": "000-000-0000","email": "test@test.com",},
 			"address": {"street": "", "city": "", "state": "", "zip": "", "country":""},
-			"ingredients": [{"_id" : masterObjectId, "data": {"name": "TestORANGE", "amount":20}}],
-			"recipes": [{"_id" : masterObjectId, "data": {"name": "TestPIE", "amount":2}}],
+			"ingredients": [{"name": "Tomatoes", "TotalAmount":20, "storage":[{"_id": new ObjectId(), "amount": 100, "shelf_life": new Date()}]}],
+			"recipes": [{"name": "Pizza", "ingredients": []}],
 			"money_saved": 12000000,
 			"is_food_claimed": false,
 			"useMockDB":true
@@ -42,16 +48,18 @@ let testDB = async function(db_type){ //Test items to fill database
 			"_id": masterObjectId,
 			"contact_info": {"owner": "John Smith" , "phone": "000-000-0000","email": "test@test.com",},
 			"address": {"street": "", "city": "", "state": "", "zip": "", "country":""},
-			"ingredients": [{"_id" : masterObjectId, "data": {"name": "TestORANGE", "amount":20}}],
-			"recipes": [{"_id" : masterObjectId, "data": {"name": "TestPIE", "amount":2}}],
+			"ingredients": [{"name": "Tomatoes", "TotalAmount":20, "storage":[{"_id": new ObjectId(), "amount": 100, "shelf_life": new Date()}]}],
+			"recipes": [{"name": "Pizza", "ingredients": [],"daily_produced": 20, "surplus_created": 5}],
 			"money_saved": 12000,
 			"is_food_claimed": false,
-			"updated":{"money_saved": 0, "is_food_claimed": true},
+			"updated":{"money_saved": 0, "is_food_claimed": true, 			
+                "recipes": [{"name": "Pizza", "ingredients": [],"daily_produced": 20, "surplus_created": 5}],},
 			"useMockDB":true
 		}
-		
+		let updateIngredients = {"name": "Tomatoes", "TotalAmount":200, "storage":[{"_id": new ObjectId(), "amount": 10, "shelf_life": new Date()},{"_id": new ObjectId(), "amount": 30, "shelf_life": "Wed Feb 22 2023 20:18:05 GMT-0500 (Eastern Standard Time)"},{"_id": new ObjectId(), "amount": 30, "shelf_life": "Wed Feb 5 2023 20:18:05 GMT-0500 (Eastern Standard Time)"}]}
 		await restaurant_db.insertRestaurant(Restaurant)
-		let result = await restaurant_db.updateRestaurant(updatedRestaurant)
+		let result = await restaurant_db.updateIngredients({"_id": masterObjectId,"useMockDB":true},updateIngredients )
+        //let result = await restaurant_db.getRestaurant({"_id": masterObjectId, "useMockDB":true})
         console.log(result);
     }
     else if(db_type == "Recipes")
@@ -87,18 +95,32 @@ let testDB = async function(db_type){ //Test items to fill database
                 }
             }
         )
-    else if(db_type == "Accounts")
-        db.collection(db_type).insertOne(
-            {   "_id" : new ObjectId(), 
+    else if(db_type == "Users"){
+            const masterObjectId = new ObjectId() //Used for all objectIds for testing purposes
+            let User = {   "_id" : masterObjectId, 
                 "first_name": "Bob",
                 "last_name": "Ross",
                 "phone": "000-000-0000", 
                 "email": "test@gmail.com", 
                 "address": "1 Castle Point Rd", 
-                "AccountType": "Restaurant",                 
+                "AccountType": "Restaurant",
+                "useMockDB": true                 
             }
-        )
+            let User2 = {
+                "_id" : masterObjectId, 
+                "first_name": "Bob",
+                "last_name": "Ross",
+                "phone": "000-000-0000", 
+                "email": "test@gmail.com", 
+                "address": "1 Castle Point Rd", 
+                "AccountType": "Restaurant",
+                "useMockDB": true,
+                "updated": {"phone": "999-999-9999", "email": "blckwalk@gmail.com"}
+
+            }
+        await users_db.insertUser(User)
+        await users_db.updateUser(User2)
+    }
 }
 
 testDB("Restaurants")
-

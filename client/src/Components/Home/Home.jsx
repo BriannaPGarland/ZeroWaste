@@ -5,12 +5,12 @@ import FoodCard from "./FoodCard.jsx";
 import { Link } from "react-router-dom";
 import RotObj from "./RotateObject.jsx";
 import { AuthorizeContext } from "../../Authorization/Authorize";
-<<<<<<< HEAD:zerowaste/src/Components/Home/Home.jsx
+
 import testData from "./testData";
 
-=======
+
 import { auth } from "../../Authorization/FirebaseConfig";
->>>>>>> origin/sidd:client/src/Components/Home/Home.jsx
+
 const Home = () => {
   const { user,setUser } = useContext(AuthorizeContext);
 
@@ -64,15 +64,10 @@ const Home = () => {
       <button onClick={SignOutButton}>Logout</button>
       <section class="section">
         <div class="box-main">
-<<<<<<< HEAD:zerowaste/src/Components/Home/Home.jsx
-          <div class="firstHalf">
-            <h1 class="title">Applebees</h1>
-          </div>
-=======
+
           {/* <div class="firstHalf">
             <h1 class="title">{user.email}</h1>
           </div> */}
->>>>>>> origin/sidd:client/src/Components/Home/Home.jsx
         </div>
       </section>
       <section>

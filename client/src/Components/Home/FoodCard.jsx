@@ -12,6 +12,7 @@ export default function FoodCard (props) {
     return (
       <div className="foodcard">
           <div className="foodname">
+<<<<<<< HEAD:zerowaste/src/Components/Home/FoodCard.jsx
                 {name}
           </div>
           <hr></hr>
@@ -21,6 +22,17 @@ export default function FoodCard (props) {
           <hr></hr>
           <div className="foodamount">
                 Expires: {exp}
+=======
+              Name: Sugar
+          </div>
+          <hr></hr>
+          <div className="foodamount">
+                Amount        2lbs
+          </div>
+          <hr></hr>
+          <div className="foodamount">
+                Expires: 04/24/2024
+>>>>>>> origin/sidd:client/src/Components/Home/FoodCard.jsx
           </div>
       </div>
     );

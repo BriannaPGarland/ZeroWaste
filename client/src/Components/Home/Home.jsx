@@ -1,14 +1,32 @@
-import React, { useContext } from "react";
+import React, { useContext,useEffect } from "react";
 import "./Home.css";
 import searchIcon from "./search.PNG";
 import FoodCard from "./FoodCard.jsx";
 import { Link } from "react-router-dom";
 import RotObj from "./RotateObject.jsx";
 import { AuthorizeContext } from "../../Authorization/Authorize";
+<<<<<<< HEAD:zerowaste/src/Components/Home/Home.jsx
 import testData from "./testData";
 
+=======
+import { auth } from "../../Authorization/FirebaseConfig";
+>>>>>>> origin/sidd:client/src/Components/Home/Home.jsx
 const Home = () => {
-  const { user } = useContext(AuthorizeContext);
+  const { user,setUser } = useContext(AuthorizeContext);
+
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        // User is signed in.
+        console.log('User is signed in:', user);
+      } else {
+        // No user is signed in.
+        console.log('No user is signed in.');
+        window.location.href = '/login';
+      }
+    });
+  }, []); // empty dependency array to run only once on mount
 
   const handleClickScroll = () => {
     const element = document.getElementById("inv");
@@ -18,13 +36,43 @@ const Home = () => {
     }
   };
 
+  const SignOutButton = () => {
+    auth.signOut()
+    .then(() => {
+      // Sign-out successful.
+      console.log('User signed out successfully.');
+      window.location.href = '/';
+      
+    })
+    .catch((error) => {
+     // window.location.href = '/';
+      // An error happened.
+      console.log('Error signing out:', error);
+    });
+
+    // alert(window.localStorage.getItem('loginKey'));
+    // setUser(null)
+    //   window.localStorage.removeItem('loginKey');
+    //   if(window.localStorage.getItem('loginKey')== null || window.localStorage.getItem('loginKey')==""){
+    //     window.location.href = '/';}
+    // window.location.href = '/';
+    // Navigate("/")
+  }
+
   return (
     <div>
+      <button onClick={SignOutButton}>Logout</button>
       <section class="section">
         <div class="box-main">
+<<<<<<< HEAD:zerowaste/src/Components/Home/Home.jsx
           <div class="firstHalf">
             <h1 class="title">Applebees</h1>
           </div>
+=======
+          {/* <div class="firstHalf">
+            <h1 class="title">{user.email}</h1>
+          </div> */}
+>>>>>>> origin/sidd:client/src/Components/Home/Home.jsx
         </div>
       </section>
       <section>

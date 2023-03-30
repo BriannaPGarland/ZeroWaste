@@ -7,7 +7,18 @@ export default function FoodCard(props) {
 
   return (
     <div className="foodcard">
-      <div className="foodname">Name: Sugar</div>
+      <div className="foodname">
+        {/* {name}
+          </div>
+          <hr></hr>
+          <div className="foodamount">
+                Amount        {amount} {units}
+          </div>
+          <hr></hr>
+          <div className="foodamount">
+                Expires: {exp} */}
+        Name: Sugar
+      </div>
       <hr></hr>
       <div className="foodamount">Amount 2lbs</div>
       <hr></hr>

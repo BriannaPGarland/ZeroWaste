@@ -15,10 +15,10 @@ const dataSchema = new mongoose.Schema({
     required: true,
     type: Array,
   },
-  inventory: {
-    type: [inventorySchema],
-    default: [],
-  },
+  // inventory: {
+  //   type: [inventorySchema],
+  //   default: [],
+  // },
 });
 
 module.exports = mongoose.model("Data", dataSchema);

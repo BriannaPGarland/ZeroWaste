@@ -3,6 +3,8 @@ import './Recipies.css';
 import { Link } from "react-router-dom";
 import RecipeItem from "./RecipeItem.jsx";
 
+import testRecipeData from "./testRecipeData";
+
 const Recipies = () => {
   return (
     <div>
@@ -15,19 +17,26 @@ const Recipies = () => {
           </Link>
           <div className="ListRecipes">
             <div className="Reccolumns">
-              <RecipeItem></RecipeItem>
-              <RecipeItem></RecipeItem>
-              <RecipeItem></RecipeItem>
-              <RecipeItem></RecipeItem>
-              <RecipeItem></RecipeItem>
-              <RecipeItem></RecipeItem>
+            {testRecipeData.map(recipe => (
+              <RecipeItem
+                key={recipe.name}
+                name={recipe.name}
+                exp ={recipe.ingridients}
+                amount = {recipe.amount}
+
+              />
+            ))}
             </div>
             <div className="Reccolumns">
-              <RecipeItem></RecipeItem>
-              <RecipeItem></RecipeItem>
-              <RecipeItem></RecipeItem>
-              <RecipeItem></RecipeItem>
-              <RecipeItem></RecipeItem>
+            {testRecipeData.map(recipe => (
+              <RecipeItem
+                key={recipe.name}
+                name={recipe.name}
+                exp ={recipe.ingridients}
+                amount = {recipe.amount}
+
+              />
+            ))}
             </div>
           </div>
           

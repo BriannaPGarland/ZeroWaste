@@ -4,17 +4,18 @@ import './Recipies.css';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
  
-class RecipeItem extends Component {
-  render() {
+export default function RecipeItem (props) {
+  const { name,amount } = props;
+
     return (
       <div className="recipeItem">
           
           <div className="rectitle">
-                Hamburger
+                {name}
           </div>
           <div className="amountbar">
             <div className ="amountvalue">
-                50 per day 
+                {amount} per day 
             </div>
             <div className="amountButtons">
                 <div className="pencil">
@@ -28,7 +29,4 @@ class RecipeItem extends Component {
          
       </div>
     );
-  }
 }
- 
-export default RecipeItem;

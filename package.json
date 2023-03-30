@@ -1,46 +1,31 @@
+
 {
   "name": "zerowaste",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "dotenv": "^16.0.3",
-    "mongoose": "^7.0.1",
-    "nextjs": "^0.0.3",
-    "notificationapi-node-server-sdk": "^0.17.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.8.1",
-    "react-scripts": "^2.1.3",
-    "web-vitals": "^2.1.4"
-  },
+  "version": "1.0.0",
+  "description": "An Application that functions as a food inventory management system. The goal of this application would be to keep track of food intake and outtake in order to ensure that the food is consumed or donated before it expires. The application would have recipe sections as well as estimators for the restaurant to be able to estimate how much of the food they ordered is being used. If the restaurant is wasting too much food without donating it will send them an alert as well as the local government to hold them accountable or connect them with a local food shelter. There would also be a feature for taking initial inventory when orders are placed/received either by scanning a barcode or manually entering the order into the system.",
+  "main": "app.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "jasmine",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BriannaPGarland/ZeroWaste.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BriannaPGarland/ZeroWaste/issues"
   },
-  "devDependencies": {
+  "homepage": "https://github.com/BriannaPGarland/ZeroWaste#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^7.0.3",
+    "nodemon": "^2.0.22", 
     "jasmine": "^4.5.0",
     "jest": "^27.5.1"
   }

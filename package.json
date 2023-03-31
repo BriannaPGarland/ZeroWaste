@@ -1,4 +1,3 @@
-
 {
   "name": "zerowaste",
   "version": "1.0.0",
@@ -25,7 +24,7 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mongoose": "^7.0.3",
-    "nodemon": "^2.0.22", 
+    "nodemon": "^2.0.22",
     "jasmine": "^4.5.0",
     "jest": "^27.5.1"
   }

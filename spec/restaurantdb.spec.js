@@ -1,7 +1,7 @@
 require('dotenv').config({path:'zerowaste/.env'})
 process.env.MONGO_URI = "mongodb+srv://Admin:vXtZ9j7tYBhjYIhM@zerowaste.ylulala.mongodb.net/test?retryWrites=true&w=majority"
 
-const Rest_DB_API = require("../src/scripts/restaurantsDB")
+const Rest_DB_API = require("../scripts/restaurantsDB")
 
 // Unique Identifier for Objects
 const ObjectId = require('mongodb').ObjectId;

@@ -1,0 +1,17 @@
+.map-area{
+    height:50%;
+    width: 50%;
+
+    background:unset;
+}
+*{
+    background:unset;
+}
+.mapzone{
+    height: 650px;
+    width: 50%;
+    background:unset !important;
+    float: right;
+
+}
+

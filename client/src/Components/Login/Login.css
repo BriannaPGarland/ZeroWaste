@@ -2,7 +2,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: "Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
-    background-color: rgb(5, 19, 65);
+   
     font-family: LeagueSpartan;
 }
 
@@ -12,6 +12,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: rgb(5, 19, 65);
 
 
 }

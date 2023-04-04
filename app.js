@@ -1,27 +1,23 @@
 require("dotenv").config();
 const express = require("express");
-const mongoose = require("mongoose");
-const mongoString = process.env.DATABASE_URL;
 const routes = require("./routes/routes");
 const app = express();
-mongoose.connect(mongoString);
-const database = mongoose.connection;
 app.use(express.json());
 var cors = require("cors");
 app.use(cors());
 
-app.use("/api", routes);
+const mongoose = require("mongoose");
+const database = mongoose.connection;
+mongoose
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("Database Connected"))
+  .catch((err) => console.log(err));
+
+app.use("/", routes);
 
 app.listen(3001, () => {
-  console.log(`Server Started at ${3001}`);
+  console.log(`Server is listening on http://localhost:${3001}`);
 });
-
-database.on("error", (error) => {
-  console.log(error);
-});
-
-database.once("connected", () => {
-  console.log("Database Connected");
-});
-
-app.use(express.json());

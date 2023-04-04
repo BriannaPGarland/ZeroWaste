@@ -3,11 +3,21 @@ import "./Donate.css";
 import React, { Component } from "react";
 
 export default function shelterListItem(props) {
-  const { name, exp, amount, units } = props;
+  const { name, numberTimesDonated } = props;
 
   return (
    <div>
-       shelter
+      <div className="CommunityTitle">
+        {name}
+      </div>
+
+      <div className="donateStat"> 
+        {numberTimesDonated}
+      </div>
+      <button>
+        DONATE
+      </button>
    </div>
+  
   );
 }

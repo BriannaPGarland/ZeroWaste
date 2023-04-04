@@ -1,7 +1,5 @@
 /*global google*/
 import React, { Component } from 'react'
-import GoogleMapReact from 'google-map-react';
-import googleMapStyles from "./GoogleMapStyle.js"
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import "./Donate.css";
 
@@ -16,7 +14,7 @@ export class MapComponent extends Component {
 
                 google={this.props.google}
 
-                zoom={14}
+                zoom={18}
                 initialCenter={{
 
                     lat: 40.745,

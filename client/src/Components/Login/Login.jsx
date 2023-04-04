@@ -16,7 +16,7 @@ const Login = () => {
       openModal()
       return;
     }
-    window.localStorage.setItem("user", JSON.stringify(email));
+    localStorage.setItem("user", JSON.stringify(email));
     navigate("/home");
   };
 

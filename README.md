@@ -1,13 +1,21 @@
+#### Backend
+navigate to the base ZeroWaste folder that was cloned, then run the following commands
+- npm install
+- npm run dev 
+Server Runs on http://localhost:3001
+
+On local host 3001, you should see "Server is Running"
+you can also test it by going to: http://localhost:3001/getOne/642dc77362080ec13131c8b0 and you should see an object for cake 
+
 # Installation Instructions: 
 #### Frontend
+navigate to the folder "client" that is in the base ZeroWaste folder that was cloned, 
 - npm install
 - npm install --save google-maps-react
 - npm run 
+Server Runs on http://localhost:3000
 
-#### Backend
-- npm install
-- npm start
-Server Runs on http://localhost:3001
+
 
 
 # ZeroWaste

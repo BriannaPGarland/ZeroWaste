@@ -7,9 +7,13 @@ const Recipe = require("../data/model");
 //   res.status(404).send("No Route Found");
 // });
 
-// router.get("/", (req, res) => {
-//   res.send("Get Request is running!");
-// });
+router.get("/", (req, res) => {
+  res.send("Get Request is running!");
+});
+
+router.get("/inventory", (req, res) => {
+  res.send("Inventory Routes Working!");
+});
 
 // router.post("/", (req, res) => {
 //   res.send("Recipe Post Request is running!");

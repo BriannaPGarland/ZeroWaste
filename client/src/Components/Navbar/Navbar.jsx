@@ -49,7 +49,6 @@ const Navbar = () => {
     // Navigate("/")
   }
   
-  
 
   return (
     <div>

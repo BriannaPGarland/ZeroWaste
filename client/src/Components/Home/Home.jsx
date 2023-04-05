@@ -67,8 +67,8 @@ const Home = () => {
     return <Landing />;
   }
   return (
-    <div className ="HomePage">
-      
+    <div>
+      <button onClick={SignOutButton}>Logout</button>
       <section class="section">
         <div class="box-main">
           {/* <div class="firstHalf">

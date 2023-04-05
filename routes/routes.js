@@ -2,10 +2,6 @@ const express = require("express");
 const router = express.Router();
 const Model = require("../data/model");
 
-router.get("/", (req, res) => {
-  res.status(200).send("Server is running");
-});
-
 router.post("/post", async (req, res) => {
   const data = new Model({
     recipe: req.body.recipe,

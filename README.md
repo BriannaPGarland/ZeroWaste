@@ -13,13 +13,5 @@ An Application that functions as a food inventory management system. The goal of
 ## Project Lead
 Brianna Garland
 
-#Install & Run Instructions: 
 
-Frontend: 
 
-clone the repo, cd into the client folder
-
-run: 
-npm install 
-npm install --save google-maps-react
-npm start 

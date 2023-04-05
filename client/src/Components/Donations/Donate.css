@@ -1,0 +1,38 @@
+.map-area{
+    height:50%;
+    width: 50%;
+
+    background:unset;
+}
+*{
+    background:unset;
+}
+.mapzone{
+    height: 650px;
+    width: 50%;
+    background:unset !important;
+    float: left;
+
+}
+.leftColumn{
+    
+}
+.DonTitle{
+    color:black;
+    padding-left: 25px;
+    padding-top: 25px;
+    padding-bottom: 10px;
+    
+}
+.underline{
+    height:3px;
+    width: 600px;
+    margin-bottom: 25px;
+    margin-left: 25px;
+    background-color: black;
+}
+.listed{
+    color:black;
+    font-size:20px;
+}
+

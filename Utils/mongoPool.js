@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv').config({path:'zerowaste/.env'})
 const MongoClient = require('mongodb').MongoClient;
 
 const server_uri =  process.env.MONGO_URI

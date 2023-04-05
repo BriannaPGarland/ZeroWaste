@@ -6,10 +6,6 @@ import { Link } from 'react-router-dom';
  
 export default function RecipeItem (props) {
   const { name,amount } = props;
-  const {onclick}=props;
-
-  
-  
 
     return (
       <div className="recipeItem">
@@ -26,8 +22,7 @@ export default function RecipeItem (props) {
                     <Link className="rec" to="/Home"><img  className ="editButt" src= "pencil.png" /></Link>
                 </div >
                 <div className="trash">
-                    {/* <Link  className="rec" to="/Home"><img className ="trashButt"src= "trash.png"  /></Link> */}
-                    <button className="rec" onClick={()=>onclick(name)}> Del</button>
+                    <Link  className="rec" to="/Home"><img className ="trashButt"src= "trash.png"  /></Link>
                 </div >
             </div>
           </div>

@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import Ingriedient from './Ingriedient.jsx'
 
 const AddRecipe = () => {
-  
   return (
     <div className="addInvPage">
 			<div className="title">

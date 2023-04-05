@@ -1,12 +1,13 @@
 import React from 'react'
 import "./LandingPage.css";
 import { Link } from "react-router-dom";
+//import  CC  from "./CC"
 import CarouselComponent from './CarouselComponent';
 
 const Landing = () => {
   return (
     <div className="landing">
-    <div>
+    <div style={{height:"15em"}}>
       < CarouselComponent/>
     </div>
     <div className="landing-content">

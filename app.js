@@ -1,20 +1,32 @@
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
-const mongoString = process.env.DATABASE_URL;
+const mongoString = "mongodb+srv://Admin:vXtZ9j7tYBhjYIhM@zerowaste.ylulala.mongodb.net/test?retryWrites=true&w=majority";
 const routes = require("./routes/routes");
 const app = express();
-mongoose.connect(mongoString);
-const database = mongoose.connection;
 app.use(express.json());
 var cors = require("cors");
 app.use(cors());
 
-app.use("/api", routes);
+const mongoose = require("mongoose");
+const database = mongoose.connection;
+mongoose
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("Database Connected"))
+  .catch((err) => console.log(err));
+
+app.use("/", routes);
 
 app.listen(3001, () => {
-  console.log(`Server Started at ${3001}`);
+  console.log(`Server is listening on http://localhost:${3001}`);
 });
+<<<<<<< HEAD
+// app.listen(3000, () => {
+//   console.log(`Server UI at ${3000}`);
+// });
 
 database.on("error", (error) => {
   console.log(error);
@@ -25,3 +37,5 @@ database.once("connected", () => {
 });
 
 app.use(express.json());
+=======
+>>>>>>> d215f029d65ae4acec116986d9e6b2b0afb54055

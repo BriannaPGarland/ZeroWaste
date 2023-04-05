@@ -4,6 +4,10 @@ import { auth } from "../../Authorization/FirebaseConfig";
 import Landing from "../LandingPage/LandingPage";
 
 const Donations = () => {
+
+
+
+    
   const { user } = useContext(AuthorizeContext);
 
 
@@ -32,9 +36,44 @@ const Donations = () => {
 
   return (
     <div>
-    <h1 class="title">
-					Donations
-		</h1>
+      <h1 class="title">
+            Donations
+      </h1>
+      <div className="leftColumn">
+        <div className="DonTitle">
+            Communities in Need
+        </div> 
+        <div className="underline">
+        </div>
+        <div className="listed">
+          {testDonateData.map(shelter => (
+                <shelterItem
+                  key={shelter.name}
+                  name={shelter.name}
+                  numberTimesDonated={shelter.numberTimesDonated}
+
+                />
+              ))}
+        </div>
+        <div className="listed">
+          {testDonateData.map(shelter => (
+                <shelterItem
+                  key={shelter.name}
+                  name={shelter.name}
+                  numberTimesDonated={shelter.numberTimesDonated}
+
+                />
+              ))}
+        </div>
+          
+        </div>
+      <div className="mapzone">
+        <MapComponent></MapComponent>
+      </div>
+   
+     
+      
+
     </div>
   )
 }

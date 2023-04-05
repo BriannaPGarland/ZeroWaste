@@ -3,6 +3,13 @@
 - npm install
 - npm install --save google-maps-react
 - npm run 
+
+#### Backend
+- npm install
+- npm start
+Server Runs on http://localhost:3001
+
+
 # ZeroWaste
 An Application that functions as a food inventory management system. The goal of this application would be to keep track of food intake and outtake in order to ensure that the food is consumed or donated before it expires. The application would have recipe sections as well as estimators for the restaurant to be able to estimate how much of the food they ordered is being used. If the restaurant is wasting too much food without donating it will send them an alert as well as the local government to hold them accountable or connect them with a local food shelter. There would also be a feature for taking initial inventory when orders are placed/received either by scanning a barcode or manually entering the order into the system. 
 

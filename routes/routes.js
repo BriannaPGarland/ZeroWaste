@@ -1,74 +1,81 @@
 const express = require("express");
 const router = express.Router();
-const Model = require("../data/model");
+const Recipe = require("../data/model");
+
+//Error Handling To Be Implememted
+// router.use((req, res) => {
+//   res.status(404).send("No Route Found");
+// });
 
 router.get("/", (req, res) => {
-  res.send("Server is running!");
+  res.send("Get Request is running!");
 });
 
-router.post("/post", async (req, res) => {
-  const data = new Model({
-    recipe: req.body.recipe,
-    ingridients: req.body.ingridients,
-  });
+router.get("/inventory", (req, res) => {
+  res.send("Inventory Routes Working!");
+});
 
+// router.post("/", (req, res) => {
+//   res.send("Recipe Post Request is running!");
+// });
+
+// router.get("/recipe", (req, res) => {
+//   res.send("Recipe GET Request is running!");
+// });
+
+// router.post("/recipe", (req, res) => {
+//   res.send("Recipe POST Request is running!");
+// });
+
+router.get("/recipes", async (req, res) => {
   try {
-    const dataToSave = await data.save();
-    res.status(200).json(dataToSave);
+    const recipes = await Recipe.find();
+    res.status(200).json(recipes);
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    console.error(error);
+    res.status(500).json({ message: "Server error" });
   }
 });
 
-router.post("/addInv", async (req, res) => {
-  const data = new Inventory({
-    name: req.body.name,
-    units: req.body.units,
-    numberOfUnits: req.body.numberOfUnits,
-  });
-
+router.get("/recipes/:id", async (req, res) => {
   try {
-    const dataToSave = await data.save();
-    res.status(200).json(dataToSave);
-  } catch (error) {
-    res.status(400).json({ message: error.message });
-  }
-});
+    const recipe = await Recipe.findById(req.params.id);
 
-router.get("/getAll", async (req, res) => {
-  try {
-    const allData = await Model.find();
-    res.status(200).json(allData);
-  } catch (error) {
-    res.status(400).json({ message: error.message });
-  }
-});
-
-router.get("/getOne/:id", async (req, res) => {
-  try {
-    const data = await Model.findById(req.params.id);
-    if (!data) {
-      return res.status(404).json({ message: "Data not found" });
+    if (!recipe) {
+      return res.status(404).json({ message: "Recipe not found" });
     }
-    res.status(200).json(data);
+
+    res.json(recipe);
   } catch (error) {
-    res.status(400).json({ message: error.message });
+    console.error(error);
+    res.status(500).json({ message: "Server error" });
   }
 });
 
-router.patch("/update/:id", (req, res) => {
-  res.send("Update recepie by ID");
+router.post("/recipes", async (req, res) => {
+  try {
+    const { name, ingredients } = req.body;
+    //console.log({ name, ingredients });
+    const newRecipe = new Recipe({ name, ingredients });
+    const savedRecipe = await newRecipe.save();
+    res.status(201).json(savedRecipe);
+    //console.log(req);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error" });
+  }
 });
 
-router.delete("/delete/:id", async (req, res) => {
+router.delete("/recipes/:id", async (req, res) => {
   try {
-    const deletedData = await Model.findByIdAndDelete(req.params.id);
-    if (!deletedData) {
-      return res.status(404).json({ message: "Data not found" });
+    const recipe = await Recipe.findByIdAndDelete(req.params.id);
+    if (!recipe) {
+      return res.status(404).json({ error: "Recipe not found" });
     }
-    res.status(200).json({ message: "Data deleted successfully" });
-  } catch (error) {
-    res.status(400).json({ message: error.message });
+    res.json({ message: "Recipe deleted successfully" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Server error" });
   }
 });
 

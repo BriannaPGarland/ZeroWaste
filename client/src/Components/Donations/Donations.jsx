@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Donate.css";
 import MapComponent from "./Map.js"
-import shelterItem from "./shelterListItem.js";
+import ShelterListItem from "./shelterListItem.js";
 import testDonateData from './testDonateData';
 const Donations = () => {
 
@@ -9,7 +9,7 @@ const Donations = () => {
 
     
   return (
-    <div>
+    <div className="DonPage">
       <h1 class="title">
             Donations
       </h1>
@@ -21,7 +21,7 @@ const Donations = () => {
         </div>
         <div className="listed">
           {testDonateData.map(shelter => (
-                <shelterItem
+                <ShelterListItem
                   key={shelter.name}
                   name={shelter.name}
                   numberTimesDonated={shelter.numberTimesDonated}
@@ -29,20 +29,14 @@ const Donations = () => {
                 />
               ))}
         </div>
-        <div className="listed">
-          {testDonateData.map(shelter => (
-                <shelterItem
-                  key={shelter.name}
-                  name={shelter.name}
-                  numberTimesDonated={shelter.numberTimesDonated}
-
-                />
-              ))}
-        </div>
+        
           
         </div>
       <div className="mapzone">
         <MapComponent></MapComponent>
+      </div>
+      <div className="filler">
+        
       </div>
    
      

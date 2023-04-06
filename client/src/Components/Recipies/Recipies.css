@@ -1,110 +1,124 @@
-.AddNewButt{
-    margin-top:20px;
-    margin-bottom: 50px;
-    width: 10%;
-    height: 2em;
-    background-image: linear-gradient(to top left,rgb(40, 55, 139), rgb(98, 142, 209));
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.5s;
-    border-radius: 0.25em;
-	cursor: pointer;
-	text-decoration:  none;
+.recipePage {
+  height: 1000px;
+  background-color: rgb(5, 19, 65);
 }
-.recipeItem{
-    margin:10px;
-    margin-right:90px;
-    margin-left:90px;
+.AddNewButt {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  width: 10%;
+  height: 2em;
+  background-image: linear-gradient(
+    to top left,
+    rgb(40, 55, 139),
+    rgb(98, 142, 209)
+  );
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  border-radius: 0.25em;
+  cursor: pointer;
+  text-decoration: none;
 }
-.rectitle{
-    color: white;
-    padding-bottom:10px;
-    padding-top:10px;
+.recipeItem {
+  margin: 10px;
+  margin-right: 90px;
+  margin-left: 90px;
 }
-.amountbar{
-    display:flex;
-    background-color:white;
-    width:550px;
+.rectitle {
+  color: white;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
-.amountvalue{
-    background-color:transparent;
-    padding:10px;
-    color:black;
+.amountbar {
+  display: flex;
+  background-color: white;
+  width: 550px;
 }
-.amountButtons{
-    display: flex;
-    justify-content: right;
-    align-items: right;
-    margin-top:10px;
-    margin-left: 340px;
-    background-color:transparent;
+.amountvalue {
+  background-color: transparent;
+  padding: 10px;
+  color: black;
 }
-.pencil{
-    background-color: white;
-
+.amountButtons {
+  display: flex;
+  justify-content: right;
+  align-items: right;
+  margin-top: 10px;
+  margin-left: 340px;
+  background-color: transparent;
 }
-.trash{
-    background-color: white;
- 
+.pencil {
+  background-color: white;
 }
-.trashButt{
-    margin-top:1px;
-    background-color:white;
-    height:30px;
-    width:35px;
+.trash {
+  background-color: white;
 }
-.editButt{
-    background-color:white;
-    height:30px;
-    width:35px;
-    margin-top:1px;
-    margin-right:4px;
+.trashButt {
+  margin-top: 1px;
+  background-color: white;
+  height: 30px;
+  width: 35px;
 }
-.rec{
-    background-color:white;
+.editButt {
+  background-color: white;
+  height: 30px;
+  width: 35px;
+  margin-top: 1px;
+  margin-right: 4px;
 }
-.LeftListRecipes:after{
-    content: "";
-    display: table;
-    clear: both;
+.rec {
+  background-color: white;
 }
-.Reccolumns{
-    float: left;
-    width: 50%;
+.LeftListRecipes:after {
+  content: "";
+  display: table;
+  clear: both;
 }
-.NewIngriedient{
-    width: 20%;
-    height: 3em;
-    background-image: linear-gradient(to top left,rgb(40, 55, 139), rgb(98, 142, 209));
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.5s;
-    border-radius: 0.25em;
-    cursor: pointer;
-    margin-bottom:35px;
-    margin-top:35px;
-
+.Reccolumns {
+  float: left;
+  width: 50%;
 }
-.SaveRecipe{
-    width: 20%;
-    height: 3em;
-    background-image: linear-gradient(to top left, rgb(38, 0, 153), rgb(71, 52, 145));
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.5s;
-    border-radius: 0.25em;
-    cursor: pointer;
+.NewIngriedient {
+  width: 20%;
+  height: 3em;
+  background-image: linear-gradient(
+    to top left,
+    rgb(40, 55, 139),
+    rgb(98, 142, 209)
+  );
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  border-radius: 0.25em;
+  cursor: pointer;
+  margin-bottom: 35px;
+  margin-top: 35px;
 }
-.ingtext{
-    margin-top:35px;
-    font-size:35px;
+.SaveRecipe {
+  width: 20%;
+  height: 3em;
+  background-image: linear-gradient(
+    to top left,
+    rgb(38, 0, 153),
+    rgb(71, 52, 145)
+  );
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  border-radius: 0.25em;
+  cursor: pointer;
 }
-      
-      
-
+.ingtext {
+  margin-top: 35px;
+  font-size: 35px;
+}
+.addInvPage{
+    background-color: rgb(5, 19, 65);
+    height:1400px;
+}

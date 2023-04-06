@@ -1,195 +1,199 @@
 * {
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
-   
-    font-family: LeagueSpartan;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
+
+  font-family: LeagueSpartan;
 }
 
 .page {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(5, 19, 65);
-
-
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(5, 19, 65);
 }
 
 .loginbox {
-
-    width: 80%;
-    padding: 0px;
-    margin-left: 15px;
-    padding-top: 40px;
-    justify-content: center;
-    align-items: center;
-    transition: 0.5s;
-    border-radius: 0.25em;
+  width: 80%;
+  padding: 0px;
+  margin-left: 15px;
+  padding-top: 40px;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  border-radius: 0.25em;
 }
 
 .Logincover {
-
-    background-color: rgb(5, 19, 65);
-    width: 30em;
-    height: 32em;
-    position: relative;
-    border-radius: 1em;
-    box-shadow: 0 0.188em 1.550em rgb(156, 156, 156);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    color: white;
+  background-color: rgb(5, 19, 65);
+  width: 30em;
+  height: 32em;
+  margin-left:550px;
+  position: relative;
+  border-radius: 1em;
+  box-shadow: 0 0.188em 1.55em rgb(156, 156, 156);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  color: white;
 }
 .signcover {
-    padding-top:15px;
-    background-color: rgb(5, 19, 65);
-    width: 30em;
-    height: 35em;
-    position: relative;
-    border-radius: 1em;
-    box-shadow: 0 0.188em 1.550em rgb(156, 156, 156);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    color: white;
+    margin-left:550px;
+  padding-top: 15px;
+  background-color: rgb(5, 19, 65);
+  width: 30em;
+  height: 35em;
+  position: relative;
+  border-radius: 1em;
+  box-shadow: 0 0.188em 1.55em rgb(156, 156, 156);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  color: white;
 }
 
 .loginpage {
-    margin: auto;
-    width: 35%;
-    padding: 10px;
-    padding-top: 40px;
+  margin: auto;
+  width: 1800px;
+  height:1000px;
+  padding: 10px;
+  padding-top: 40px;
+  background-color: rgb(5, 19, 65);
 }
 
 .alt-login {
-    width: 80%;
-    height: 3em;
-    display: flex;
-    justify-content: space-around;
+  width: 80%;
+  height: 3em;
+  display: flex;
+  justify-content: space-around;
 }
 
 .alt-login div {
-    width: 45%;
-    height: 90%;
-    border-radius: 0.25em;
-    background-color: transparent;
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    cursor: pointer;
+  width: 45%;
+  height: 90%;
+  border-radius: 0.25em;
+  background-color: transparent;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
 }
 
 .google {
-    background-image: url("./google.png");
+  background-image: url("./google.png");
 }
 
 .facebook {
-    background-image: url("./facebook.png");
+  background-image: url("./facebook.png");
 }
-.text{
-    padding-bottom:0px;
+.text {
+  padding-bottom: 0px;
 }
 
 .lgInput {
-    border: none;
-    background-color: white;
-    height: 3em;
-    width: 80%;
-    border-radius: 0.35em;
-    text-align: center;
-    padding: 0em;
-    margin-bottom: 35px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: 58px;
+  border: none;
+  background-color: white;
+  height: 3em;
+  width: 80%;
+  border-radius: 0.35em;
+  text-align: center;
+  padding: 0em;
+  margin-bottom: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 58px;
 }
 
 .dropdown {
-    display: inline-block;
-    position: relative;
-    background-color: white;
-    border: none;
-    height: 3em;
-    color: grey;
-    width: 80%;
-    border-radius: 0.25em;
-    text-align: center;
+  display: inline-block;
+  position: relative;
+  background-color: white;
+  border: none;
+  height: 3em;
+  color: grey;
+  width: 80%;
+  border-radius: 0.25em;
+  text-align: center;
 }
-.dropdownsgn{
-    padding-top:10px;
-    height:20px;
-    display: inline-block;
-    position: relative;
-    background-color: white;
-    border: none;
-    height: 3em;
-    color: grey;
-    width: 80%;
-    border-radius: 0.25em;
-    text-align: center;
-    margin-bottom:35px;
-    margin-left:57px;
+.dropdownsgn {
+  padding-top: 10px;
+  height: 20px;
+  display: inline-block;
+  position: relative;
+  background-color: white;
+  border: none;
+  height: 3em;
+  color: grey;
+  width: 80%;
+  border-radius: 0.25em;
+  text-align: center;
+  margin-bottom: 35px;
+  margin-left: 57px;
 }
 
 .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: white;
-    width: 100%;
-    overflow: auto;
-    box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.4);
+  display: none;
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  overflow: auto;
+  box-shadow: 0px 10px 10px 0px rgba(0, 0, 0, 0.4);
 }
 
 .dropdown:hover .dropdown-content {
-    display: block;
-    background-color: white;
+  display: block;
+  background-color: white;
 }
 
 .dropdown-content a {
-    display: block;
-    background-color: white;
-    color: grey;
-    padding: 5px;
-    text-decoration: none;
+  display: block;
+  background-color: white;
+  color: grey;
+  padding: 5px;
+  text-decoration: none;
 }
 
 .dropdown-content a:hover {
-    color: #FFFFFF;
-    background-color: #00A4BD;
+  color: #ffffff;
+  background-color: #00a4bd;
 }
 
 input:focus {
-    outline-color: white;
+  outline-color: white;
 }
 
 .login-btn {
-    margin-left:165px;
-    width: 40%;
-    height: 3em;
-    background-image: linear-gradient(to top left, rgb(38, 0, 153), rgb(71, 52, 145));
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.5s;
-    border-radius: 0.25em;
-    cursor: pointer;
+  margin-left: 165px;
+  width: 40%;
+  height: 3em;
+  background-image: linear-gradient(
+    to top left,
+    rgb(38, 0, 153),
+    rgb(71, 52, 145)
+  );
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  border-radius: 0.25em;
+  cursor: pointer;
 }
 
 .login-btn:hover {
-    transform: scale(1.25);
+  transform: scale(1.25);
 }
 
 .text {
-    position: relative;
-    bottom: 0.5%;
+  position: relative;
+  bottom: 0.5%;
 }
 
 .signup {
-    color: white;
+  color: white;
 }

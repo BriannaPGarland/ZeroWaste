@@ -19,9 +19,12 @@ let testDB = async function(db_type){ //Test items to fill database
             "_id": masterObjectId,
             "contact_info": {"owner": "John Smith" , "phone": "000-000-0000","email": "test@test.com",},
             "address": {"street": "", "city": "", "state": "", "zip": "", "country":""},
-            "ingredients": [{"_id" : masterObjectId, "data": {"name": "TestORANGE", "amount":20}}],
-            "recipes": [{"_id" : masterObjectId, "data": {"name": "TestPIE", "amount":2}}],
+			"ingredients": [{"name": "Tomatoes", "TotalAmount":20, "minimum_needed": 200, "storage":[{"_id": new ObjectId(), "amount": 100, "shelf_life": new Date()}]}],
+            "ingredients_expiring_soon":[],
+            "ingredients_expired":[]
+            "recipes": [{"name": "Pizza", "ingredients": [{"name": "Cheese", "amount": 5}],"daily_produced": 20, "surplus_created": 5}],},
             "money_saved": 12000,
+            "time_of_last_food_alert": new Date(),
             "is_food_claimed": false,
             "useMockDB":true
         })*/
@@ -38,6 +41,8 @@ let testDB = async function(db_type){ //Test items to fill database
 			"contact_info": {"owner": "John Smith" , "phone": "000-000-0000","email": "test@test.com",},
 			"address": {"street": "", "city": "", "state": "", "zip": "", "country":""},
 			"ingredients": [{"name": "Tomatoes", "TotalAmount":20, "storage":[{"_id": new ObjectId(), "amount": 100, "shelf_life": new Date()}]}],
+            "ingredients_expiring_soon":[],
+            "ingredients_expired":[],
 			"recipes": [{"name": "Pizza", "ingredients": []}],
 			"money_saved": 12000000,
 			"is_food_claimed": false,
@@ -50,6 +55,8 @@ let testDB = async function(db_type){ //Test items to fill database
 			"address": {"street": "", "city": "", "state": "", "zip": "", "country":""},
 			"ingredients": [{"name": "Tomatoes", "TotalAmount":20, "storage":[{"_id": new ObjectId(), "amount": 100, "shelf_life": new Date()}]}],
 			"recipes": [{"name": "Pizza", "ingredients": [],"daily_produced": 20, "surplus_created": 5}],
+            "ingredients_expiring_soon":[],
+            "ingredients_expired":[],
 			"money_saved": 12000,
 			"is_food_claimed": false,
 			"updated":{"money_saved": 0, "is_food_claimed": true, 			

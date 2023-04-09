@@ -98,7 +98,7 @@ async function updateRecipes(object, updatedRecipe){
         }
     }
     let newObj = {"_id": object._id, "updated": {"recipes":Recipes}}
-    return updateRestaurant("Update",newObj)
+    return updateRestaurant(newObj)
 }
 
 async function insertIngredients(object,newIngredient){
@@ -108,7 +108,7 @@ async function insertIngredients(object,newIngredient){
     }
     Ingredients.push(newIngredient)
     let newObj = {"_id": object._id, "updated": {"ingredients":Ingredients}}
-    return updateRestaurant("Update",newObj)
+    return updateRestaurant(newObj)
 }
 
 async function insertRecipes(object, newRecipe){
@@ -118,7 +118,7 @@ async function insertRecipes(object, newRecipe){
     }
     Recipes.push(newRecipe)
     let newObj = {"_id": object._id, "updated": {"recipes":Recipes}}
-    return updateRestaurant("Update",newObj)
+    return updateRestaurant(newObj)
 }
 
 async function deleteIngredients(object,IngredientName){
@@ -128,18 +128,37 @@ async function deleteIngredients(object,IngredientName){
     }
     Ingredients = Ingredients.filter( each => each.name !=IngredientName)
     let newObj = {"_id": object._id, "updated": {"ingredients":Ingredients}}
-    return updateRestaurant("Update",newObj)
+    return updateRestaurant(newObj)
 }
 
 async function deleteRecipes(object, RecipeName){
     let Recipes = await getRecipes(object)
-    if (!Array.isArray(Recipes)|| typeof(IngredientName) != "string"){
+    if (!Array.isArray(Recipes)|| typeof(RecipeName) != "string"){
         return "Restaurant does not exist"
     }
     Recipes = Recipes.filter( each => each.name !=RecipeName)
     let newObj = {"_id": object._id, "updated": {"recipes":Recipes}}
-    return updateRestaurant("Update",newObj)
+    return updateRestaurant(newObj)
 }
+
+async function updateExpiringIngredients(object){
+    let restaurant = await getRestaurant(object)
+    if (typeof(restaurant) != "object"){
+        return "Restaurant does not exist"
+    }
+    if (!Array.isArray(updated)){
+        return "Invalid Update Parameter"
+    }
+    let newObj = {"_id": object._id, "updated": {
+            "ingredients_expiring_soon":object["ingredients_expiring_soon"], 
+            "ingredients_expired": object["ingredients_expired"],
+            "ingredients": object["ingredients"]
+        }
+    }
+    return updateRestaurant(newObj)
+
+}
+
 
 module.exports ={ //acount for null values after testing
     getRestaurant, // works
@@ -155,6 +174,8 @@ module.exports ={ //acount for null values after testing
     getRecipes, //works
     updateRecipes,//works
     insertRecipes,//works
-    deleteRecipes//works
+    deleteRecipes,//works
+
+    updateExpiringIngredients
 
 }

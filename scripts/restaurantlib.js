@@ -1,5 +1,11 @@
-//Restaurant API Methods for MongoDB
+//Restaurant CRUD Methods for MongoDB
 let restaurant_db = require('./restaurantsDB')
+
+//Users CRUD methods
+let userDB = require('./usersDB')
+
+//Notification Library
+let notify = require('./notify')
 
 async function sortStorageByShelfLife(Storage) {//ascending
     Storage.sort((a, b) => {
@@ -50,8 +56,8 @@ async function consumeIngredients(RestaurantObj, name, amount){
 
 
 async function getExpiringIngredients(RestaurantObj){//Returns everything expiring in 72 Hours, Runs once a day
-	let ingredients = await restaurant_db.getIngredients(RestaurantObj)
-	
+	let restaurant = await restaurant_db.getRestaurant(RestaurantObj)
+	let ingredients = restaurant.ingredients
     let expiring_soon = []
 	let expired = [];
 
@@ -91,8 +97,10 @@ async function getExpiringIngredients(RestaurantObj){//Returns everything expiri
 	RestaurantObj["ingredients_expired"] = expired
 	RestaurantObj["ingredients_expiring_soon"] = expiring_soon
 
-	restaurant_db.updateExpiringIngredients(RestaurantObject)
-    return [expiring_soon,expired] //returns array of items expiring in 72 hours, and already expired
+	restaurant_db.updateExpiringIngredients(RestaurantObj)
+	let User = await userDB.getUser({"_id":restaurant.owner_id})
+	notify.sendNotification("Expired Ingredients",User)
+    //return [expiring_soon,expired] //returns array of items expiring in 72 hours, and already expired
 }
 
 async function checkIngredientsThreshold(RestaurantObj) {
@@ -116,19 +124,20 @@ async function checkIngredientsThreshold(RestaurantObj) {
 				let ingredientAmount = ingredient.TotalAmount;
 
 				if (ingredientName === recipeIngredientName) {
-					let totalRequired = dailyProduced * recipeIngredientAmount;
-					let remainingAmount = ingredientAmount - totalRequired;
+					let totalRequired = dailyProduced * recipeIngredientAmount; //100
+					let remainingAmount = ingredientAmount - totalRequired;//99-100 = 1
 
 					if (remainingAmount < ingredient.minimum_needed) {
-						let amt_below_thresh = ingredient.minimum_needed - remainingAmount;
-						thresholds.push({"name": ingredientName, "amt_below_thresh": amt_below_thresh});
+						let amt_below_thresh = ingredient.minimum_needed - Math.abs(remainingAmount);
+						thresholds.push({"name": ingredientName, "current_amount": amt_below_thresh, "threshold": ingredient.minimum_needed});
 					}
 				}
 			}
 		}
 	}
-
-	return thresholds;
+	let User = await userDB.getUser({"_id":restaurant.owner_id})
+	notify.sendNotification("Low Ingredients",User)
+	//return thresholds;
 }
 
 

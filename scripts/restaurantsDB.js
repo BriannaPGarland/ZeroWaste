@@ -1,7 +1,6 @@
 const { connect } = require('../Utils/mongoPool.js');
  
-//Restaurant Library Methods 
-const restaurant_lib = require('./restaurantlib')
+
 
 /// Below are the restaurant ASYNC functions that have CRUD Database functions
 async function Helper(operation,object){ //Master CRUD Handler
@@ -75,6 +74,8 @@ async function updateIngredients(object, updateIngredient){
     if (!Array.isArray(Ingredients) || typeof(updateIngredient) != "object"){
         return "Restaurant does not exist"
     }
+    //Restaurant Library Methods 
+    let  restaurant_lib = require('./restaurantlib')
     for (let i = 0; i < Ingredients.length; i++) {
         if (Ingredients[i].name == updateIngredient.name){
 			Ingredients[i] = updateIngredient
@@ -145,9 +146,6 @@ async function updateExpiringIngredients(object){
     let restaurant = await getRestaurant(object)
     if (typeof(restaurant) != "object"){
         return "Restaurant does not exist"
-    }
-    if (!Array.isArray(updated)){
-        return "Invalid Update Parameter"
     }
     let newObj = {"_id": object._id, "updated": {
             "ingredients_expiring_soon":object["ingredients_expiring_soon"], 

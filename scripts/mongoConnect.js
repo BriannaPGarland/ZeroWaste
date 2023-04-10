@@ -36,14 +36,26 @@ let testDB = async function(db_type){ //Test items to fill database
         //let updateingredient = {"name": "TestORANGE", "amount": 10, "Expiration": new Date()}
         //let newRecipe = {"_id" : new ObjectId(), "data": {"name": "Test","amount":200}}
         //let updateRecipe = {"name": "Test","amount":100, "Surplus": 20}
+        
+        let testOwner = {
+            "_id" : masterObjectId,
+            "name" : {"first_name": "Femi","last_name": "F",},
+            "contact_info": {"phone": "848-239-9086","email": "femirocks123@gmail.com",},
+			"address": {"street": "1 CastlePoint Rd", "city": "Hoboken", "state": "NJ", "zip": "07030", "country":"USA"},
+            "accountType": "Restaurant",
+            "restaurant_id": masterObjectId,
+            "beneficiary_id": masterObjectId
+        }
+        
         let Restaurant = {
 			"_id": masterObjectId,
-			"contact_info": {"owner": "John Smith" , "phone": "000-000-0000","email": "test@test.com",},
+            "owner_id": masterObjectId,
+			"contact_info": {"phone": "000-000-0000","email": "test@test.com",},
 			"address": {"street": "", "city": "", "state": "", "zip": "", "country":""},
-			"ingredients": [{"name": "Tomatoes", "TotalAmount":20, "storage":[{"_id": new ObjectId(), "amount": 100, "shelf_life": new Date()}]}],
+			"ingredients": [{"name": "Tomatoes", "TotalAmount":99, "minimum_needed": 100, "storage":[{"_id": new ObjectId(), "amount": 99, "shelf_life": new Date()}]}],
             "ingredients_expiring_soon":[],
             "ingredients_expired":[],
-			"recipes": [{"name": "Pizza", "ingredients": []}],
+            "recipes": [{"name": "Pizza", "ingredients": [{"name": "Tomatoes", "amount": 5}],"daily_produced": 20, "surplus_created": 5}],
 			"money_saved": 12000000,
 			"is_food_claimed": false,
 			"useMockDB":true
@@ -64,8 +76,11 @@ let testDB = async function(db_type){ //Test items to fill database
 			"useMockDB":true
 		}
 		let updateIngredients = {"name": "Tomatoes", "TotalAmount":200, "storage":[{"_id": new ObjectId(), "amount": 10, "shelf_life": new Date()},{"_id": new ObjectId(), "amount": 30, "shelf_life": "Wed Feb 22 2023 20:18:05 GMT-0500 (Eastern Standard Time)"},{"_id": new ObjectId(), "amount": 30, "shelf_life": "Wed Feb 5 2023 20:18:05 GMT-0500 (Eastern Standard Time)"}]}
-		await restaurant_db.insertRestaurant(Restaurant)
-		let result = await restaurant_db.updateIngredients({"_id": masterObjectId,"useMockDB":true},updateIngredients )
+		await users_db.insertUser(testOwner)
+        await restaurant_db.insertRestaurant(Restaurant)
+        let result = await restaurant_lib.getExpiringIngredients(Restaurant)
+        //let result = await restaurant_lib.getExpiringIngredients(Restaurant)
+		//let result = await restaurant_db.updateIngredients({"_id": masterObjectId,"useMockDB":true},updateIngredients )
         //let result = await restaurant_db.getRestaurant({"_id": masterObjectId, "useMockDB":true})
         console.log(result);
     }

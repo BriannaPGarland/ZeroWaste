@@ -6,9 +6,13 @@ const routes = require("./routes/routes");
 const app = express();
 mongoose.connect(mongoString);
 const database = mongoose.connection;
+
 app.use(express.json());
-var cors = require("cors");
-app.use(cors());
+const cors = require("cors");
+const corsOptions = {
+  origin: "http://localhost:3000",
+};
+app.use(cors(corsOptions));
 
 app.use("/", routes);
 
@@ -23,5 +27,3 @@ database.on("error", (error) => {
 database.once("connected", () => {
   console.log("Database Connected");
 });
-
-app.use(express.json());

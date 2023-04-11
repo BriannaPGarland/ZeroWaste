@@ -1,86 +1,117 @@
 * {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
-.Landtxt{
-    color:white;
-    padding-top:50px;
-    font-size: 24px;
+.Landtxt {
+  color: white;
+  padding-top: 20px;
+  font-size: 24px;
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-	justify-content: space-around;
-	
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
 }
-.landing{
-    display: contents;
-   padding-top:140px;
+.landing-content {
+  background-color: rgb(5, 19, 65);
 }
-.logoImg{
-    height:200px;
-    width: 700px;
-    background-image: url("./zWlogo.png") ;
-	background-repeat: no-repeat;
-    background-size:700px;
-
-    display: flex;
-    align-items: center;
-    margin-left:530px;
+.Landtitle {
+  color: white;
+  font-size: 55px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding-bottom: 20px;
+  padding-top: 10px;
+  background-color: rgb(5, 19, 65);
 }
-.SignUpButt{
-    margin-top:100px;
-    width: 17%;
-    height: 3em;
-    background-image: linear-gradient(to top left,rgb(38, 0, 153), rgb(71, 52, 145));
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.5s;
-    border-radius: 0.25em;
-	cursor: pointer;
-	text-decoration:  none;
+.landing {
+  display: contents;
+  padding-top: 140px;
+  background-color: rgb(5, 19, 65);
 }
-.LGINButt{
-    margin-top:20px;
-    width: 17%;
-    height: 3em;
-    background-image: linear-gradient(to top left,rgb(40, 55, 139), rgb(98, 142, 209));
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.5s;
-    border-radius: 0.25em;
-	cursor: pointer;
-	text-decoration:  none;
+.logoImg {
+  height: 200px;
+  width: 700px;
+  background-image: url("./zWlogo.png");
+  background-repeat: no-repeat;
+  background-size: 700px;
+  background-color: rgb(5, 19, 65);
+  display: flex;
+  align-items: center;
+  margin-left: 530px;
+}
+.buttonSecLand {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.SignUpButt {
+  margin-top: 50px;
+  width: 17%;
+  height: 3em;
+  background-image: linear-gradient(
+    to top left,
+    rgb(38, 0, 153),
+    rgb(71, 52, 145)
+  );
+  color: white;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  border-radius: 0.25em;
+  cursor: pointer;
+  text-decoration: none;
+  margin-right: 30px;
+  padding-top: 25px;
+}
+.LGINButt {
+  margin-top: 50px;
+  width: 17%;
+  height: 3em;
+  background-image: linear-gradient(
+    to top left,
+    rgb(40, 55, 139),
+    rgb(98, 142, 209)
+  );
+  color: white;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  border-radius: 0.25em;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 30px;
+  padding-top: 25px;
 }
 
 .carousel-container {
-    width: 100%;
-    height: 60vh;
-    overflow: hidden;
-  }
-  
-  .carousel {
-    height: 100%;
-  }
-  
-  .carousel-item {
-    height: 100%;
-    background-size: cover;
-    background-position: center center;
-  }
-  
-  .carousel-item h3 {
-    font-size: 3rem;
-    color: white;
-  }
-  
-  .carousel-item p {
-    font-size: 1.5rem;
-    color: white;
-  }
+  width: 100%;
+  height: 60vh;
+  overflow: hidden;
+}
 
-  
+.carousel {
+  height: 100%;
+}
+
+.carousel-item {
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+}
+
+.carousel-item h3 {
+  font-size: 3rem;
+  color: white;
+}
+
+.carousel-item p {
+  font-size: 1.5rem;
+  color: white;
+}
+.carouselTest {
+  position: absolute;
+}

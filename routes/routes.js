@@ -2,10 +2,22 @@ const express = require("express");
 const router = express.Router();
 const Recipe = require("../data/model");
 
+
+router.get("/", (req, res) => {
+  res.send("Server is running!");
+});
+
+router.post("/post", async (req, res) => {
+  const data = new Model({
+    recipe: req.body.recipe,
+    ingridients: req.body.ingridients,
+  });
+
 //Error Handling To Be Implememted
 // router.use((req, res) => {
 //   res.status(404).send("No Route Found");
 // });
+
 
 router.get("/", (req, res) => {
   res.send("Get Request is running!");

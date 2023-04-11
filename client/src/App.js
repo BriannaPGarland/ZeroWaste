@@ -1,6 +1,16 @@
 import React, { useState } from "react";
 import "./App.css";
-import { Navbar, Analytics, Donations, Home, Login, Recipies, Signup, AddInv, Landing } from "./Components";
+import {
+  Navbar,
+  Analytics,
+  Donations,
+  Home,
+  Login,
+  Recipies,
+  Signup,
+  AddInv,
+  Landing,
+} from "./Components";
 import { Routes, Route } from "react-router-dom";
 import { AuthorizeProvider } from "./Authorization/Authorize";
 import SettingPage from "./Components/SettPage/SettPage";
@@ -8,12 +18,11 @@ import AccountPage from "./Components/AccountPage/AccountPage";
 import AddRecipe from "./Components/Recipies/AddRecipe";
 
 const App = () => {
-
   return (
     <AuthorizeProvider>
       <div className="app">
         <div className="navbar">
-          < Navbar />
+          <Navbar />
         </div>
         <div className="main">
           <div className="routes">

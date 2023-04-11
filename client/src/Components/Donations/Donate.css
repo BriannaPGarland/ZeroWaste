@@ -1,38 +1,66 @@
-.map-area{
-    height:50%;
-    width: 50%;
+.DonPage{
+    height:1200px;
+}
+.map-area {
+  height: 50%;
+  width: 50%;
 
-    background:unset;
+  background: unset;
 }
-*{
-    background:unset;
+.donatePage {
+  background-color: rgb(5, 19, 65);
+  color: white;
 }
-.mapzone{
-    height: 650px;
-    width: 50%;
-    background:unset !important;
-    float: left;
-
+.donateStat {
+  font-size: 16px;
 }
-.leftColumn{
-    
+.leftItem {
+    float:left;
+    margin-right:280px;
+    margin-bottom:25px;
 }
-.DonTitle{
-    color:black;
-    padding-left: 25px;
-    padding-top: 25px;
-    padding-bottom: 10px;
-    
-}
-.underline{
-    height:3px;
-    width: 600px;
-    margin-bottom: 25px;
-    margin-left: 25px;
-    background-color: black;
-}
-.listed{
-    color:black;
+.rightItem {
+    color:white;
+    border-color: white;
+    float: right;
     font-size:20px;
-}
+    padding:5px;
 
+    margin-bottom:25px;
+}
+* {
+  background: unset;
+}
+.mapzone {
+  height: 650px;
+  width: 50%;
+  background: unset !important;
+}
+.leftColumn {
+  background-color: rgb(5, 19, 65);
+  color: white;
+}
+.DonTitle {
+  color: white;
+  padding-left: 25px;
+  padding-top: 25px;
+  padding-bottom: 10px;
+}
+.underline {
+  height: 3px;
+  width: 600px;
+  margin-bottom: 25px;
+  margin-left: 25px;
+  background-color: white;
+}
+.listed {
+  color: white;
+  font-size: 20px;
+  padding-left: 25px;
+  margin-bottom: 25px;
+  display: inline-block;
+}
+.filler{
+    background-color: rgb(5, 19, 65);
+    height:100%
+}

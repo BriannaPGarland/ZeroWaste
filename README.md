@@ -1,3 +1,14 @@
+# Installation Instructions: 
+#### Frontend
+- npm install
+- npm install --save google-maps-react
+- npm run 
+
+#### Backend
+- npm install
+- npm start
+Server Runs on http://localhost:3001
+
 
 # Installation Instructions: 
 #### Backend

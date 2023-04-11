@@ -6,18 +6,16 @@ export default function shelterListItem(props) {
   const { name, numberTimesDonated } = props;
 
   return (
-   <div>
-      <div className="CommunityTitle">
-        {name}
+    <div className="donatePage">
+      <div className="leftItem">
+        <div className="CommunityTitle">{name}</div>
+
+        <div className="donateStat">
+          You have donated here {numberTimesDonated} times
+        </div>
       </div>
 
-      <div className="donateStat"> 
-        {numberTimesDonated}
-      </div>
-      <button>
-        DONATE
-      </button>
-   </div>
-  
+      <button className="rightItem">DONATE</button>
+    </div>
   );
 }

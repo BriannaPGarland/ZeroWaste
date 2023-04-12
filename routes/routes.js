@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const Recipe = require("../data/model");
 
-
 router.get("/", (req, res) => {
   res.send("Server is running!");
 });
@@ -12,12 +11,7 @@ router.post("/post", async (req, res) => {
     recipe: req.body.recipe,
     ingridients: req.body.ingridients,
   });
-
-//Error Handling To Be Implememted
-// router.use((req, res) => {
-//   res.status(404).send("No Route Found");
-// });
-
+});
 
 router.get("/", (req, res) => {
   res.send("Get Request is running!");
@@ -27,17 +21,17 @@ router.get("/inventory", (req, res) => {
   res.send("Inventory Routes Working!");
 });
 
-// router.post("/", (req, res) => {
-//   res.send("Recipe Post Request is running!");
-// });
+router.post("/", (req, res) => {
+  res.send("Recipe Post Request is running!");
+});
 
-// router.get("/recipe", (req, res) => {
-//   res.send("Recipe GET Request is running!");
-// });
+router.get("/recipe", (req, res) => {
+  res.send("Recipe GET Request is running!");
+});
 
-// router.post("/recipe", (req, res) => {
-//   res.send("Recipe POST Request is running!");
-// });
+router.post("/recipe", (req, res) => {
+  res.send("Recipe POST Request is running!");
+});
 
 router.get("/recipes", async (req, res) => {
   try {
@@ -90,5 +84,10 @@ router.delete("/recipes/:id", async (req, res) => {
     res.status(500).json({ error: "Server error" });
   }
 });
+
+//Error Handling To Be Implememted
+// router.use((req, res) => {
+//   res.status(404).send("No Route Found");
+// });
 
 module.exports = router;

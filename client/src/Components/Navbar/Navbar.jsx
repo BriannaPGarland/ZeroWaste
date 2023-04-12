@@ -24,6 +24,7 @@ const Navbar = () => {
   //     }
   //   });
   // }, []);
+
   const SignOutButton = () => {
     auth
       .signOut()

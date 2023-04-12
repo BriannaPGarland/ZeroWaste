@@ -1,23 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 //import { Navbar } from "../Navbar/Navbar";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { AuthorizeContext } from "../../Authorization/Authorize";
+
 import Modal from "react-modal";
 const Login = () => {
+  const { user } = useContext(AuthorizeContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
-
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     if (email.trim() === "" || password.trim() === "") {
       setErrorMessage("Please enter email and password.");
       openModal();
       return;
     }
-    window.localStorage.setItem("user", JSON.stringify(email));
-    navigate("/home");
+    try {
+      const auth = getAuth();
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = userCredential.user;
+      window.localStorage.setItem("user", JSON.stringify(user));
+      navigate("/home");
+    } catch (error) {
+      setErrorMessage(error.message);
+      openModal();
+    }
   };
 
   let subtitle;

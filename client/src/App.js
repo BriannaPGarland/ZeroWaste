@@ -21,9 +21,15 @@ const App = () => {
   const [loginToken, setLoginToken] = useState(null);
 
   const getToken = () => {
-    const tokenString = localStorage.getItem("user");
-    const userToken = JSON.parse(tokenString);
-    return userToken;
+    try {
+      const tokenString = localStorage.getItem("user");
+      console.log(tokenString);
+      const userToken = JSON.parse(tokenString);
+      return userToken;
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
   };
 
   useEffect(() => {

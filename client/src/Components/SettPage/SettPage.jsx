@@ -1,5 +1,5 @@
 import React from "react";
-
+import './SettPage.css'
 const SettingPage = () => {
   return (
     <div className="SettingsPage">

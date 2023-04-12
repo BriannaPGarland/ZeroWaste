@@ -57,6 +57,7 @@ let testDB = async function(db_type){ //Test items to fill database
             "ingredients_expired":[],
             "recipes": [{"name": "Pizza", "ingredients": [{"name": "Tomatoes", "amount": 5}],"daily_produced": 20, "surplus_created": 5}],
 			"money_saved": 12000000,
+            "total_donations":0,
 			"is_food_claimed": false,
 			"useMockDB":true
 		}

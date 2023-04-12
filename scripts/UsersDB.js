@@ -4,12 +4,13 @@ async function Helper(operation,object){
     const client = await connect();
     const db = await client.db("ZeroWaste")
     let chosenCollection = ""
-    if (object["useMockDB"] && object["useMockDB"]===true){
-        chosenCollection = "Testing"
-    }
-    else{
-        chosenCollection = "Users"
-    }
+    // if (object["useMockDB"] && object["useMockDB"]===true){
+    //     chosenCollection = "Testing"
+    // }
+    // else{
+    //     chosenCollection = "Users"
+    // }
+    chosenCollection = "Users"
     if (operation == "Insert")
         await db.collection(chosenCollection).insertOne(object)
     else if (operation == "Update")

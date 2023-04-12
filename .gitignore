@@ -3,5 +3,9 @@
 **package-lock.json
 .DS_Store
 package-lock.json
+
+**/.env
+=======
 .env
 package-lock.json
+

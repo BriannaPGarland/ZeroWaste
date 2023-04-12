@@ -1,6 +1,11 @@
+
 import React, { useState } from "react";
 import "./Recipies.css";
+import { Link } from "react-router-dom";
+import Ingriedient from "./Ingriedient.jsx";
 import axios from "axios";
+
+
 
 const AddRecipe = () => {
   const [name, setName] = useState("");
@@ -38,6 +43,7 @@ const AddRecipe = () => {
   return (
     <div className="addInvPage">
       <div className="title">Add Recipe</div>
+
 
       <form onSubmit={handleSubmit}>
         <input

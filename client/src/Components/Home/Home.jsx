@@ -1,4 +1,4 @@
-import React, { useContext,useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import "./Home.css";
 import searchIcon from "./search.PNG";
 import FoodCard from "./FoodCard.jsx";
@@ -9,18 +9,17 @@ import testData from "./testData";
 
 import { auth } from "../../Authorization/FirebaseConfig";
 const Home = () => {
-  const { user,setUser } = useContext(AuthorizeContext);
-
+  const { user, setUser } = useContext(AuthorizeContext);
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
         // User is signed in.
-        console.log('User is signed in:', user);
+        console.log("User is signed in:", user);
       } else {
         // No user is signed in.
-        console.log('No user is signed in.');
-        window.location.href = '/login';
+        console.log("No user is signed in.");
+        window.location.href = "/login";
       }
     });
   }, []); // empty dependency array to run only once on mount
@@ -34,18 +33,18 @@ const Home = () => {
   };
 
   const SignOutButton = () => {
-    auth.signOut()
-    .then(() => {
-      // Sign-out successful.
-      console.log('User signed out successfully.');
-      window.location.href = '/';
-      
-    })
-    .catch((error) => {
-     // window.location.href = '/';
-      // An error happened.
-      console.log('Error signing out:', error);
-    });
+    auth
+      .signOut()
+      .then(() => {
+        // Sign-out successful.
+        console.log("User signed out successfully.");
+        window.location.href = "/";
+      })
+      .catch((error) => {
+        // window.location.href = '/';
+        // An error happened.
+        console.log("Error signing out:", error);
+      });
 
     // alert(window.localStorage.getItem('loginKey'));
     // setUser(null)
@@ -54,11 +53,10 @@ const Home = () => {
     //     window.location.href = '/';}
     // window.location.href = '/';
     // Navigate("/")
-  }
+  };
 
   return (
-    <div className ="HomePage">
-      
+    <div className="HomePage">
       <section class="section">
         <div class="box-main">
           <div class="firstHalf">
@@ -67,7 +65,6 @@ const Home = () => {
           {/* <div class="firstHalf">
             <h1 class="title">{user.email}</h1>
           </div> */}
-
         </div>
       </section>
       <section>
@@ -97,26 +94,19 @@ const Home = () => {
         <Link className="addInvButt" to="/AddInv">
           Add Item To Inventory
         </Link>
-      </div >
-
-      
-
-
+      </div>
 
       <section class="inventoryDisp">
-        {testData.map(ingredient => (
+        {testData.map((ingredient) => (
           <FoodCard
             key={ingredient.name}
             name={ingredient.name}
-            exp ={ingredient.expiration}
-            amount = {ingredient.amount}
-            units = {ingredient.units}
-
+            exp={ingredient.expiration}
+            amount={ingredient.amount}
+            units={ingredient.units}
           />
         ))}
       </section>
-      
-     
     </div>
   );
 };

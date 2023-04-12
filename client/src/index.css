@@ -1,16 +1,17 @@
 @font-face {
-	font-family: "LeagueSpartan";
-	src: local("League_Spartan"),
-	 url("./fonts/League_Spartan/LeagueSpartan-VariableFont_wght.ttf") format("truetype");
-	font-weight:normal;
+  font-family: "LeagueSpartan";
+  src: local("League_Spartan"),
+    url("./fonts/League_Spartan/LeagueSpartan-VariableFont_wght.ttf")
+      format("truetype");
+  font-weight: normal;
 }
 @font-face {
-	font-family: "OpenSans";
-	src: local("Open_Sans"),
-	 url("./fonts/Open_Sans/OpenSans-VariableFont_wdth\,wght.ttf") format("truetype");
-	font-weight:normal;
+  font-family: "OpenSans";
+  src: local("Open_Sans"),
+    url("./fonts/Open_Sans/OpenSans-VariableFont_wdth\,wght.ttf")
+      format("truetype");
+  font-weight: normal;
 }
-
 
 /* * {
 	margin: 0;

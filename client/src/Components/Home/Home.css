@@ -1,287 +1,286 @@
 * {
-	margin: 0;
-	padding: 0;
-	
+  margin: 0;
+  padding: 0;
 }
 
 .navbar {
-	display: flex;
-	align-items: center;
-	position: sticky;
-	top: 0;
-	cursor: pointer;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  cursor: pointer;
 }
 
 .background {
-	background: rgb(5, 19, 65);
-	background-blend-mode: darken;
-	background-size: cover;
+  background: rgb(5, 19, 65);
+  background-blend-mode: darken;
+  background-size: cover;
 }
 
 .footer {
-	background-color: rgb(5, 19, 65);
-	background-color: rgb(5, 19, 65);
+  background-color: rgb(5, 19, 65);
+  background-color: rgb(5, 19, 65);
 }
 
 .searchbar {
-	border: none;
-    background-color: white;
-    height: 0.1px !important;
-    width: 160% !important;
-    border-radius: 15px !important;
-    text-align: center;
-	padding: 20px !important;
+  border: none;
+  background-color: white;
+  height: 0.1px !important;
+  width: 160% !important;
+  border-radius: 15px !important;
+  text-align: center;
+  padding: 20px !important;
 }
 
-
-.searchSection{
-    padding-left: 580px;
-	display: inline-flex;
-	width: 140%
+.searchSection {
+  padding-left: 580px;
+  display: inline-flex;
+  width: 140%;
 }
 
-.searIcon{
-	width: 40px;
-	height:40px;
-	transform:scaleX(-1);
-	padding: 5px;
-
+.searIcon {
+  width: 40px;
+  height: 40px;
+  transform: scaleX(-1);
+  padding: 5px;
 }
 
 .nav-list {
-	display: flex !important;
-	align-items: center;
-	padding-left: 500px;
+  display: flex !important;
+  align-items: center;
+  padding-left: 500px;
 }
 
 .logo {
-	justify-content: right;
-	align-items: right;
+  justify-content: right;
+  align-items: right;
 }
 
 .logo img {
-	width: 270px;
-	border-radius: 50px;
+  width: 270px;
+  border-radius: 50px;
 }
 
 .nav-list li {
-	list-style: none;
-	padding: 26px 100px;
+  list-style: none;
+  padding: 26px 100px;
 }
 
 .nav-list li a {
-	text-decoration: none;
-	color: white;
+  text-decoration: none;
+  color: white;
 }
 
 .nav-list li a:hover {
-	color: grey;
+  color: grey;
 }
 
 .rightnav {
-	width: 30%;
-	text-align: right;
+  width: 30%;
+  text-align: right;
 }
 
 .box-main {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	color: white;
-	max-width: 80%;
-	margin: auto;
-	height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  max-width: 80%;
+  margin: auto;
+  height: 80%;
 }
 
 .firsthalf {
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .secondhalf {
-	width: 100%;
+  width: 100%;
 }
 
 .secondhalf img {
-	width: 70%;
-	border: 4px solid rgb(5, 19, 65);
-	border-radius: 150px;
-	display: block;
-	margin: auto;
+  width: 70%;
+  border: 4px solid rgb(5, 19, 65);
+  border-radius: 150px;
+  display: block;
+  margin: auto;
 }
 
 .text-big {
-	font-weight: 500;
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-	font-size: 50px;
+  font-weight: 500;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 50px;
 }
 
 .text-small {
-	font-size: 18px;
+  font-size: 18px;
 }
 
 .section {
-	height: 200px;
-	display: flex;
-	align-items: center;
-	background-color: rgb(5, 19, 65);
-	justify-content: space-between;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  background-color: rgb(5, 19, 65);
+  justify-content: space-between;
 }
 
 .section-Left {
-	flex-direction: row-reverse;
+  flex-direction: row-reverse;
 }
 
 .center {
-	text-align: center;
+  text-align: center;
 }
 
 .text-footer {
-	text-align: center;
-	padding: 30px 0;
-	font-family: 'Ubuntu', sans-serif;
-	display: flex;
-	justify-content: center;
-	color: #fff;
+  text-align: center;
+  padding: 30px 0;
+  font-family: "Ubuntu", sans-serif;
+  display: flex;
+  justify-content: center;
+  color: #fff;
 }
-.HomePage{
-	background-color: rgb(5, 19, 65);
+.HomePage {
+  background-color: rgb(5, 19, 65);
 }
-.title{
-	color:white;
-	font-size:55px;
-	display: flex;
-    flex-direction: column;
-    align-items: center;
-	justify-content: space-around;
-	padding-bottom:40px;
-	padding-top:10px;
-	background-color: rgb(5, 19, 65);
+.title {
+  color: white;
+  font-size: 55px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding-bottom: 40px;
+  padding-top: 10px;
+  background-color: rgb(5, 19, 65);
 }
-.foodcard{
-	background-color: #fff;
-	color:grey;
-	height:160px;
-	width:230px;
-	border-radius: 20px;
-	box-shadow: 5px 5px 3px  black;	
-	margin: 20px;
+.foodcard {
+  background-color: #fff;
+  color: grey;
+  height: 160px;
+  width: 230px;
+  border-radius: 20px;
+  box-shadow: 5px 5px 3px black;
+  margin: 20px;
 }
-.foodname{
-	background-color:white;
-	margin:15px;
-	padding-top:5px;
-	font-size:30px;
+.foodname {
+  background-color: white;
+  margin: 15px;
+  padding-top: 5px;
+  font-size: 30px;
 }
-.foodamount{
-	background-color:white;
-	padding-top:10px;
-	padding-bottom: 10px;
-	padding-left:15px;
-	font-size:20px;
-	
+.foodamount {
+  background-color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  font-size: 20px;
 }
-.inventoryDisp{
-
-	display: grid;
-	grid-template-columns: repeat(5, 1fr);
-	gap: 150px;
-	grid-auto-rows: 100px;
-    
-	margin-top: 65px;
-	margin-bottom: 165px;
-	padding-bottom: 150px;
-	margin-left:100px;
-	margin-right:100px;
-	height: 200px;
-	align-items: center;
-	background-color: rgb(5, 19, 65);
-	justify-content: space-between;
-	
+.inventoryDisp {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 150px;
+  grid-auto-rows: 100px;
+  padding: 1px;
+  margin-top: 65px;
+  margin-bottom: 165px;
+  padding-bottom: 150px;
+  margin-left: 100px;
+  margin-right: 100px;
+  padding-bottom: 500px;
+  height: 120%;
+  align-items: center;
+  background-color: rgb(5, 19, 65);
+  justify-content: space-between;
 }
-.addInvButt{
-	width: 17%;
-    height: 3em;
-    background-image: linear-gradient(to top left,rgb(38, 0, 153), rgb(71, 52, 145));
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.5s;
-    border-radius: 0.25em;
-	cursor: pointer;
-	text-decoration:  none;
+.addInvButt {
+  width: 17%;
+  height: 3em;
+  background-image: linear-gradient(
+    to top left,
+    rgb(38, 0, 153),
+    rgb(71, 52, 145)
+  );
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  border-radius: 0.25em;
+  cursor: pointer;
+  text-decoration: none;
 }
-.seeAll{
-	width: 10%;
-	height: 3em;
-	background-image: linear-gradient(to top left,rgb(38, 0, 153), rgb(71, 52, 145));
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.5s;
-    border-radius: 0.25em;
-	cursor: pointer;
+.seeAll {
+  width: 10%;
+  height: 3em;
+  background-image: linear-gradient(
+    to top left,
+    rgb(38, 0, 153),
+    rgb(71, 52, 145)
+  );
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  border-radius: 0.25em;
+  cursor: pointer;
 }
 
 .seeAll:hover {
-	box-shadow: 0px 0px 0.5px 1px white;	
+  box-shadow: 0px 0px 0.5px 1px white;
 }
-.addInvButt:hover{
-	box-shadow: 0px 0px 0.5px 1px white;
-		
-
+.addInvButt:hover {
+  box-shadow: 0px 0px 0.5px 1px white;
 }
-.rotateObj{
-	margin-left:180px;
-	margin-right:180px ;
-	height: 200px;
-	display: flex;
-	align-items: center;
-	background-color: rgb(5, 19, 65);
-	justify-content: space-between;
-	padding-bottom:80px;
-
+.rotateObj {
+  margin-left: 180px;
+  margin-right: 180px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  background-color: rgb(5, 19, 65);
+  justify-content: space-between;
+  padding-bottom: 80px;
 }
 
 .spefic:hover {
-	transform: scale(1.1);
-	transition: all 0.5s ease-in-out;
+  transform: scale(1.1);
+  transition: all 0.5s ease-in-out;
 }
 
-.buttonSec{
-	display: flex;
-    flex-direction: column;
-    align-items: center;
-	justify-content: space-around;
-	padding-bottom: 15px;
-	background-color: rgb(5, 19, 65);
+.buttonSec {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding-bottom: 15px;
+  background-color: rgb(5, 19, 65);
 }
 
-.leftArrow{
-	height:100px;
-	width:100px;
-	margin:30px;
-	border-radius: 200px;
-	
+.leftArrow {
+  height: 100px;
+  width: 100px;
+  margin: 30px;
+  border-radius: 200px;
 }
-.leftArrow:hover{
-	box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
-	box-shadow: 0 0 0 2px white;
-	filter: brightness(120%);
+.leftArrow:hover {
+  box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0 2px white;
+  filter: brightness(120%);
 }
-.rightArrow{
-	height:100px;
-	width:100px;
-	transform:scaleX(-1);
-	margin:30px;
-	border-radius: 200px;
+.rightArrow {
+  height: 100px;
+  width: 100px;
+  transform: scaleX(-1);
+  margin: 30px;
+  border-radius: 200px;
 }
-.rightArrow:hover{
-	box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
-	box-shadow: 0 0 0 2px white;
-	filter: brightness(120%);
+.rightArrow:hover {
+  box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0 2px white;
+  filter: brightness(120%);
 }

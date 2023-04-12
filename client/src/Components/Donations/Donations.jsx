@@ -1,7 +1,8 @@
 import React from 'react'
 import "./Donate.css";
 import MapComponent from "./Map.js"
-import shelterItem from "./shelterListItem.js";
+import ShelterListItem from "./shelterListItem.js";
+import FoodDonate from "./FoodDonate.js";
 import testDonateData from './testDonateData';
 const Donations = () => {
 
@@ -9,45 +10,55 @@ const Donations = () => {
 
     
   return (
-    <div>
+    <div className="DonPage">
       <h1 class="title">
             Donations
       </h1>
-      <div className="leftColumn">
-        <div className="DonTitle">
-            Communities in Need
-        </div> 
-        <div className="underline">
-        </div>
-        <div className="listed">
-          {testDonateData.map(shelter => (
-                <shelterItem
-                  key={shelter.name}
-                  name={shelter.name}
-                  numberTimesDonated={shelter.numberTimesDonated}
+      <div className="topSection">
+        <div className="leftColumn">
+          <div className="DonTitle">
+              Communities in Need
+          </div> 
+          <div className="underline">
+          </div>
+          <div className="listed">
+            {testDonateData.map(shelter => (
+                  <ShelterListItem
+                    key={shelter.name}
+                    name={shelter.name}
+                    numberTimesDonated={shelter.numberTimesDonated}
 
-                />
-              ))}
+                  />
+                ))}
         </div>
-        <div className="listed">
-          {testDonateData.map(shelter => (
-                <shelterItem
-                  key={shelter.name}
-                  name={shelter.name}
-                  numberTimesDonated={shelter.numberTimesDonated}
-
-                />
-              ))}
+        <div className="rightFood">
+          <div className="DonTitle">
+              Food To Expire
+          </div> 
+          <div className="underline">
+          </div>
+            <FoodDonate className="toBeDonate"
+                name={"Flour"}
+                amount={"10"}
+                units={"lbs"}>
+            </FoodDonate>
+            <FoodDonate className="toBeDonate"
+                name={"Sugar"}
+                amount={"2"}
+                units={"lbs"}>
+            </FoodDonate>
+            <FoodDonate className="toBeDonate"
+                name={"Baking Soda"}
+                amount={"1"}
+                units={"lbs"}>
+            </FoodDonate>
         </div>
-          
-        </div>
+    </div>  
+  </div>
       <div className="mapzone">
         <MapComponent></MapComponent>
       </div>
-   
-     
-      
-
+      <div className="filler"></div>
     </div>
   )
 }

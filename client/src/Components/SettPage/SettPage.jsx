@@ -1,13 +1,11 @@
-import React from 'react'
-
+import React from "react";
+import './SettPage.css'
 const SettingPage = () => {
   return (
-    <div>
-    <h1 class="title">
-					Settings
-		</h1>
+    <div className="SettingsPage">
+      <h1 class="title">Settings</h1>
     </div>
-  )
-}
+  );
+};
 
-export default SettingPage
+export default SettingPage;

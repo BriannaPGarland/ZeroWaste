@@ -8,18 +8,25 @@ import { AuthorizeContext } from "../../Authorization/Authorize";
 import testData from "./testData";
 
 import { auth } from "../../Authorization/FirebaseConfig";
+import Landing from "../LandingPage/LandingPage";
+import jwt from "jwt-decode";
 const Home = () => {
-  const { user, setUser } = useContext(AuthorizeContext);
+  const { user } = useContext(AuthorizeContext);
 
   useEffect(() => {
+    // alert(localStorage.getItem("user"));
     auth.onAuthStateChanged((user) => {
       if (user) {
         // User is signed in.
+        // alert('User is signed in:'+ user)
         console.log("User is signed in:", user);
+        //   const user = jwt(); // decode your token here
+        localStorage.setItem("user", user.uid);
       } else {
         // No user is signed in.
+        //alert('No user is signed in.')
         console.log("No user is signed in.");
-        window.location.href = "/login";
+        // window.location.href = '/login';
       }
     });
   }, []); // empty dependency array to run only once on mount
@@ -54,17 +61,20 @@ const Home = () => {
     // window.location.href = '/';
     // Navigate("/")
   };
-
+  if (!user) {
+    return <Landing />;
+  }
   return (
-    <div className="HomePage">
+    <div>
+      <button onClick={SignOutButton}>Logout</button>
       <section class="section">
         <div class="box-main">
-          <div class="firstHalf">
-            <h1 class="title">Applebees</h1>
-          </div>
           {/* <div class="firstHalf">
-            <h1 class="title">{user.email}</h1>
+            <h1 class="title">Applebees</h1>
           </div> */}
+          <div class="firstHalf">
+            <h1 class="title">{user.email}</h1>
+          </div>
         </div>
       </section>
       <section>
@@ -83,7 +93,7 @@ const Home = () => {
               type="text"
               placeholder="Search ..."
             ></input>
-            <img className="searIcon" src={searchIcon}></img>
+            <img className="searIcon" alt="" src={searchIcon}></img>
           </div>
         </div>
       </section>

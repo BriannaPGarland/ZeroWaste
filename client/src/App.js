@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import {
   Navbar,
@@ -11,16 +11,48 @@ import {
   AddInv,
   Landing,
 } from "./Components";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import { AuthorizeProvider } from "./Authorization/Authorize";
 import SettingPage from "./Components/SettPage/SettPage";
 import AccountPage from "./Components/AccountPage/AccountPage";
 import AddRecipe from "./Components/Recipies/AddRecipe";
 
 const App = () => {
+  const [loginToken, setLoginToken] = useState(null);
+
+  const getToken = () => {
+    const tokenString = localStorage.getItem("user");
+    const userToken = JSON.parse(tokenString);
+    return userToken;
+  };
+
+  useEffect(() => {
+    setLoginToken(getToken());
+  }, []);
+
+  // if (!loginToken) {
+  //   return (
+  //     <div>
+
+  //       <Landing />
+  //     </div>
+  //   );
+  // }
+
+  const checkToken = () => {
+    if (!getToken()) {
+      setLoginToken(null);
+    }
+  };
+
   return (
     <AuthorizeProvider>
-      <div className="app">
+      <div
+        className="app"
+        // onClick={() => {
+        //   checkToken();
+        // }}
+      >
         <div className="navbar">
           <Navbar />
         </div>

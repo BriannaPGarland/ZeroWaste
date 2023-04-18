@@ -3,10 +3,30 @@
     height:1400px;
 }
 .Content{
+    position:absolute;
+    justify-content: center;
+    margin:auto;
+    width:75%
+}
+.accItem{
     background-color: rgb(5, 19, 65);
     color:white;
-    padding: 50px;
+    padding: 53px;    
 }
-*{
 
+.accIN{
+    background-color:white;
+    margin: 40px;
+    padding:10px;
+    color:grey
+}
+.leftAcc{
+    position:relative;
+    float:left;
+    padding-left:500px;
+}
+.rightAcc{
+    position: relative;
+    float:right;
+    display:grid;
 }

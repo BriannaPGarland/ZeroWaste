@@ -42,13 +42,13 @@ const AddRecipe = () => {
 
   return (
     <div className="addInvPage">
-      <div className="title">Add Recipe</div>
+      <div className="Rectitle">Add Recipe</div>
 
 
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          className="invInput"
+          className="recTitle"
           placeholder="Name of Recipe"
           value={name}
           onChange={(event) => setName(event.target.value)}
@@ -59,14 +59,14 @@ const AddRecipe = () => {
           <div key={index}>
             <input
               type="text"
-              className="invInput"
+              className="recInput"
               placeholder="Ingredient Name"
               value={ingredient.name}
               onChange={(event) => handleIngredientChange(event, index, "name")}
             />
             <input
               type="text"
-              className="invInput"
+              className="recInput"
               placeholder="Number of Units"
               value={ingredient.numberOfUnits}
               onChange={(event) =>
@@ -75,14 +75,14 @@ const AddRecipe = () => {
             />
           </div>
         ))}
-
+        <button className="NewIngriedient" onClick={handleAddIngredient}>
+           Add New Ingredient
+        </button>
         <button className="SaveRecipe" type="submit">
           Save Recipe
         </button>
       </form>
-      <button className="NewIngredient" onClick={handleAddIngredient}>
-        Add New Ingredient
-      </button>
+      
     </div>
   );
 };

@@ -3,21 +3,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
 }
 
 .invInput {
   background-color: white;
   height: 50px;
-  width: 40%;
   border-radius: 12px;
   padding-left: 8px;
   margin: 15px;
 }
 .saveInvButt {
-  width: 10%;
+  width:150px;
   height: 3em;
-  background-color: rgb(71, 52, 145);
   color: white;
   display: flex;
   justify-content: center;
@@ -25,6 +22,26 @@
   transition: 0.5s;
   border-radius: 0.25em;
   cursor: pointer;
-  background: rgb(71, 52, 145);
   margin: 35px;
+  background-image: linear-gradient(
+    to top left,
+    rgb(38, 0, 153),
+    rgb(71, 52, 145)
+  );
+  margin-left:370px;
+
+}
+.cancelInvButt{
+  background-image: linear-gradient(
+    to top left,
+    rgb(40, 55, 139),
+    rgb(98, 142, 209)
+  );
+  color:white;
+  padding:20px;
+  transition: 0.5s;
+  border-radius: 0.25em;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left:390px;
 }

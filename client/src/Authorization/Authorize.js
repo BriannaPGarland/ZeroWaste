@@ -9,7 +9,7 @@ const AuthorizeProvider = (props) => {
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
-      console.log("onAuthStateChanged", user);
+      //console.log("onAuthStateChanged", user);
       setUser(user);
       let data3 = {
         userdata: user,

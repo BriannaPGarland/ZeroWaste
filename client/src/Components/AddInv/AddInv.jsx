@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./AddInv.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { auth } from "../../Authorization/FirebaseConfig";
 
 const AddInv = () => {
   const [name, setName] = useState("");
@@ -11,10 +12,20 @@ const AddInv = () => {
     event.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:3001/inventory", {
-        name,
-        quantity,
-      });
+      const token = await auth.currentUser.getIdToken(); 
+      const response = await axios.post(
+        "http://localhost:3001/inventory",
+        {
+          name,
+          quantity,
+          uid: auth.currentUser.uid,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, 
+          },
+        }
+      );
       console.log("Item saved successfully!", response.data);
     } catch (error) {
       console.error("Error saving item:", error);

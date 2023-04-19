@@ -9,6 +9,10 @@ const inventorySchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  uid: {
+    type: String,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model("Inventory", inventorySchema, "Inventory");

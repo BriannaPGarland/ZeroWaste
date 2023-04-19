@@ -4,7 +4,18 @@ const Inventory = require("../data/inventory");
 
 router.get("/", async (req, res) => {
   try {
-    const inventory = await Inventory.find();
+    const uid = req.query.uid;
+    const inventory = await Inventory.find({});
+    res.json(inventory);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
+
+router.get("/:uid", async (req, res) => {
+  try {
+    const uid = req.params.uid;
+    const inventory = await Inventory.find({ uid });
     res.json(inventory);
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -15,6 +26,7 @@ router.post("/", async (req, res) => {
   const inventory = new Inventory({
     name: req.body.name,
     quantity: req.body.quantity,
+    uid: req.body.uid,
   });
 
   try {

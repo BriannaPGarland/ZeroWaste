@@ -32,7 +32,7 @@ const AddRecipe = () => {
     };
 
     try {
-      await axios.post("http://localhost:3001/recipes", data);
+      await axios.post("http://localhost:3001/recipe", data);
       console.log("Recipe added successfully!");
     } catch (error) {
       console.log(error);

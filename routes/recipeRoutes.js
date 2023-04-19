@@ -12,15 +12,16 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/:uid", async (req, res) => {
   try {
-    const recipe = await Recipe.findById(req.params.id);
+    const uid = req.params.uid;
+    const recipes = await Recipe.find({ uid });
 
-    if (!recipe) {
-      return res.status(404).json({ message: "Recipe not found" });
+    if (!recipes || recipes.length === 0) {
+      return res.status(404).json({ message: "Recipes not found" });
     }
 
-    res.json(recipe);
+    res.json(recipes);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error" });
@@ -29,8 +30,8 @@ router.get("/:id", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
-    const { name, ingredients } = req.body;
-    const newRecipe = new Recipe({ name, ingredients });
+    const { name, ingredients, uid } = req.body;
+    const newRecipe = new Recipe({ name, ingredients, uid });
     const savedRecipe = await newRecipe.save();
     res.status(201).json(savedRecipe);
   } catch (error) {

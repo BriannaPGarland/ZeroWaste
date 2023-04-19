@@ -20,6 +20,10 @@ const recipeSchema = new mongoose.Schema({
     type: [ingredientSchema],
     required: true,
   },
+  uid: {
+    type: String,
+    required: true,
+  },
 });
 
 module.exports = mongoose.model("Recipe", recipeSchema, "Allrecipes");

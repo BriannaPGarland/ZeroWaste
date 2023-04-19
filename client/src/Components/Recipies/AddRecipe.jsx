@@ -1,19 +1,22 @@
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Recipies.css";
-import { Link } from "react-router-dom";
-import Ingriedient from "./Ingriedient.jsx";
 import axios from "axios";
-
-
+import { auth } from "../../Authorization/FirebaseConfig";
 
 const AddRecipe = () => {
   const [name, setName] = useState("");
   const [ingredients, setIngredients] = useState([]);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setUser(user);
+    });
+    return () => unsubscribe();
+  }, []);
 
   const handleAddIngredient = () => {
     setIngredients([...ingredients, { name: "", numberOfUnits: "" }]);
-    console.log("Handle Add Ingridient clicked");
   };
 
   const handleIngredientChange = (event, index, field) => {
@@ -24,11 +27,16 @@ const AddRecipe = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("Handle Add Recipe clicked");
+
+    if (!user) {
+      console.log("User not authenticated!");
+      return;
+    }
 
     const data = {
       name: name,
       ingredients: ingredients.filter((ingredient) => ingredient.name !== ""),
+      uid: user.uid,
     };
 
     try {
@@ -37,13 +45,13 @@ const AddRecipe = () => {
     } catch (error) {
       console.log(error);
     }
+
     console.log(data);
   };
 
   return (
     <div className="addInvPage">
       <div className="Rectitle">Add Recipe</div>
-
 
       <form onSubmit={handleSubmit}>
         <input
@@ -75,14 +83,16 @@ const AddRecipe = () => {
             />
           </div>
         ))}
-        <button className="NewIngriedient" onClick={handleAddIngredient}>
-           Add New Ingredient
-        </button>
+
         <button className="SaveRecipe" type="submit">
           Save Recipe
         </button>
       </form>
-      
+      {/* Please keep this outside the form @Bri. I couldnt figure out a right place to keep this button. U had fixed this. 
+      Pls fix it again */}
+      <button className="NewIngriedient" onClick={handleAddIngredient}>
+        Add New Ingredient
+      </button>
     </div>
   );
 };

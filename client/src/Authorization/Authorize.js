@@ -6,46 +6,28 @@ const AuthorizeContext = React.createContext();
 
 const AuthorizeProvider = (props) => {
   const [user, setUser] = useState(null);
+  const [isNewUser, setIsNewUser] = useState(true);
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
-      //console.log("onAuthStateChanged", user);
       setUser(user);
-      let data3 = {
-        userdata: user,
-      };
-      localStorage.setItem(
-        process.env.REACT_APP_LOCALHOST_KEY,
-        JSON.stringify(data3)
-      );
 
-      if (user) {
+      if (user && isNewUser) {
         axios
-          .get(`http://localhost:3001/user/${user.uid}`)
+          .post("http://localhost:3001/user", {
+            email: user.email,
+            uid: user.uid,
+          })
           .then((response) => {
-            if (!response.data) {
-              axios
-                .post("http://localhost:3001/user", {
-                  //username: user.displayName,
-                  email: user.email,
-                  uid: user.uid,
-                })
-                .then((response) => {
-                  console.log("User data saved to MongoDB:", response.data);
-                })
-                .catch((error) => {
-                  console.error("Error saving user data to MongoDB:", error);
-                });
-            } else {
-              console.log("User already exists in MongoDB");
-            }
+            console.log("User data saved to MongoDB:", response.data);
+            setIsNewUser(false);
           })
           .catch((error) => {
-            console.error("Error checking user data in MongoDB:", error);
+            console.error("Error saving user data to MongoDB:", error);
           });
       }
     });
-  }, []);
+  }, [isNewUser]);
 
   return (
     <AuthorizeContext.Provider value={{ user, setUser }}>

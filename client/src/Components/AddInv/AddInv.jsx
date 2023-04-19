@@ -1,38 +1,35 @@
 import React, { useState } from "react";
 import "./AddInv.css";
 import { Link } from "react-router-dom";
-import mongoose from "mongoose";
-
-const invSchema = new mongoose.Schema({
-  name: String,
-  units: String,
-  numberOfUnits: Number,
-});
-
-const InvItem = mongoose.model("InvItem", invSchema);
+import axios from "axios";
+import { auth } from "../../Authorization/FirebaseConfig";
 
 const AddInv = () => {
   const [name, setName] = useState("");
-  const [units, setUnits] = useState("");
-  const [numberOfUnits, setNumberOfUnits] = useState(0);
+  const [quantity, setQuantity] = useState("");
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const newItem = new InvItem({
-      name: name,
-      units: units,
-      numberOfUnits: numberOfUnits,
-    });
-
-    newItem
-      .save()
-      .then(() => {
-        console.log("Item saved successfully!");
-      })
-      .catch((error) => {
-        console.error("Error saving item:", error);
-      });
+    try {
+      const token = await auth.currentUser.getIdToken(); 
+      const response = await axios.post(
+        "http://localhost:3001/inventory",
+        {
+          name,
+          quantity,
+          uid: auth.currentUser.uid,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, 
+          },
+        }
+      );
+      console.log("Item saved successfully!", response.data);
+    } catch (error) {
+      console.error("Error saving item:", error);
+    }
   };
 
   return (
@@ -48,18 +45,11 @@ const AddInv = () => {
           onChange={(event) => setName(event.target.value)}
         />
         <input
-          type="text"
+          type="number"
           className="invInput"
-          placeholder="Units"
-          value={units}
-          onChange={(event) => setUnits(event.target.value)}
-        />
-        <input
-          type="text"
-          className="invInput"
-          placeholder="Number of Units"
-          value={numberOfUnits}
-          onChange={(event) => setNumberOfUnits(event.target.value)}
+          placeholder="Quantity"
+          value={quantity}
+          onChange={(event) => setQuantity(event.target.value)}
         />
 
         <button type="submit" className="saveInvButt">

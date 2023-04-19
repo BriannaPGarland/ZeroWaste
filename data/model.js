@@ -1,8 +1,6 @@
 const mongoose = require("mongoose");
-
 const { Schema } = mongoose;
 const ObjectId = Schema.Types.ObjectId;
-
 
 const testOwnerSchema = new Schema({
   _id: ObjectId,
@@ -99,27 +97,3 @@ const restaurantSchema = new Schema({
   total_donations: Number,
   is_food_claimed: Boolean,
 });
-
-const ingredientSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  numberOfUnits: {
-    type: Number,
-    required: true,
-  },
-});
-
-const recipeSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  ingredients: {
-    type: [ingredientSchema],
-    required: true,
-  },
-});
-
-module.exports = mongoose.model("Recipe", recipeSchema, "Allrecipes");

@@ -1,36 +1,45 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Recipies.css";
 import { Link } from "react-router-dom";
 import RecipeItem from "./RecipeItem.jsx";
-
-import testRecipeData from "./testRecipeData";
+import { auth } from "../../Authorization/FirebaseConfig";
+import axios from "axios";
 
 const Recipies = () => {
+  const [recipes, setRecipes] = useState([]);
+  const [currentUserUid, setCurrentUserUid] = useState("");
+
+  useEffect(() => {
+    const currentUser = auth.currentUser;
+    if (currentUser) {
+      const uid = currentUser.uid;
+      setCurrentUserUid(uid);
+
+      axios
+        .get(`http://localhost:3001/recipe/${uid}`)
+        .then((res) => {
+          setRecipes(res.data);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
+  }, []);
+
   return (
     <div className="recipePage">
-      <h1 class="title">Recipies</h1>
+      <h1 className="title">Recipes</h1>
       <div className="buttonSec">
         <Link className="AddNewButt" to="/AddRecipe">
           Add New
         </Link>
         <div className="ListRecipes">
           <div className="Reccolumns">
-            {testRecipeData.map((recipe) => (
+            {recipes.map((recipe) => (
               <RecipeItem
-                key={recipe.name}
+                key={recipe._id}
                 name={recipe.name}
-                exp={recipe.ingridients}
-                amount={recipe.amount}
-              />
-            ))}
-          </div>
-          <div className="Reccolumns">
-            {testRecipeData.map((recipe) => (
-              <RecipeItem
-                key={recipe.name}
-                name={recipe.name}
-                exp={recipe.ingridients}
-                amount={recipe.amount}
+                ingredients={recipe.ingredients}
               />
             ))}
           </div>

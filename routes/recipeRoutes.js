@@ -1,39 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const Recipe = require("../data/model");
+const Recipe = require("../data/recipe");
 
-router.get("/", (req, res) => {
-  res.send("Server is running!");
-});
-
-router.post("/post", async (req, res) => {
-  const data = new Model({
-    recipe: req.body.recipe,
-    ingridients: req.body.ingridients,
-  });
-});
-
-router.get("/", (req, res) => {
-  res.send("Get Request is running!");
-});
-
-router.get("/inventory", (req, res) => {
-  res.send("Inventory Routes Working!");
-});
-
-router.post("/", (req, res) => {
-  res.send("Recipe Post Request is running!");
-});
-
-router.get("/recipe", (req, res) => {
-  res.send("Recipe GET Request is running!");
-});
-
-router.post("/recipe", (req, res) => {
-  res.send("Recipe POST Request is running!");
-});
-
-router.get("/recipes", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const recipes = await Recipe.find();
     res.status(200).json(recipes);
@@ -43,7 +12,7 @@ router.get("/recipes", async (req, res) => {
   }
 });
 
-router.get("/recipes/:id", async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
     const recipe = await Recipe.findById(req.params.id);
 
@@ -58,21 +27,19 @@ router.get("/recipes/:id", async (req, res) => {
   }
 });
 
-router.post("/recipes", async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const { name, ingredients } = req.body;
-    //console.log({ name, ingredients });
     const newRecipe = new Recipe({ name, ingredients });
     const savedRecipe = await newRecipe.save();
     res.status(201).json(savedRecipe);
-    //console.log(req);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error" });
   }
 });
 
-router.delete("/recipes/:id", async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     const recipe = await Recipe.findByIdAndDelete(req.params.id);
     if (!recipe) {
@@ -84,10 +51,5 @@ router.delete("/recipes/:id", async (req, res) => {
     res.status(500).json({ error: "Server error" });
   }
 });
-
-//Error Handling To Be Implememted
-// router.use((req, res) => {
-//   res.status(404).send("No Route Found");
-// });
 
 module.exports = router;

@@ -13,7 +13,7 @@ async function Helper(operation,object){ //Master CRUD Handler
     // else{
     //     chosenCollection = "Restaurants"
     // }
-	chosenCollection = "Testing"
+	chosenCollection = "Restaurants"
     if (operation == "Insert")
         await db.collection(chosenCollection).insertOne(object)
     else if (operation == "Update")
@@ -107,6 +107,8 @@ async function insertIngredients(object,newIngredient){
     if (!Array.isArray(Ingredients)|| typeof(newIngredient) != "object"){
         return "Restaurant does not exist"
     }
+    let ingredients_lib = require("./ingredientslib")
+    newIngredient.expire_date = ingredients_lib.createNewExpiringDate(newIngredient)
     Ingredients.push(newIngredient)
     let newObj = {"_id": object._id, "updated": {"ingredients":Ingredients}}
     return updateRestaurant(newObj)
@@ -156,6 +158,7 @@ async function updateExpiringIngredients(object){
     return updateRestaurant(newObj)
 
 }
+//add something to remove expiring ingredients/ingredients expiring soon
 
 
 module.exports ={ //acount for null values after testing

@@ -1,33 +1,43 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Home.css";
 import searchIcon from "./search.PNG";
 import FoodCard from "./FoodCard.jsx";
 import { Link } from "react-router-dom";
 import RotObj from "./RotateObject.jsx";
 import { AuthorizeContext } from "../../Authorization/Authorize";
-import testData from "./testData";
-
+import axios from "axios";
 import { auth } from "../../Authorization/FirebaseConfig";
+
 const Home = () => {
   const { user, setUser } = useContext(AuthorizeContext);
+  const [inventory, setInventory] = useState([]);
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
-        // User is signed in.
-        console.log("User is signed in:", user);
+        //console.log("User is signed in:", user);
       } else {
-        // No user is signed in.
-        console.log("No user is signed in.");
+        //console.log("No user is signed in.");
         window.location.href = "/login";
       }
     });
-  }, []); // empty dependency array to run only once on mount
+  }, []);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3001/inventory")
+      .then((response) => {
+        console.log(response.data);
+        setInventory(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching inventory:", error);
+      });
+  }, []);
 
   const handleClickScroll = () => {
     const element = document.getElementById("inv");
     if (element) {
-      // 👇 Will scroll smoothly to the top of the next section
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
@@ -36,35 +46,21 @@ const Home = () => {
     auth
       .signOut()
       .then(() => {
-        // Sign-out successful.
         console.log("User signed out successfully.");
         window.location.href = "/";
       })
       .catch((error) => {
-        // window.location.href = '/';
-        // An error happened.
         console.log("Error signing out:", error);
       });
-
-    // alert(window.localStorage.getItem('loginKey'));
-    // setUser(null)
-    //   window.localStorage.removeItem('loginKey');
-    //   if(window.localStorage.getItem('loginKey')== null || window.localStorage.getItem('loginKey')==""){
-    //     window.location.href = '/';}
-    // window.location.href = '/';
-    // Navigate("/")
   };
 
   return (
     <div className="HomePage">
-      <section class="section">
-        <div class="box-main">
-          <div class="firstHalf">
-            <h1 class="title">Applebees</h1>
+      <section className="section">
+        <div className="box-main">
+          <div className="firstHalf">
+            <h1 className="title">Applebees</h1>
           </div>
-          {/* <div class="firstHalf">
-            <h1 class="title">{user.email}</h1>
-          </div> */}
         </div>
       </section>
       <section>
@@ -75,7 +71,7 @@ const Home = () => {
           See All
         </button>
       </div>
-      <section class="section">
+      <section className="section">
         <div>
           <div className="searchSection">
             <input
@@ -96,14 +92,13 @@ const Home = () => {
         </Link>
       </div>
 
-      <section class="inventoryDisp">
-        {testData.map((ingredient) => (
+      <section className="inventoryDisp">
+        {inventory.map((item) => (
           <FoodCard
-            key={ingredient.name}
-            name={ingredient.name}
-            exp={ingredient.expiration}
-            amount={ingredient.amount}
-            units={ingredient.units}
+            key={item._id}
+            name={item.name}
+            amount={item.quantity}
+            units="lbs"
           />
         ))}
       </section>

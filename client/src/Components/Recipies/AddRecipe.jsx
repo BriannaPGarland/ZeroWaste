@@ -1,19 +1,22 @@
-
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Recipies.css";
-import { Link } from "react-router-dom";
-import Ingriedient from "./Ingriedient.jsx";
 import axios from "axios";
-
-
+import { auth } from "../../Authorization/FirebaseConfig";
 
 const AddRecipe = () => {
   const [name, setName] = useState("");
   const [ingredients, setIngredients] = useState([]);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      setUser(user);
+    });
+    return () => unsubscribe();
+  }, []);
 
   const handleAddIngredient = () => {
     setIngredients([...ingredients, { name: "", numberOfUnits: "" }]);
-    console.log("Handle Add Ingridient clicked");
   };
 
   const handleIngredientChange = (event, index, field) => {
@@ -24,31 +27,36 @@ const AddRecipe = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("Handle Add Recipe clicked");
+
+    if (!user) {
+      console.log("User not authenticated!");
+      return;
+    }
 
     const data = {
       name: name,
       ingredients: ingredients.filter((ingredient) => ingredient.name !== ""),
+      uid: user.uid,
     };
 
     try {
-      await axios.post("http://localhost:3001/recipes", data);
+      await axios.post("http://localhost:3001/recipe", data);
       console.log("Recipe added successfully!");
     } catch (error) {
       console.log(error);
     }
+
     console.log(data);
   };
 
   return (
     <div className="addInvPage">
-      <div className="title">Add Recipe</div>
-
+      <div className="Rectitle">Add Recipe</div>
 
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          className="invInput"
+          className="recTitle"
           placeholder="Name of Recipe"
           value={name}
           onChange={(event) => setName(event.target.value)}
@@ -59,14 +67,14 @@ const AddRecipe = () => {
           <div key={index}>
             <input
               type="text"
-              className="invInput"
+              className="recInput"
               placeholder="Ingredient Name"
               value={ingredient.name}
               onChange={(event) => handleIngredientChange(event, index, "name")}
             />
             <input
               type="text"
-              className="invInput"
+              className="recInput"
               placeholder="Number of Units"
               value={ingredient.numberOfUnits}
               onChange={(event) =>
@@ -80,7 +88,9 @@ const AddRecipe = () => {
           Save Recipe
         </button>
       </form>
-      <button className="NewIngredient" onClick={handleAddIngredient}>
+      {/* Please keep this outside the form @Bri. I couldnt figure out a right place to keep this button. U had fixed this. 
+      Pls fix it again */}
+      <button className="NewIngriedient" onClick={handleAddIngredient}>
         Add New Ingredient
       </button>
     </div>

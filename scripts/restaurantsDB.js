@@ -13,7 +13,7 @@ async function Helper(operation,object){ //Master CRUD Handler
     // else{
     //     chosenCollection = "Restaurants"
     // }
-	chosenCollection = "Testing"
+	chosenCollection = "Restaurants"
     if (operation == "Insert")
         await db.collection(chosenCollection).insertOne(object)
     else if (operation == "Update")

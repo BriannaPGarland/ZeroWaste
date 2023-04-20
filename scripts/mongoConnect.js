@@ -49,6 +49,7 @@ let testDB = async function(){ //Test items to fill database
     
     let Restaurant = {
         "_id": masterObjectId,
+        uid:masterObjectId,
         "owner_id": masterObjectId,
         "contact_info": {"phone": "000-000-0000","email": "test@test.com",},
         "address": {"street": "", "city": "", "state": "", "zip": "", "country":""},
@@ -81,9 +82,9 @@ let testDB = async function(){ //Test items to fill database
     await restaurant_db.insertRestaurant(Restaurant)
     // let result = await restaurant_lib.getExpiringIngredients(Restaurant)
     //let result = await restaurant_lib.getExpiringIngredients(Restaurant)
-    let result = await restaurant_db.updateIngredients({"_id": masterObjectId,"useMockDB":true},updateIngredients )
+    //let result = await restaurant_db.updateIngredients({"_id": masterObjectId,"useMockDB":true},updateIngredients )
     //let result = await restaurant_db.getRestaurant({"_id": masterObjectId, "useMockDB":true})
-    //console.log(result);
+    console.log(result);
    
     //test your expire date function thing but we need to account for storage or it wont work properly
  

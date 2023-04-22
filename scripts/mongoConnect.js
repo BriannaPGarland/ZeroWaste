@@ -77,15 +77,22 @@ let testDB = async function(){ //Test items to fill database
             "recipes": [{"name": "Pizza", "ingredients": [],"daily_produced": 20, "surplus_created": 5}],},
         "useMockDB":true
     }
-    let updateIngredients = {"name": "Tomatoes", "TotalAmount":200, "storage":[{"_id": new ObjectId(), "amount": 10, "expire_date": new Date()},{"_id": new ObjectId(), "amount": 30, "expire_date": "Wed Feb 22 2023 20:18:05 GMT-0500 (Eastern Standard Time)"},{"_id": new ObjectId(), "amount": 30, "expire_date": "Wed Feb 5 2023 20:18:05 GMT-0500 (Eastern Standard Time)"}]}
-    // await users_db.insertUser(testOwner)
+    let updateIngred = {"name": "Tomatoes", "shelf_life_type": "shelf", "TotalAmount":200, "storage":[{"_id": new ObjectId(), "amount": 10, "expire_date": null}]}
+    //await users_db.insertUser(testOwner)
     await restaurant_db.insertRestaurant(Restaurant)
     // let result = await restaurant_lib.getExpiringIngredients(Restaurant)
     //let result = await restaurant_lib.getExpiringIngredients(Restaurant)
-    //let result = await restaurant_db.updateIngredients({"_id": masterObjectId,"useMockDB":true},updateIngredients )
-    //let result = await restaurant_db.getRestaurant({"_id": masterObjectId, "useMockDB":true})
+    await restaurant_db.insertIngredients({"_id": masterObjectId},updateIngred )
+    updateIngred = {"name": "Tomatoes", "shelf_life_type": "freezer", bundle: {_id: masterObjectId, amount: 20, expire_date: null}}
+    let result = await restaurant_db.updateIngredients({"_id": masterObjectId}, updateIngred)
     console.log(result);
-   
+    
+    // updateIngred = {"name": "Tomatoes", "TotalAmount":500, "storage":[{"_id": new ObjectId(), "amount": 10, "expire_date": new Date()},{"_id": new ObjectId(), "amount": 30, "expire_date": "Wed Feb 22 2023 20:18:05 GMT-0500 (Eastern Standard Time)"},{"_id": new ObjectId(), "amount": 30, "expire_date": "Wed Feb 5 2023 20:18:05 GMT-0500 (Eastern Standard Time)"}]}
+    // result = await restaurant_db.updateIngredients(Restaurant, updateIngred)
+    // //let result = await restaurant_db.getRestaurant({"_id": masterObjectId, "useMockDB":true})
+    // console.log(result);q
+    restaurant_db.deleteRestaurant(Restaurant)
+    //users_db.deleteUser(testOwner)
     //test your expire date function thing but we need to account for storage or it wont work properly
  
 }

@@ -100,7 +100,7 @@ async function getExpiringIngredients(RestaurantObj){//Returns everything expiri
 	restaurant_db.updateExpiringIngredients(RestaurantObj)
 	let User = await userDB.getUser({"_id":restaurant.owner_id})
 	notify.sendNotification("Expired Ingredients",User)
-    //return [expiring_soon,expired] //returns array of items expiring in 72 hours, and already expired
+    return [expiring_soon,expired] //returns array of items expiring in 72 hours, and already expired
 }
 
 async function checkIngredientsThreshold(RestaurantObj) {

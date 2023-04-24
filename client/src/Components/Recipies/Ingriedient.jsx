@@ -12,12 +12,12 @@ class Ingriedient extends Component {
           <div className="amountButtons">
             <div className="pencil">
               <Link className="rec" to="/Home">
-                <img className="editButt" src="pencil.png" />
+                <img className="editButt" src="pencil.png" alt="" />
               </Link>
             </div>
             <div className="trash">
               <Link className="rec" to="/Home">
-                <img className="trashButt" src="trash.png" />
+                <img className="trashButt" src="trash.png" alt=""/>
               </Link>
             </div>
           </div>

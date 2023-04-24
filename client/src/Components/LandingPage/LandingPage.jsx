@@ -7,6 +7,9 @@ import CarouselComponent from "./CarouselComponent";
 const Landing = () => {
   return (
     <div className="landing">
+    <div>
+        < CarouselComponent/>
+      </div>
       <div className="landing-content">
         <h1 className="Landtitle">Welcome!</h1>
         <p className="Landtxt">to</p>
@@ -19,13 +22,8 @@ const Landing = () => {
             Login
           </Link>
         </div>
-
-        <div className="carCon" style={{ height: "10em" }}>
-          <CarouselComponent classNmae="carouselTest" />
-          <div className="carBlock"></div>
         </div>
       </div>
-    </div>
   );
 };
 

@@ -1,22 +1,40 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-//import { useHistory } from 'react-router-dom';
 import "./Navbar.css";
 import profIcon from "./Icon.png";
-import { AuthorizeContext } from "../../Authorization/Authorize";
+import { auth } from "../../Authorization/FirebaseConfig";
+
 const Navbar = () => {
-  const { setUser } = useContext(AuthorizeContext);
+  // const { setUser } = useContext(AuthorizeContext);
+  
   const SignOutButton = () => {
-    // alert(window.localStorage.getItem('user'));
-    window.localStorage.removeItem("user");
-    setUser(null);
-    if (
-      window.localStorage.getItem("user") == null ||
-      window.localStorage.getItem("user") == ""
-    ) {
-      window.location.href = "/";
-    }
-  };
+    auth.signOut()
+    .then(() => {
+      // Sign-out successful.
+      localStorage.setItem('user', null);
+      console.log('User signed out successfully.');
+      window.location.href = '/';
+      
+    })
+    .catch((error) => {
+     // window.location.href = '/';
+      // An error happened.
+      console.log('Error signing out:', error);
+    });
+
+  }
+  
+  // const SignOutButton = () => {
+  //   // alert(window.localStorage.getItem('user'));
+  //   window.localStorage.removeItem("user");
+  //   setUser(null);
+  //   if (
+  //     window.localStorage.getItem("user") == null ||
+  //     window.localStorage.getItem("user") === ""
+  //   ) {
+  //     window.location.href = "/";
+  //   }
+  // };
 
   return (
     <div>
@@ -54,7 +72,8 @@ const Navbar = () => {
               {" "}
               <Link to="/Settings">Settings</Link>
             </a>
-            <a onClick={SignOutButton}> Sign Out</a>
+            <button onClick={SignOutButton}> Sign Out</button>
+            {/* <a onClick={SignOutButton}> Sign Out</a> */}
           </div>
         </div>
       </nav>

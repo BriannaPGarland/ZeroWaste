@@ -1,19 +1,47 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./Recipies.css";
 import axios from "axios";
 import { auth } from "../../Authorization/FirebaseConfig";
+import { AuthorizeContext } from "../../Authorization/Authorize";
+import Landing from "../LandingPage/LandingPage";
 
 const AddRecipe = () => {
   const [name, setName] = useState("");
   const [ingredients, setIngredients] = useState([]);
-  const [user, setUser] = useState(null);
+  // const [ setUser] = useState(null);
+
+  const { user } = useContext(AuthorizeContext);
+
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      setUser(user);
+    // alert(localStorage.getItem("user"));
+    auth.onAuthStateChanged((user) => {
+     
+      if (user) {
+        // User is signed in.
+       // alert('User is signed in:'+ user)
+        console.log('User is signed in:', user);
+      //   const user = jwt(); // decode your token here
+       localStorage.setItem('user', user.uid);
+      } else {
+        // No user is signed in.
+        //alert('No user is signed in.')
+        console.log('No user is signed in.');
+       // window.location.href = '/login';
+      }
     });
-    return () => unsubscribe();
   }, []);
+
+  if (!user) {
+    return <Landing />;
+  }
+
+  // useEffect(() => {
+  //   const unsubscribe = auth.onAuthStateChanged((user) => {
+  //     setUser(user);
+  //   });
+  //   return () => unsubscribe();
+  // }, []);
 
   const handleAddIngredient = () => {
     setIngredients([...ingredients, { name: "", numberOfUnits: "" }]);

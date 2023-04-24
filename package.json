@@ -32,10 +32,10 @@
 
     "mongoose": "^7.0.3",
     "nodemon": "^2.0.22",
-    "notificationapi-node-server-sdk": "^0.17.1"
+    "notificationapi-node-server-sdk": "^0.17.1",
 
     "mongo": "^0.1.0",
-    "mongodb": "^5.2.0",
+    "mongodb": "^5.2.0"
 
 
 

@@ -7,6 +7,7 @@ import { auth } from "../../Authorization/FirebaseConfig";
 const AddInv = () => {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState("");
+  const [date, setDate] = useState("");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -18,6 +19,7 @@ const AddInv = () => {
         {
           name,
           quantity,
+          date,
           uid: auth.currentUser.uid,
         },
         {
@@ -50,6 +52,13 @@ const AddInv = () => {
           placeholder="Quantity"
           value={quantity}
           onChange={(event) => setQuantity(event.target.value)}
+        />
+        <input
+          type="date"
+          className="invInput"
+          placeholder="Date"
+          value={date}
+          onChange={(event) => setDate(event.target.value)}
         />
 
         <button type="submit" className="saveInvButt">

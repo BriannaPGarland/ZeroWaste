@@ -27,8 +27,9 @@ const Home = () => {
     axios
       .get("http://localhost:3001/inventory")
       .then((response) => {
-        console.log(response.data);
+        console.log(response.data.name);
         setInventory(response.data);
+        //console.log(response.data)
       })
       .catch((error) => {
         console.error("Error fetching inventory:", error);
@@ -93,15 +94,18 @@ const Home = () => {
       </div>
 
       <section className="inventoryDisp">
-        {inventory.map((item) => (
-          <FoodCard
-            key={item._id}
-            name={item.name}
-            amount={item.quantity}
-            units="lbs"
-          />
-        ))}
-      </section>
+
+  {inventory.map((item) => (
+    <FoodCard
+      key={item._id}
+      name={item.name}
+      amount={item.quantity}
+      units="lbs"
+      date={item.date}
+    />
+  ))}
+</section>
+
     </div>
   );
 };

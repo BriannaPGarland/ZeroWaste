@@ -7,21 +7,11 @@ import RotObj from "./RotateObject.jsx";
 import { AuthorizeContext } from "../../Authorization/Authorize";
 import axios from "axios";
 import { auth } from "../../Authorization/FirebaseConfig";
+import Landing from "../LandingPage/LandingPage";
 
 const Home = () => {
   const { user, setUser } = useContext(AuthorizeContext);
   const [inventory, setInventory] = useState([]);
-
-  useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        //console.log("User is signed in:", user);
-      } else {
-        //console.log("No user is signed in.");
-        window.location.href = "/login";
-      }
-    });
-  }, []);
 
   useEffect(() => {
     axios
@@ -42,24 +32,47 @@ const Home = () => {
     }
   };
 
-  const SignOutButton = () => {
-    auth
-      .signOut()
-      .then(() => {
-        console.log("User signed out successfully.");
-        window.location.href = "/";
-      })
-      .catch((error) => {
-        console.log("Error signing out:", error);
-      });
-  };
+  // const SignOutButton = () => {
+  //   auth
+  //     .signOut()
+  //     .then(() => {
+  //       console.log("User signed out successfully.");
+  //       window.location.href = "/";
+  //     })
+  //     .catch((error) => {
+  //       console.log("Error signing out:", error);
+  //     });
+  // };
+
+  useEffect(() => {
+    // alert(localStorage.getItem("user"));
+    auth.onAuthStateChanged((user) => {
+     
+      if (user) {
+        // User is signed in.
+       // alert('User is signed in:'+ user)
+        console.log('User is signed in:', user);
+      //   const user = jwt(); // decode your token here
+       localStorage.setItem('user', user.uid);
+      } else {
+        // No user is signed in.
+        //alert('No user is signed in.')
+        console.log('No user is signed in.');
+       // window.location.href = '/login';
+      }
+    });
+  }, []);
+
+  if (!user) {
+    return <Landing />;
+  }
 
   return (
     <div className="HomePage">
       <section className="section">
         <div className="box-main">
           <div className="firstHalf">
-            <h1 className="title">Applebees</h1>
+            <h1 className="title">{user.email}</h1>
           </div>
         </div>
       </section>
@@ -79,7 +92,7 @@ const Home = () => {
               type="text"
               placeholder="Search ..."
             ></input>
-            <img className="searIcon" src={searchIcon}></img>
+            <img className="searIcon" src={searchIcon} alt=""></img>
           </div>
         </div>
       </section>

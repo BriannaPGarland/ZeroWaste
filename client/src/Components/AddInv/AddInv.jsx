@@ -1,12 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./AddInv.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { AuthorizeContext } from "../../Authorization/Authorize";
 import { auth } from "../../Authorization/FirebaseConfig";
+import Landing from "../LandingPage/LandingPage";
 
 const AddInv = () => {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState("");
+
+  const { user } = useContext(AuthorizeContext);
+
+
+  useEffect(() => {
+    // alert(localStorage.getItem("user"));
+    auth.onAuthStateChanged((user) => {
+     
+      if (user) {
+        // User is signed in.
+       // alert('User is signed in:'+ user)
+        console.log('User is signed in:', user);
+      //   const user = jwt(); // decode your token here
+       localStorage.setItem('user', user.uid);
+      } else {
+        // No user is signed in.
+        //alert('No user is signed in.')
+        console.log('No user is signed in.');
+       // window.location.href = '/login';
+      }
+    });
+  }, []);
+
+  if (!user) {
+    return <Landing />;
+  }
+
 
   const handleSubmit = async (event) => {
     event.preventDefault();

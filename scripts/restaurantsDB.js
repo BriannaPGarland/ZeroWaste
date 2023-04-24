@@ -18,9 +18,10 @@ async function Helper(operation,object){ //Master CRUD Handler
         await db.collection(chosenCollection).insertOne(object)
     else if (operation == "Update")
         await db.collection(chosenCollection).updateOne({"_id": object._id}, {$set: object.updated})
-    else if (operation == "Delete")
+    else if (operation == "Delete"){
         await db.collection(chosenCollection).findOneAndDelete({"_id":object._id}) 
-     
+        return
+    }
     result = await db.collection(chosenCollection).findOne({"_id": object._id}) 
     return result
 }
@@ -70,15 +71,20 @@ async function getRecipes(object){
 }
 
 async function updateIngredients(object, updateIngredient){
+    //updateIngredients = {name: "Apple", bundle: {_id: new ObjectId(), amount: 20, expire_date: null}}
     let Ingredients = await getIngredients(object)
     if (!Array.isArray(Ingredients) || typeof(updateIngredient) != "object"){
         return "Restaurant does not exist"
     }
     //Restaurant Library Methods 
     let  restaurant_lib = require('./restaurantlib')
+    let ingredients_lib = require("./ingredientslib")
+
     for (let i = 0; i < Ingredients.length; i++) {
         if (Ingredients[i].name == updateIngredient.name){
-			Ingredients[i] = updateIngredient
+            Ingredients[i].TotalAmount += updateIngredient.bundle.amount
+            updateIngredient.bundle.expire_date = await ingredients_lib.createNewExpiringDate(updateIngredient)
+			Ingredients[i].storage.push(updateIngredient.bundle)
             Ingredients[i].storage = await restaurant_lib.sortStorageByShelfLife(Ingredients[i].storage)
             break;
         }
@@ -108,7 +114,11 @@ async function insertIngredients(object,newIngredient){
         return "Restaurant does not exist"
     }
     let ingredients_lib = require("./ingredientslib")
-    newIngredient.expire_date = ingredients_lib.createNewExpiringDate(newIngredient)
+    if (newIngredient.storage[0].expire_date === null){
+        if (newIngredient.shelf_life_type === null)
+            newIngredient.shelf_life_type = "shelf"
+        newIngredient.storage[0].expire_date = await ingredients_lib.createNewExpiringDate(newIngredient)
+    }
     Ingredients.push(newIngredient)
     let newObj = {"_id": object._id, "updated": {"ingredients":Ingredients}}
     return updateRestaurant(newObj)

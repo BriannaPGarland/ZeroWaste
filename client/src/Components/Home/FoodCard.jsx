@@ -4,6 +4,7 @@ import React, { Component } from "react";
 
 export default function FoodCard(props) {
   const { name, quantity } = props;
+  console.log(name,quantity)
 
   return (
     <div className="foodcard">

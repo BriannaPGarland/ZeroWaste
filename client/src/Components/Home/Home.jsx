@@ -27,7 +27,7 @@ const Home = () => {
     axios
       .get("http://localhost:3001/inventory")
       .then((response) => {
-        //console.log(response.data);
+        console.log(response.data);
         setInventory(response.data);
       })
       .catch((error) => {

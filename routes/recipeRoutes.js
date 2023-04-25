@@ -15,8 +15,8 @@ router.get("/", async (req, res) => {
 router.get("/:uid", async (req, res) => {
   try {
     const uid = req.params.uid;
-    const recipes = await Recipe.find({ "uid" :  uid });
-console.log("recipes",recipes );
+    const recipes = await Recipe.find({ uid: uid });
+    //console.log("recipes", recipes);
     if (!recipes || recipes.length === 0) {
       return res.status(404).json({ message: "Recipes not found" });
     }
@@ -38,6 +38,23 @@ router.post("/", async (req, res) => {
     console.error(error);
     res.status(500).json({ message: "Server error" });
   }
+});
+router.delete("/:uid/:id", (req, res) => {
+  const uid = req.params.uid;
+  const id = req.params.id;
+
+  Recipe.findOneAndDelete({ _id: id, uid: uid })
+    .then((recipe) => {
+      if (!recipe) {
+        res.status(404).send(`Recipe not found.`);
+      } else {
+        res.status(200).send(`Recipe deleted.`);
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+      res.status(500).send(`Server error.`);
+    });
 });
 
 router.delete("/:id", async (req, res) => {

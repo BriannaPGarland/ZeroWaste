@@ -34,15 +34,19 @@ const Recipies = () => {
     }
   }, []);
 
-  const handleDelete = (uid) => {
+  const handleDelete = (uid, id) => {
     axios
-      .delete(`http://localhost:3001/recipe/${uid}`)
-      .then(() => {
-        const newRecipes = recipes.filter((recipe) => recipe._id !== uid);
-        setRecipes(newRecipes);
+      .delete(`http://localhost:3001/recipe/${uid}/${id}`)
+      .then((response) => {
+        if (response.status === 200) {
+          const newRecipes = recipes.filter((recipe) => recipe._id !== id);
+          setRecipes(newRecipes);
+        } else {
+          console.log("Delete request failed.");
+        }
       })
-      .catch((err) => {
-        console.error(err);
+      .catch((error) => {
+        console.error(error);
       });
   };
 

@@ -15,8 +15,8 @@ router.get("/", async (req, res) => {
 router.get("/:uid", async (req, res) => {
   try {
     const uid = req.params.uid;
-    const recipes = await Recipe.find({ uid: uid });
-    console.log("recipes", recipes);
+    const recipes = await Recipe.find({ "uid" :  uid });
+console.log("recipes",recipes );
     if (!recipes || recipes.length === 0) {
       return res.status(404).json({ message: "Recipes not found" });
     }
@@ -50,23 +50,6 @@ router.delete("/:id", async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: "Server error" });
-  }
-});
-
-router.delete("/:uid/:id", async (req, res) => {
-  try {
-    const id = req.params.id;
-    const uid = req.params.uid;
-
-    const recipe = await Recipe.findOneAndDelete({ _id: id, uid: uid });
-
-    if (!recipe) {
-      return res.status(404).json({ message: "Recipe not found" });
-    }
-
-    res.json({ message: "Recipe deleted successfully" });
-  } catch (err) {
-    res.status(500).json({ message: err.message });
   }
 });
 

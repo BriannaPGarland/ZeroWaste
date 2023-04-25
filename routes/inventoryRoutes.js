@@ -21,6 +21,7 @@ const mongoose = require("mongoose");
 //   }
 // });
 
+
 router.get("/", async (req, res) => {
   try {
     const uid = req.query.uid;
@@ -41,34 +42,17 @@ router.get("/:uid", async (req, res) => {
   }
 });
 
-router.delete("/:uid/:id", async (req, res) => {
+router.delete("/", async (req, res) => {
   try {
-    const id = req.params.id;
-    const uid = req.params.uid;
-
-    const inventory = await Inventory.findOneAndDelete({ _id: id, uid: uid });
-
-    if (!inventory) {
-      return res.status(404).json({ message: "Inventory not found" });
-    }
-
-    res.json({ message: "Inventory deleted successfully" });
+    await Inventory.deleteMany({});
+    res
+      .status(200)
+      .json({ message: "All inventory items deleted successfully" });
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    console.error(err);
+    res.status(500).json({ message: "Server error" });
   }
 });
-
-// router.delete("/", async (req, res) => {
-//   try {
-//     await Inventory.deleteMany({});
-//     res
-//       .status(200)
-//       .json({ message: "All inventory items deleted successfully" });
-//   } catch (err) {
-//     console.error(err);
-//     res.status(500).json({ message: "Server error" });
-//   }
-// });
 
 router.post("/", async (req, res) => {
   const inventory = new Inventory({
@@ -86,6 +70,8 @@ router.post("/", async (req, res) => {
   }
 });
 
+
+
 router.delete("/:id", async (req, res) => {
   try {
     const inventory = await Inventory.deleteOne({ _id: req.params.id });
@@ -95,6 +81,22 @@ router.delete("/:id", async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 });
+
+async function getInventory(req, res, next) {
+  let inventory;
+  try {
+    inventory = await Inventory.findById(req.params.id);
+    if (inventory === null) {
+      return res.status(404).json({ message: "Inventory item not found" });
+    }
+  } catch (err) {
+    return res.status(500).json({ message: err.message });
+  }
+
+  res.inventory = inventory;
+  next();
+}
+
 
 // router.get("/:id", async (req, res) => {
 //   //console.log(req.query)
@@ -106,6 +108,12 @@ router.delete("/:id", async (req, res) => {
 //     res.status(500).json({ message: err.message });
 //   }
 // });
+
+
+
+
+
+
 
 router.get("/:uid/:id", async (req, res) => {
   //console.log(req.query)

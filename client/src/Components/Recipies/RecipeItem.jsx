@@ -1,15 +1,16 @@
 import "./Recipies.css";
-import React from "react";
+
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 export default function RecipeItem(props) {
-  const { name, numberOfUnits, _id, currentUserUid, onDelete } = props;
+  const { name, amount } = props;
 
   return (
     <div className="recipeItem">
       <div className="rectitle">{name}</div>
       <div className="amountbar">
-        <div className="amountvalue">{numberOfUnits} per day</div>
+        <div className="amountvalue">{amount} per day</div>
         <div className="amountButtons">
           <div className="pencil">
             <Link className="rec" to="/">
@@ -17,12 +18,9 @@ export default function RecipeItem(props) {
             </Link>
           </div>
           <div className="trash">
-            <button
-              className="rec"
-              onClick={() => onDelete(currentUserUid, _id)}
-            >
+            <Link className="rec" to="/">
               <img className="trashButt" src="trash.png" />
-            </button>
+            </Link>
           </div>
         </div>
       </div>

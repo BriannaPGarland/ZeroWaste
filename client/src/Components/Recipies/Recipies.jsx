@@ -10,17 +10,14 @@ const Recipies = () => {
   const [recipes, setRecipes] = useState([]);
   const [currentUserUid, setCurrentUserUid] = useState("");
 
-
-  const navigate =  useNavigate();
+  const navigate = useNavigate();
 
   const { user } = useContext(AuthorizeContext);
   useEffect(() => {
-      if (!user) {
-        navigate("/")
-     }
-  
+    if (!user) {
+      navigate("/");
+    }
 
-  
     const currentUser = auth.currentUser;
     if (currentUser) {
       const uid = currentUser.uid;
@@ -32,7 +29,7 @@ const Recipies = () => {
           setRecipes(res.data);
         })
         .catch((err) => {
-        console.error(err);
+          console.error(err);
         });
     }
   }, []);

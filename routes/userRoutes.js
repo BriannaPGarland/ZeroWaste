@@ -55,8 +55,13 @@ router.post("/", async (req, res) => {
     }
 
     const user = new User({
+      name: req.body.name,
       email: req.body.email,
       uid,
+      accountType: req.body.accountType,
+      address: req.body.address,
+      phone: req.body.phone,
+      restaurantName: req.body.restaurantName,
     });
 
     await user.save();

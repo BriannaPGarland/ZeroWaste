@@ -18,13 +18,39 @@ const Signup = () => {
   const [accCreationMessage, SetAccCreationMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
+  const [accountType, setAccountType] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Check if all required fields are filled out
-    const { name, email, password, accountType } = e.target.elements;
-    if (!name.value || !email.value || !password.value || !accountType.value) {
+    const {
+      name,
+      email,
+      password,
+      accountType,
+      address,
+      phone,
+      restaurantName,
+    } = e.target.elements;
+
+    console.log(name.value);
+    console.log(email.value);
+    console.log(password.value);
+    console.log(accountType.value);
+    console.log(address.value);
+    console.log(phone.value);
+    console.log(restaurantName.value);
+
+    if (
+      !name.value ||
+      !email.value ||
+      !password.value ||
+      !accountType.value ||
+      !address.value ||
+      !phone.value ||
+      !restaurantName.value
+    ) {
       setErrorMessage("Please fill out all required fields.");
       openModal();
       return;
@@ -37,6 +63,7 @@ const Signup = () => {
         password.value
       );
       console.log(userObject);
+
       // puttin the user credential s in the local storage and useing  to maintain the session
       window.localStorage.setItem("user", JSON.stringify(userObject.user));
       SetAccCreationMessage("Account created successfully");
@@ -126,7 +153,7 @@ const Signup = () => {
             placeholder="First & Last Name"
             id="name"
             name="name"
-            //value={"test1 value"}
+            value={"siddhant"}
           />
           <input
             className="lgInput"
@@ -134,7 +161,6 @@ const Signup = () => {
             placeholder="email"
             id="email"
             name="email"
-            //value={""}
           />
           <input
             className="lgInput"
@@ -142,16 +168,30 @@ const Signup = () => {
             placeholder="password"
             id="password"
             name="password"
-            //value=""
           />
-
           <div className="dropdownbox">
             <select className="dropdownsgn" id="accountType" name="accountType">
-              <option value="">Select Account Type</option>
+              {/* <option value="">Select Account Type</option> */}
               <option value="restaurant">Restaurant</option>
-              <option value="communityOfNeed">Community Of Need</option>
+              {/* <option value="communityOfNeed">Community Of Need</option> */}
             </select>
           </div>
+          <input
+            className="lgInput"
+            type="text"
+            placeholder="Address"
+            id="address"
+            name="address"
+            value={"baldwin ave"}
+          />
+          <input
+            className="lgInput"
+            type="number"
+            placeholder="Phone"
+            id="phone"
+            name="phone"
+            value={5516896856}
+          />
 
           <input
             className="lgInput"
@@ -159,7 +199,7 @@ const Signup = () => {
             placeholder="Restaurant Name"
             id="restaurantName"
             name="restaurantName"
-            //value={"Artichoke"}
+            value={"MacD"}
           />
 
           <button className="login-btn" type="submit">

@@ -12,20 +12,25 @@ const AuthorizeProvider = (props) => {
     auth.onAuthStateChanged((user) => {
       setUser(user);
 
-      if (user && isNewUser) {
-        axios
-          .post("http://localhost:3001/user", {
-            email: user.email,
-            uid: user.uid,
-          })
-          .then((response) => {
-            console.log("User data saved to MongoDB:", response.data);
-            setIsNewUser(false);
-          })
-          .catch((error) => {
-            console.error("Error saving user data to MongoDB:", error);
-          });
-      }
+      // if (user && isNewUser) {
+      //   axios
+      //     .post("http://localhost:3001/user", {
+      //       name: user.name,
+      //       email: user.email,
+      //       uid: user.uid,
+      //       accountType: "",
+      //       address: "",
+      //       phone: "5516896845",
+      //       restaurantName: "",
+      //     })
+      //     .then((response) => {
+      //       console.log("User data saved to MongoDB:", response.data);
+      //       setIsNewUser(false);
+      //     })
+      //     .catch((error) => {
+      //       console.error("Error saving user data to MongoDB:", error);
+      //     });
+      // }
     });
   }, [isNewUser]);
 

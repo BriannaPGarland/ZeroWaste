@@ -29,12 +29,14 @@ const Login = () => {
   
       const user = userCredential.user;
       console.log("Logged in user: ", user);
+      localStorage.setItem("user", JSON.stringify(user));
       navigate("/home");
     } catch (error) {
       setErrorMessage(error.errorMessage);
       openModal();
     }
-    localStorage.setItem("user", JSON.stringify(email));
+
+   
     //navigate("/Login");
   };
   

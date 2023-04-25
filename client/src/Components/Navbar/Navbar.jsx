@@ -11,7 +11,7 @@ const Navbar = () => {
     auth.signOut()
     .then(() => {
       // Sign-out successful.
-      localStorage.setItem('user', null);
+      localStorage.clear('user');
       console.log('User signed out successfully.');
       window.location.href = '/';
       

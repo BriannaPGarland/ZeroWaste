@@ -19,22 +19,35 @@ import AddRecipe from "./Components/Recipies/AddRecipe";
 
 const App = () => {
 
+
   const [loginToken, setLoginToken] = useState(null);
 
   const getToken = () => {
     const tokenString = localStorage.getItem("user");
-    const userToken = JSON.parse(tokenString);
-    return userToken;
+    if (tokenString !== undefined && tokenString !=null) {
+      const userToken = JSON.parse(tokenString);
+      return userToken;
+    } else {
+      return null;
+    }
+    // const userToken = JSON.parse(tokenString);
+    // return userToken;
   };
 
   useEffect(() => {
-    setLoginToken(getToken());
+    var loginResult = getToken();
+    if(loginResult!=null){
+      setLoginToken(loginResult);
+    }else{
+      //TODO : clear existing stuff from browser storage
+    }
+
   }, []);
 
   // if (!loginToken) {
   //   return (
   //     <div>
-        
+
   //       <Landing />
   //     </div>
   //   );
@@ -45,7 +58,6 @@ const App = () => {
       setLoginToken(null);
     }
   };
-
 
   return (
     <AuthorizeProvider>

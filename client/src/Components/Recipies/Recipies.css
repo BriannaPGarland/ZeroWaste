@@ -33,6 +33,18 @@
   margin-bottom:100px;
 
 }
+
+/**
+
+Added by siddhant 
+**/
+.rectitle {
+  color: white;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin-bottom:100px;
+
+}
 .amountbar {
   display: flex;
   background-color: white;

@@ -3,44 +3,45 @@ const router = express.Router();
 const Inventory = require("../data/inventory");
 const mongoose = require("mongoose");
 
-router.get("/:id", async (req, res) => {
-  const id = req.params.id;
+// router.get("/:id", async (req, res) => {
+//   const id = req.params.id;
 
-  if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(400).json({ message: "Invalid id parameter" });
-  }
+//   if (!mongoose.Types.ObjectId.isValid(id)) {
+//     return res.status(400).json({ message: "Invalid id parameter" });
+//   }
 
-  try {
-    const inventory = await Inventory.findById(id);
-    if (!inventory) {
-      return res.status(404).json({ message: "Inventory item not found" });
-    }
-    res.json(inventory);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-});
+//   try {
+//     const inventory = await Inventory.findById(id);
+//     if (!inventory) {
+//       return res.status(404).json({ message: "Inventory item not found" });
+//     }
+//     res.json(inventory);
+//   } catch (err) {
+//     res.status(500).json({ message: err.message });
+//   }
+// });
 
 
-router.get("/", async (req, res) => {
-  try {
-    const uid = req.query.uid;
-    const inventory = await Inventory.find({});
-    res.json(inventory);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-});
+// router.get("/", async (req, res) => {
+//   try {
+//     const uid = req.query.uid;
+//     const inventory = await Inventory.find({});
+//     res.json(inventory);
+//   } catch (err) {
+//     res.status(500).json({ message: err.message });
+//   }
+// });
 
-router.get("/:uid", async (req, res) => {
-  try {
-    const uid = req.params.uid;
-    const inventory = await Inventory.find({ uid });
-    res.json(inventory);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-});
+// router.get("/:uid", async (req, res) => {
+//   try {
+//     const uid = req.params.uid;
+//     const inventory = await Inventory.find({ uid });
+//     res.json(inventory);
+//   } catch (err) {
+//     res.status(500).json({ message: err.message });
+//   }
+// });
+
 router.delete("/", async (req, res) => {
   try {
     await Inventory.deleteMany({});
@@ -69,9 +70,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.get("/:id", getInventory, (req, res) => {
-  res.json(res.inventory);
-});
+
 
 router.delete("/:id", async (req, res) => {
   try {
@@ -98,6 +97,7 @@ async function getInventory(req, res, next) {
   next();
 }
 router.get("/:id", async (req, res) => {
+  //console.log(req.query)
   try {
     const id = req.params.id;
     const inventory = await Inventory.findById(id);

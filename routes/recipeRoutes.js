@@ -15,8 +15,8 @@ router.get("/", async (req, res) => {
 router.get("/:uid", async (req, res) => {
   try {
     const uid = req.params.uid;
-    const recipes = await Recipe.find({ uid });
-
+    const recipes = await Recipe.find({ "uid" :  uid });
+console.log("recipes",recipes );
     if (!recipes || recipes.length === 0) {
       return res.status(404).json({ message: "Recipes not found" });
     }

@@ -26,6 +26,18 @@ const Recipies = () => {
     }
   }, []);
 
+  const handleDelete = (uid) => {
+    axios
+      .delete(`http://localhost:3001/recipe/${uid}`)
+      .then(() => {
+        const newRecipes = recipes.filter((recipe) => recipe._id !== uid);
+        setRecipes(newRecipes);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
   return (
     <div className="recipePage">
       <h1 className="title">Recipes</h1>
@@ -39,7 +51,10 @@ const Recipies = () => {
               <RecipeItem
                 key={recipe._id}
                 name={recipe.name}
-                ingredients={recipe.ingredients}
+                numberOfUnits={recipe.numberOfUnits}
+                _id={recipe._id}
+                currentUserUid={currentUserUid}
+                onDelete={handleDelete}
               />
             ))}
           </div>

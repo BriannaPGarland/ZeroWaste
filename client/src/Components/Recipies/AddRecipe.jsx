@@ -13,24 +13,6 @@ const AddRecipe = () => {
   const { user } = useContext(AuthorizeContext);
 
 
-  useEffect(() => {
-    // alert(localStorage.getItem("user"));
-    auth.onAuthStateChanged((user) => {
-     
-      if (user) {
-        // User is signed in.
-       // alert('User is signed in:'+ user)
-        console.log('User is signed in:', user);
-      //   const user = jwt(); // decode your token here
-       localStorage.setItem('user', user.uid);
-      } else {
-        // No user is signed in.
-        //alert('No user is signed in.')
-        console.log('No user is signed in.');
-       // window.location.href = '/login';
-      }
-    });
-  }, []);
 
   if (!user) {
     return <Landing />;
@@ -70,6 +52,7 @@ const AddRecipe = () => {
     try {
       await axios.post("http://localhost:3001/recipe", data);
       console.log("Recipe added successfully!");
+      //TODO:clear fields and refresh page
     } catch (error) {
       console.log(error);
     }

@@ -10,17 +10,14 @@ const Recipies = () => {
   const [recipes, setRecipes] = useState([]);
   const [currentUserUid, setCurrentUserUid] = useState("");
 
-
-  const navigate =  useNavigate();
+  const navigate = useNavigate();
 
   const { user } = useContext(AuthorizeContext);
   useEffect(() => {
-      if (!user) {
-        navigate("/")
-     }
-  
+    if (!user) {
+      navigate("/");
+    }
 
-  
     const currentUser = auth.currentUser;
     if (currentUser) {
       const uid = currentUser.uid;
@@ -32,20 +29,24 @@ const Recipies = () => {
           setRecipes(res.data);
         })
         .catch((err) => {
-        console.error(err);
+          console.error(err);
         });
     }
   }, []);
 
-  const handleDelete = (uid) => {
+  const handleDelete = (uid, id) => {
     axios
-      .delete(`http://localhost:3001/recipe/${uid}`)
-      .then(() => {
-        const newRecipes = recipes.filter((recipe) => recipe._id !== uid);
-        setRecipes(newRecipes);
+      .delete(`http://localhost:3001/recipe/${uid}/${id}`)
+      .then((response) => {
+        if (response.status === 200) {
+          const newRecipes = recipes.filter((recipe) => recipe._id !== id);
+          setRecipes(newRecipes);
+        } else {
+          console.log("Delete request failed.");
+        }
       })
-      .catch((err) => {
-        console.error(err);
+      .catch((error) => {
+        console.error(error);
       });
   };
 

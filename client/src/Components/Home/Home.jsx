@@ -10,28 +10,24 @@ import { auth } from "../../Authorization/FirebaseConfig";
 import Landing from "../LandingPage/LandingPage";
 
 const Home = () => {
-  const { user, setUser } = useContext(AuthorizeContext);
+  const { user } = useContext(AuthorizeContext);
   const [inventory, setInventory] = useState([]);
 
-
-
-  function getInventory(){
-    axios
-    .get("http://localhost:3001/inventory")
-    .then((response) => {
-
-      setInventory(response.data);
-      //console.log(response.data)
-    })
-    .catch((error) => {
-      console.error("Error fetching inventory:", error);
-    });
-  }
-
-
   useEffect(() => {
-    //TODO:uncomment this in production
-   getInventory();
+    if (user != null) {
+      var uid = user.uid;
+      console.log(uid);
+      axios
+        .get("http://localhost:3001/inventory/" + uid)
+        .then((response) => {
+          console.log("getInventory", response);
+          setInventory(response.data);
+          //console.log(response.data)
+        })
+        .catch((error) => {
+          console.error("Error fetching inventory:", error);
+        });
+    }
   }, []);
 
   const handleClickScroll = () => {
@@ -52,8 +48,6 @@ const Home = () => {
   //       console.log("Error signing out:", error);
   //     });
   // };
-
-
 
   if (!user) {
     return <Landing />;
@@ -98,22 +92,20 @@ const Home = () => {
       </div>
 
       <section className="inventoryDisp">
+        {inventory.map((item, index) => {
+          console.log(index, item);
 
-  {inventory.map((item, index) => {
-    console.log(index, item);
-
-
-
-   return <FoodCard
-      key={item._id}
-      name={item.name}
-      quantity={item.quantity}
-      units="lbs"
-      date={item.date}
-    />
-})}
-</section>
-
+          return (
+            <FoodCard
+              key={item._id}
+              name={item.name}
+              quantity={item.quantity}
+              units="lbs"
+              date={item.date}
+            />
+          );
+        })}
+      </section>
     </div>
   );
 };

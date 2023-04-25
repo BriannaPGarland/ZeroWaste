@@ -3,7 +3,6 @@ import { auth } from "../../Authorization/FirebaseConfig";
 import React, { Component } from "react";
 
 export default function FoodCard(props) {
-
   const { name, quantity, date } = props;
 
   return (

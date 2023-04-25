@@ -20,11 +20,7 @@ import AddRecipe from "./Components/Recipies/AddRecipe";
 import axios from "axios";
 import { auth } from "./Authorization/FirebaseConfig";
 
-
-
 const App = () => {
-
-
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
 
@@ -32,7 +28,7 @@ const App = () => {
 
   const getToken = () => {
     const tokenString = localStorage.getItem("user");
-    if (tokenString !== undefined && tokenString !=null) {
+    if (tokenString !== undefined && tokenString != null) {
       const userToken = JSON.parse(tokenString);
       return userToken;
     } else {
@@ -43,37 +39,18 @@ const App = () => {
   };
 
   useEffect(() => {
-
-
-
-
-
     auth.onAuthStateChanged((user) => {
-
-        if (!user) {
-    
-          navigate("/")
-     
-       }
-    
-
+      if (!user) {
+        navigate("/");
+      }
     });
 
-
-
-
-
     var loginResult = getToken();
-    if(loginResult!=null){
+    if (loginResult != null) {
       setLoginToken(loginResult);
-    }else{
+    } else {
       //TODO : clear existing stuff from browser storage
-
-
-
-
     }
-
   }, []);
 
   // if (!loginToken) {
@@ -115,8 +92,6 @@ const App = () => {
           </div>
         </div>
       </div>
-
-      
     </AuthorizeProvider>
   );
 };

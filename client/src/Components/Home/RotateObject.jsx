@@ -57,9 +57,6 @@ const RotObj = () => {
         onClick={() => handleArrowClick(-1)}
       ></img>
 
-
-
-
       {inventory.map((item, index) => (
         <div
           key={index}
@@ -70,9 +67,6 @@ const RotObj = () => {
         </div>
       ))}
 
-
-
-        
       <img
         className="rightArrow"
         src={arrow}

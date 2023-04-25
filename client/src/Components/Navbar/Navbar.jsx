@@ -6,41 +6,30 @@ import { auth } from "../../Authorization/FirebaseConfig";
 import { AuthorizeContext } from "../../Authorization/Authorize";
 
 const Navbar = () => {
- 
-
-
   const { user } = useContext(AuthorizeContext);
-  const navigate =  useNavigate();
+  const navigate = useNavigate();
 
-
-  useEffect(()=>{
+  useEffect(() => {
     if (!user) {
-  
-
     }
-  
-  
-  }, [])
-
-
+  }, []);
 
   const SignOutButton = () => {
-    auth.signOut()
-    .then(() => {
-      // Sign-out successful.
-      localStorage.clear('user');
-      console.log('User signed out successfully.');
-      window.location.href = '/';
-      
-    })
-    .catch((error) => {
-     // window.location.href = '/';
-      // An error happened.
-      console.log('Error signing out:', error);
-    });
+    auth
+      .signOut()
+      .then(() => {
+        // Sign-out successful.
+        localStorage.clear("user");
+        console.log("User signed out successfully.");
+        window.location.href = "/";
+      })
+      .catch((error) => {
+        // window.location.href = '/';
+        // An error happened.
+        console.log("Error signing out:", error);
+      });
+  };
 
-  }
-  
   // const SignOutButton = () => {
   //   // alert(window.localStorage.getItem('user'));
   //   window.localStorage.removeItem("user");
@@ -62,84 +51,65 @@ const Navbar = () => {
           </Link>
         </div>
 
-
         <ul class="nav-list">
+          {user != null ? (
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+          ) : (
+            <div />
+          )}
 
+          {user != null ? (
+            <li>
+              <Link to="/Donations">Donations</Link>
+            </li>
+          ) : (
+            <div />
+          )}
 
-
-
-        {
-          user!=null ? ( <li>
-            <Link to="/">Home</Link>
-          </li>) : (<div />)
-         }
-
-
-
-
-         {
-          user!=null ? ( <li>
-            <Link to="/Donations">Donations</Link>
-          </li>) : (<div />)
-         }
-
-{
-          user!=null ? ( <li>
-            <Link to="/Recipies">Recipies</Link>
-          </li>) : (<div />)
-         }
-
+          {user != null ? (
+            <li>
+              <Link to="/Recipies">Recipies</Link>
+            </li>
+          ) : (
+            <div />
+          )}
 
           {/* <li>
             <Link to="/Recipies">Recipies</Link>
           </li> */}
 
-
-
-{
-          user!=null ? ( <li>
-            <Link to="/Analytics">Analytics</Link>
-          </li>) : (<div />)
-         }
-
-
+          {user != null ? (
+            <li>
+              <Link to="/Analytics">Analytics</Link>
+            </li>
+          ) : (
+            <div />
+          )}
         </ul>
 
-
-
-
-
-
-
-        {
-          user!=null ? ( <div class="dropdown">
-          <button class="dropbtnNav">
-            <image className="profIcon" src={profIcon}></image>
-          </button>
-          <div class="dropdown-content">
-            <a>
-              {" "}
-              <Link to="/Account">Account</Link>
-            </a>
-            <a>
-              {" "}
-              <Link to="/Settings">Settings</Link>
-            </a>
-            <button onClick={SignOutButton}> Sign Out</button>
-            {/* <a onClick={SignOutButton}> Sign Out</a> */}
+        {user != null ? (
+          <div class="dropdown">
+            <button class="dropbtnNav">
+              <image className="profIcon" src={profIcon}></image>
+            </button>
+            <div class="dropdown-content">
+              <a>
+                {" "}
+                <Link to="/Account">Account</Link>
+              </a>
+              <a>
+                {" "}
+                <Link to="/Settings">Settings</Link>
+              </a>
+              <button onClick={SignOutButton}> Sign Out</button>
+              {/* <a onClick={SignOutButton}> Sign Out</a> */}
+            </div>
           </div>
-        </div>) : (<div />)
-         }
-
-
-
-        
-
-
-
-
-
-
+        ) : (
+          <div />
+        )}
       </nav>
     </div>
   );

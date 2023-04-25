@@ -12,13 +12,12 @@ const AddRecipe = () => {
   // const [ setUser] = useState(null);
 
   const { user } = useContext(AuthorizeContext);
-const navigate =  useNavigate();
-useEffect(()=>{
-  if (!user) {
-    navigate("/")
-  }
-}, [])
-
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!user) {
+      navigate("/");
+    }
+  }, []);
 
   // useEffect(() => {
   //   const unsubscribe = auth.onAuthStateChanged((user) => {

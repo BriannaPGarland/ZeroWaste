@@ -5,7 +5,6 @@ import Modal from "react-modal";
 import { auth } from "../../Authorization/FirebaseConfig";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
-
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -26,7 +25,7 @@ const Login = () => {
         email,
         password
       );
-  
+
       const user = userCredential.user;
       console.log("Logged in user: ", user);
       localStorage.setItem("user", JSON.stringify(user));
@@ -36,11 +35,9 @@ const Login = () => {
       openModal();
     }
 
-   
     //navigate("/Login");
   };
-  
-  
+
   // const handleLogin = (e) => {
   //   e.preventDefault();
   //   if (email.trim() === "" || password.trim() === "") {

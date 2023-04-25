@@ -7,37 +7,25 @@ import testDonateData from './testDonateData';
 import { AuthorizeContext } from "../../Authorization/Authorize";
 import { auth } from "../../Authorization/FirebaseConfig";
 import Landing from "../LandingPage/LandingPage";
+import { useNavigate } from "react-router-dom";
 
 
 const Donations = () => {
 
   const { user } = useContext(AuthorizeContext);
+  const navigate =  useNavigate();
+  useEffect(()=>{
+    if (!user) {
+  
+      navigate("/")
+  
+    }
+  
+  
+  }, [])
 
 
-  useEffect(() => {
-    // alert(localStorage.getItem("user"));
-    auth.onAuthStateChanged((user) => {
-     
-      if (user) {
-        // User is signed in.
-       // alert('User is signed in:'+ user)
-        console.log('User is signed in:', user);
-      //   const user = jwt(); // decode your token here
-       localStorage.setItem('user', user.uid);
-      } else {
-        // No user is signed in.
-        //alert('No user is signed in.')
-        console.log('No user is signed in.');
-       // window.location.href = '/login';
-      }
-    });
-  }, []);
-
-  if (!user) {
-    return <Landing />;
-  }  
-
-    
+  
   return (
     <div className="DonPage">
       <h1 class="title">

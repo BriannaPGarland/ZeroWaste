@@ -22,25 +22,25 @@ const mongoose = require("mongoose");
 // });
 
 
-// router.get("/", async (req, res) => {
-//   try {
-//     const uid = req.query.uid;
-//     const inventory = await Inventory.find({});
-//     res.json(inventory);
-//   } catch (err) {
-//     res.status(500).json({ message: err.message });
-//   }
-// });
+router.get("/", async (req, res) => {
+  try {
+    const uid = req.query.uid;
+    const inventory = await Inventory.find({});
+    res.json(inventory);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
 
-// router.get("/:uid", async (req, res) => {
-//   try {
-//     const uid = req.params.uid;
-//     const inventory = await Inventory.find({ uid });
-//     res.json(inventory);
-//   } catch (err) {
-//     res.status(500).json({ message: err.message });
-//   }
-// });
+router.get("/:uid", async (req, res) => {
+  try {
+    const uid = req.params.uid;
+    const inventory = await Inventory.find({ uid });
+    res.json(inventory);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
 
 router.delete("/", async (req, res) => {
   try {
@@ -96,10 +96,31 @@ async function getInventory(req, res, next) {
   res.inventory = inventory;
   next();
 }
-router.get("/:id", async (req, res) => {
+
+
+// router.get("/:id", async (req, res) => {
+//   //console.log(req.query)
+//   try {
+//     const id = req.params.id;
+//     const inventory = await Inventory.findById(id);
+//     res.json(inventory);
+//   } catch (err) {
+//     res.status(500).json({ message: err.message });
+//   }
+// });
+
+
+
+
+
+
+
+router.get("/:uid/:id", async (req, res) => {
   //console.log(req.query)
   try {
     const id = req.params.id;
+    const uid = req.params.uid;
+    //TODO : search by both
     const inventory = await Inventory.findById(id);
     res.json(inventory);
   } catch (err) {

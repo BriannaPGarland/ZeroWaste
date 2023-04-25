@@ -19,7 +19,7 @@ const Home = () => {
     axios
     .get("http://localhost:3001/inventory")
     .then((response) => {
-      console.log(response.data);
+
       setInventory(response.data);
       //console.log(response.data)
     })
@@ -31,7 +31,7 @@ const Home = () => {
 
   useEffect(() => {
     //TODO:uncomment this in production
-   //getInventory();
+   getInventory();
   }, []);
 
   const handleClickScroll = () => {
@@ -99,15 +99,19 @@ const Home = () => {
 
       <section className="inventoryDisp">
 
-  {inventory.map((item) => (
-    <FoodCard
+  {inventory.map((item, index) => {
+    console.log(index, item);
+
+
+
+   return <FoodCard
       key={item._id}
       name={item.name}
-      amount={item.quantity}
+      quantity={item.quantity}
       units="lbs"
       date={item.date}
     />
-  ))}
+})}
 </section>
 
     </div>

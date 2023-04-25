@@ -30,7 +30,7 @@ const Login = () => {
       const user = userCredential.user;
       console.log("Logged in user: ", user);
       localStorage.setItem("user", JSON.stringify(user));
-      navigate("/home");
+      navigate("/");
     } catch (error) {
       setErrorMessage(error.errorMessage);
       openModal();

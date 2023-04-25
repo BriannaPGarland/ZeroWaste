@@ -1,12 +1,29 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import profIcon from "./Icon.png";
 import { auth } from "../../Authorization/FirebaseConfig";
+import { AuthorizeContext } from "../../Authorization/Authorize";
 
 const Navbar = () => {
-  // const { setUser } = useContext(AuthorizeContext);
+ 
+
+
+  const { user } = useContext(AuthorizeContext);
+  const navigate =  useNavigate();
+
+
+  useEffect(()=>{
+    if (!user) {
   
+
+    }
+  
+  
+  }, [])
+
+
+
   const SignOutButton = () => {
     auth.signOut()
     .then(() => {
@@ -45,21 +62,57 @@ const Navbar = () => {
           </Link>
         </div>
 
+
         <ul class="nav-list">
-          <li>
-            <Link to="/Home">Home</Link>
-          </li>
-          <li>
+
+
+
+
+        {
+          user!=null ? ( <li>
+            <Link to="/">Home</Link>
+          </li>) : (<div />)
+         }
+
+
+
+
+         {
+          user!=null ? ( <li>
             <Link to="/Donations">Donations</Link>
-          </li>
-          <li>
+          </li>) : (<div />)
+         }
+
+{
+          user!=null ? ( <li>
             <Link to="/Recipies">Recipies</Link>
-          </li>
-          <li>
+          </li>) : (<div />)
+         }
+
+
+          {/* <li>
+            <Link to="/Recipies">Recipies</Link>
+          </li> */}
+
+
+
+{
+          user!=null ? ( <li>
             <Link to="/Analytics">Analytics</Link>
-          </li>
+          </li>) : (<div />)
+         }
+
+
         </ul>
-        <div class="dropdown">
+
+
+
+
+
+
+
+        {
+          user!=null ? ( <div class="dropdown">
           <button class="dropbtnNav">
             <image className="profIcon" src={profIcon}></image>
           </button>
@@ -75,7 +128,18 @@ const Navbar = () => {
             <button onClick={SignOutButton}> Sign Out</button>
             {/* <a onClick={SignOutButton}> Sign Out</a> */}
           </div>
-        </div>
+        </div>) : (<div />)
+         }
+
+
+
+        
+
+
+
+
+
+
       </nav>
     </div>
   );

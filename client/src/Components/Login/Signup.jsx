@@ -41,7 +41,7 @@ const Signup = () => {
       window.localStorage.setItem("user", JSON.stringify(userObject.user));
       SetAccCreationMessage("Account created successfully");
       setTimeout(() => {
-        navigate("/Home");
+        navigate("/");
       }, 3000);
     } catch (error) {
       setErrorMessage(error);

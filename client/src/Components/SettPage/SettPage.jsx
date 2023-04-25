@@ -3,17 +3,22 @@ import { AuthorizeContext } from "../../Authorization/Authorize";
 import { auth } from "../../Authorization/FirebaseConfig";
 import Landing from "../LandingPage/LandingPage";
 import './SettPage.css'
+import { useNavigate } from "react-router-dom";
 
 
 const SettingPage = () => {
 
   const { user } = useContext(AuthorizeContext);
-
-
- 
+const navigate =  useNavigate();
+useEffect(()=>{
   if (!user) {
-    return <Landing />;
+
+    navigate("/")
+
   }
+
+
+}, [])
 
   return (
     <div className="SettingsPage">

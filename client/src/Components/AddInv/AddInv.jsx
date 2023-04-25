@@ -1,24 +1,32 @@
 import React, { useState, useEffect, useContext } from "react";
 import "./AddInv.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthorizeContext } from "../../Authorization/Authorize";
 import { auth } from "../../Authorization/FirebaseConfig";
 import Landing from "../LandingPage/LandingPage";
 
 const AddInv = () => {
+
+  
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState("");
   const [date, setDate] = useState("");
 
   const { user } = useContext(AuthorizeContext);
-
-
-
-
+const navigate =  useNavigate();
+useEffect(()=>{
   if (!user) {
-    return <Landing />;
+
+    navigate("/")
+
   }
+
+
+}, [])
+
+
+
 
 
   const handleSubmit = async (event) => {
@@ -40,6 +48,7 @@ const AddInv = () => {
           },
         }
       );
+      //TODO :clear fields and refresh/navigate
       console.log("Item saved successfully!", response.data);
     } catch (error) {
       console.error("Error saving item:", error);
@@ -76,7 +85,7 @@ const AddInv = () => {
         <button type="submit" className="saveInvButt">
           Save Item
         </button>
-        <Link className="cancelInvButt" to="/Home">
+        <Link className="cancelInvButt" to="/">
           Cancel
         </Link>
       </form>

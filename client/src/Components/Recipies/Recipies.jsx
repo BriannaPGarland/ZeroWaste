@@ -1,15 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./Recipies.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import RecipeItem from "./RecipeItem.jsx";
 import { auth } from "../../Authorization/FirebaseConfig";
 import axios from "axios";
+import { AuthorizeContext } from "../../Authorization/Authorize";
 
 const Recipies = () => {
   const [recipes, setRecipes] = useState([]);
   const [currentUserUid, setCurrentUserUid] = useState("");
 
+
+  const navigate =  useNavigate();
+
+  const { user } = useContext(AuthorizeContext);
   useEffect(() => {
+      if (!user) {
+        navigate("/")
+     }
+  
+
+  
     const currentUser = auth.currentUser;
     if (currentUser) {
       const uid = currentUser.uid;
@@ -21,7 +32,7 @@ const Recipies = () => {
           setRecipes(res.data);
         })
         .catch((err) => {
-          console.error(err);
+        console.error(err);
         });
     }
   }, []);

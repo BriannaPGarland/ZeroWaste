@@ -13,12 +13,12 @@ export default function RecipeItem(props) {
         <div className="amountvalue">{amount} per day</div>
         <div className="amountButtons">
           <div className="pencil">
-            <Link className="rec" to="/Home">
+            <Link className="rec" to="/">
               <img className="editButt" src="pencil.png" />
             </Link>
           </div>
           <div className="trash">
-            <Link className="rec" to="/Home">
+            <Link className="rec" to="/">
               <img className="trashButt" src="trash.png" />
             </Link>
           </div>

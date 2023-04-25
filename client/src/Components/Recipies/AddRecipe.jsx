@@ -4,6 +4,7 @@ import axios from "axios";
 import { auth } from "../../Authorization/FirebaseConfig";
 import { AuthorizeContext } from "../../Authorization/Authorize";
 import Landing from "../LandingPage/LandingPage";
+import { useNavigate } from "react-router-dom";
 
 const AddRecipe = () => {
   const [name, setName] = useState("");
@@ -11,12 +12,13 @@ const AddRecipe = () => {
   // const [ setUser] = useState(null);
 
   const { user } = useContext(AuthorizeContext);
-
-
-
+const navigate =  useNavigate();
+useEffect(()=>{
   if (!user) {
-    return <Landing />;
+    navigate("/")
   }
+}, [])
+
 
   // useEffect(() => {
   //   const unsubscribe = auth.onAuthStateChanged((user) => {

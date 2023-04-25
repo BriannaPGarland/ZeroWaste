@@ -2,16 +2,15 @@
   height: 1000px;
   background-color: rgb(5, 19, 65);
 }
+
 .AddNewButt {
   margin-top: 20px;
   margin-bottom: 50px;
   width: 10%;
   height: 2em;
-  background-image: linear-gradient(
-    to top left,
-    rgb(40, 55, 139),
-    rgb(98, 142, 209)
-  );
+  background-image: linear-gradient(to top left,
+      rgb(40, 55, 139),
+      rgb(98, 142, 209));
   color: white;
   display: flex;
   justify-content: center;
@@ -21,29 +20,46 @@
   cursor: pointer;
   text-decoration: none;
 }
+
 .recipeItem {
   color: white;
   margin: 10px;
   margin-right: 90px;
   margin-left: 90px;
 }
+
 .Rectitle {
   color: white;
   padding-bottom: 10px;
   padding-top: 10px;
-  margin-bottom:100px;
+  margin-bottom: 100px;
 
 }
+
+/**
+
+Added by siddhant 
+**/
+.rectitle {
+  color: white;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  margin-bottom: 100px;
+
+}
+
 .amountbar {
   display: flex;
   background-color: white;
   width: 550px;
 }
+
 .amountvalue {
   background-color: transparent;
   padding: 10px;
   color: black;
 }
+
 .amountButtons {
   display: flex;
   justify-content: right;
@@ -52,22 +68,27 @@
   margin-left: 340px;
   background-color: transparent;
 }
+
 .pencil {
   background-color: white;
 }
-.Rectitle{
-  color:white;
-  font-size:70px;
+
+.Rectitle {
+  color: white;
+  font-size: 70px;
 }
+
 .trash {
   background-color: white;
 }
+
 .trashButt {
   margin-top: 1px;
   background-color: white;
   height: 30px;
   width: 35px;
 }
+
 .editButt {
   background-color: white;
   height: 30px;
@@ -75,25 +96,27 @@
   margin-top: 1px;
   margin-right: 4px;
 }
+
 .rec {
   background-color: white;
 }
+
 .LeftListRecipes:after {
   content: "";
   display: table;
   clear: both;
 }
+
 .Reccolumns {
   float: left;
   width: 50%;
 }
+
 .NewIngriedient {
   height: 3em;
-  background-image: linear-gradient(
-    to top left,
-    rgb(40, 55, 139),
-    rgb(98, 142, 209)
-  );
+  background-image: linear-gradient(to top left,
+      rgb(40, 55, 139),
+      rgb(98, 142, 209));
   color: white;
   display: flex;
   justify-content: center;
@@ -103,17 +126,16 @@
   cursor: pointer;
   margin-bottom: 35px;
   margin-top: 0px;
-  width:250px;
-  margin-left:115px;
+  width: 250px;
+  margin-left: 115px;
 }
+
 .SaveRecipe {
   width: 50%;
   height: 3em;
-  background-image: linear-gradient(
-    to top left,
-    rgb(38, 0, 153),
-    rgb(71, 52, 145)
-  );
+  background-image: linear-gradient(to top left,
+      rgb(38, 0, 153),
+      rgb(71, 52, 145));
   color: white;
   display: flex;
   justify-content: center;
@@ -121,40 +143,44 @@
   transition: 0.5s;
   border-radius: 0.25em;
   cursor: pointer;
-  margin-top:25px;
-  margin-left:120px;
+  margin-top: 25px;
+  margin-left: 120px;
 }
+
 .ingtext {
   margin-top: 45px;
-  margin-bottom:85px;
+  margin-bottom: 85px;
   font-size: 45px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.addInvPage{
+
+.addInvPage {
   background-color: rgb(5, 19, 65);
-    height:1400px;
-    width:100%;
+  height: 1400px;
+  width: 100%;
 }
-.recInput{
+
+.recInput {
   background-color: white;
   height: 50px;
   border-radius: 12px;
   padding-left: 8px;
   margin: 15px;
 }
-.recTitle{
+
+.recTitle {
   background-color: white;
   height: 50px;
   border-radius: 12px;
   padding-left: 8px;
   margin: 15px;
-  font-size:40px;
-  padding:20px;
-  padding-top:30px;
+  font-size: 40px;
+  padding: 20px;
+  padding-top: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom:100px;
+  margin-bottom: 100px;
 }

@@ -10,19 +10,24 @@ import { auth } from "../../Authorization/FirebaseConfig";
 import Landing from "../LandingPage/LandingPage";
 
 const Home = () => {
-  const { user, setUser } = useContext(AuthorizeContext);
+  const { user } = useContext(AuthorizeContext);
   const [inventory, setInventory] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3001/inventory")
-      .then((response) => {
-        console.log(response.data);
-        setInventory(response.data);
-      })
-      .catch((error) => {
-        console.error("Error fetching inventory:", error);
-      });
+    if (user != null) {
+      var uid = user.uid;
+      console.log(uid);
+      axios
+        .get("http://localhost:3001/inventory/" + uid)
+        .then((response) => {
+          console.log("getInventory", response);
+          setInventory(response.data);
+          //console.log(response.data)
+        })
+        .catch((error) => {
+          console.error("Error fetching inventory:", error);
+        });
+    }
   }, []);
 
   const handleClickScroll = () => {
@@ -43,25 +48,6 @@ const Home = () => {
   //       console.log("Error signing out:", error);
   //     });
   // };
-
-  useEffect(() => {
-    // alert(localStorage.getItem("user"));
-    auth.onAuthStateChanged((user) => {
-     
-      if (user) {
-        // User is signed in.
-       // alert('User is signed in:'+ user)
-        console.log('User is signed in:', user);
-      //   const user = jwt(); // decode your token here
-       localStorage.setItem('user', user.uid);
-      } else {
-        // No user is signed in.
-        //alert('No user is signed in.')
-        console.log('No user is signed in.');
-       // window.location.href = '/login';
-      }
-    });
-  }, []);
 
   if (!user) {
     return <Landing />;
@@ -106,14 +92,19 @@ const Home = () => {
       </div>
 
       <section className="inventoryDisp">
-        {inventory.map((item) => (
-          <FoodCard
-            key={item._id}
-            name={item.name}
-            amount={item.quantity}
-            units="lbs"
-          />
-        ))}
+        {inventory.map((item, index) => {
+          console.log(index, item);
+
+          return (
+            <FoodCard
+              key={item._id}
+              name={item.name}
+              quantity={item.quantity}
+              units="lbs"
+              date={item.date}
+            />
+          );
+        })}
       </section>
     </div>
   );

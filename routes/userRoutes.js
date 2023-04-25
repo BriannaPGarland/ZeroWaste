@@ -28,6 +28,21 @@ router.get("/:uid", async (req, res) => {
   }
 });
 
+router.get("/:id", async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.json(user);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
 router.post("/", async (req, res) => {
   try {
     const { uid } = req.body;
@@ -50,6 +65,25 @@ router.post("/", async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Error creating user" });
+  }
+});
+
+// DELETE user by UID
+router.delete("/:uid", async (req, res) => {
+  const uid = req.params.uid;
+
+  try {
+    // Delete user from MongoDB
+    const user = await User.findOne({ uid: uid });
+    if (user) {
+      await User.deleteOne({ uid: uid });
+      res.status(204).send({ message: "User deleted successfully" });
+    } else {
+      res.status(404).json({ message: "User not found" });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error" });
   }
 });
 

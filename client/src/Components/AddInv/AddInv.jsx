@@ -1,40 +1,32 @@
 import React, { useState, useEffect, useContext } from "react";
 import "./AddInv.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthorizeContext } from "../../Authorization/Authorize";
 import { auth } from "../../Authorization/FirebaseConfig";
 import Landing from "../LandingPage/LandingPage";
 
 const AddInv = () => {
+
+  
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState("");
+  const [date, setDate] = useState("");
 
   const { user } = useContext(AuthorizeContext);
-
-
-  useEffect(() => {
-    // alert(localStorage.getItem("user"));
-    auth.onAuthStateChanged((user) => {
-     
-      if (user) {
-        // User is signed in.
-       // alert('User is signed in:'+ user)
-        console.log('User is signed in:', user);
-      //   const user = jwt(); // decode your token here
-       localStorage.setItem('user', user.uid);
-      } else {
-        // No user is signed in.
-        //alert('No user is signed in.')
-        console.log('No user is signed in.');
-       // window.location.href = '/login';
-      }
-    });
-  }, []);
-
+const navigate =  useNavigate();
+useEffect(()=>{
   if (!user) {
-    return <Landing />;
+
+    navigate("/")
+
   }
+
+
+}, [])
+
+
+
 
 
   const handleSubmit = async (event) => {
@@ -47,6 +39,7 @@ const AddInv = () => {
         {
           name,
           quantity,
+          date,
           uid: auth.currentUser.uid,
         },
         {
@@ -55,6 +48,7 @@ const AddInv = () => {
           },
         }
       );
+      //TODO :clear fields and refresh/navigate
       console.log("Item saved successfully!", response.data);
     } catch (error) {
       console.error("Error saving item:", error);
@@ -80,11 +74,18 @@ const AddInv = () => {
           value={quantity}
           onChange={(event) => setQuantity(event.target.value)}
         />
+        <input
+          type="date"
+          className="invInput"
+          placeholder="Date"
+          value={date}
+          onChange={(event) => setDate(event.target.value)}
+        />
 
         <button type="submit" className="saveInvButt">
           Save Item
         </button>
-        <Link className="cancelInvButt" to="/Home">
+        <Link className="cancelInvButt" to="/">
           Cancel
         </Link>
       </form>

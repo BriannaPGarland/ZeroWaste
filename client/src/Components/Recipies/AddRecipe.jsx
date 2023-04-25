@@ -4,6 +4,7 @@ import axios from "axios";
 import { auth } from "../../Authorization/FirebaseConfig";
 import { AuthorizeContext } from "../../Authorization/Authorize";
 import Landing from "../LandingPage/LandingPage";
+import { useNavigate } from "react-router-dom";
 
 const AddRecipe = () => {
   const [name, setName] = useState("");
@@ -11,30 +12,12 @@ const AddRecipe = () => {
   // const [ setUser] = useState(null);
 
   const { user } = useContext(AuthorizeContext);
-
-
+  const navigate = useNavigate();
   useEffect(() => {
-    // alert(localStorage.getItem("user"));
-    auth.onAuthStateChanged((user) => {
-     
-      if (user) {
-        // User is signed in.
-       // alert('User is signed in:'+ user)
-        console.log('User is signed in:', user);
-      //   const user = jwt(); // decode your token here
-       localStorage.setItem('user', user.uid);
-      } else {
-        // No user is signed in.
-        //alert('No user is signed in.')
-        console.log('No user is signed in.');
-       // window.location.href = '/login';
-      }
-    });
+    if (!user) {
+      navigate("/");
+    }
   }, []);
-
-  if (!user) {
-    return <Landing />;
-  }
 
   // useEffect(() => {
   //   const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -70,11 +53,12 @@ const AddRecipe = () => {
     try {
       await axios.post("http://localhost:3001/recipe", data);
       console.log("Recipe added successfully!");
+      //TODO:clear fields and refresh page
     } catch (error) {
       console.log(error);
     }
 
-    console.log(data);
+    //console.log(data);
   };
 
   return (

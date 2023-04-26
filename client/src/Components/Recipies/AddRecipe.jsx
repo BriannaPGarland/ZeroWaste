@@ -6,11 +6,14 @@ import { AuthorizeContext } from "../../Authorization/Authorize";
 import Landing from "../LandingPage/LandingPage";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../serverController";
+import { Link } from "react-router-dom";
+import Recipes from '../Recipies/Recipies'
+
 
 const AddRecipe = () => {
   const [name, setName] = useState("");
   const [ingredients, setIngredients] = useState([]);
-  // const [ setUser] = useState(null);
+  const [successMsg, setSuccessMsg] = useState(null);
 
   const { user } = useContext(AuthorizeContext);
   const navigate = useNavigate();
@@ -19,13 +22,6 @@ const AddRecipe = () => {
       navigate("/");
     }
   }, []);
-
-  // useEffect(() => {
-  //   const unsubscribe = auth.onAuthStateChanged((user) => {
-  //     setUser(user);
-  //   });
-  //   return () => unsubscribe();
-  // }, []);
 
   const handleAddIngredient = () => {
     setIngredients([...ingredients, { name: "", numberOfUnits: "" }]);
@@ -53,13 +49,13 @@ const AddRecipe = () => {
 
     try {
       await axios.post(`${BASE_URL}/recipe`, data);
-      console.log("Recipe added successfully!");
-      //TODO:clear fields and refresh page
+      setSuccessMsg("Recipe added successfully!");
+      setName("");
+      setIngredients([]);
+      // TODO: Refresh page or redirect to another page
     } catch (error) {
       console.log(error);
     }
-
-    //console.log(data);
   };
 
   return (
@@ -86,7 +82,7 @@ const AddRecipe = () => {
               onChange={(event) => handleIngredientChange(event, index, "name")}
             />
             <input
-              type="text"
+              type="number"
               className="recInput"
               placeholder="Number of Units"
               value={ingredient.numberOfUnits}
@@ -101,11 +97,18 @@ const AddRecipe = () => {
           Save Recipe
         </button>
       </form>
-      {/* Please keep this outside the form @Bri. I couldnt figure out a right place to keep this button. U had fixed this. 
-      Pls fix it again */}
+
+      {successMsg && <div className="alert success">{successMsg}</div>}
+
       <button className="NewIngriedient" onClick={handleAddIngredient}>
         Add New Ingredient
       </button>
+      <div>
+        {" "}
+        <Link className="NewIngriedient" to="/Recipies">
+          Back To Recipes
+        </Link>
+      </div>
     </div>
   );
 };

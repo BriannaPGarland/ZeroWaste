@@ -23,8 +23,8 @@ function sendNotification(notiType,Restaurant){
     notificationId: 'zerowaste_test_alert',
     user: {
       id: new ObjectId(),
-      email: Restaurant.contact_info.email, // required for email notifications
-      number: Restaurant.contact_info.phone // required for SMS
+      email: Restaurant.email, // required for email notifications
+      number: Restaurant.phone // required for SMS
 
     },
     mergeTags:{firstName:Restaurant.name, AlertText: alerttext}

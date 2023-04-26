@@ -49,11 +49,14 @@ let testDB = async function(){ //Test items to fill database
     
     let Restaurant = {
         "_id": masterObjectId,
-        name: "WENDYS",
+        name: "John Smith",
         uid:masterObjectId,
         "owner_id": masterObjectId,
-        "contact_info": {"phone": "000-000-0000","email": "test@test.com",},
-        "address": {"street": "", "city": "", "state": "", "zip": "", "country":""},
+        phone:"8482399086",
+        email: "femirocks123@gmail.com",
+        restaurantName: "WENDYS",
+        address: "1 Castle Point Rd, Hoboken NJ 07030",
+        accountType: "Restaurant",
         "ingredients": [], //{"name": "Tomatoes", "TotalAmount":99, "minimum_needed": 100, "storage":[{"_id": new ObjectId(), "amount": 99, "expire_date": new Date()}]}
         "ingredients_expiring_soon":[],
         "ingredients_expired":[],
@@ -61,7 +64,6 @@ let testDB = async function(){ //Test items to fill database
         "money_saved": 12000000,
         "total_donations":0,
         "is_food_claimed": false,
-        "useMockDB":true
     }
 
     let updatedRestaurant = {
@@ -76,7 +78,6 @@ let testDB = async function(){ //Test items to fill database
         "is_food_claimed": false,
         "updated":{"money_saved": 0, "is_food_claimed": true, 			
             "recipes": [{"name": "Pizza", "ingredients": [],"daily_produced": 20, "surplus_created": 5}],},
-        "useMockDB":true
     }
     let updateIngred = {"name": "Tomatoes", "shelf_life_type": "shelf", "TotalAmount":200, "storage":[{"_id": new ObjectId(), "amount": 10, "expire_date": null}]}
     await users_db.insertUser(testOwner)

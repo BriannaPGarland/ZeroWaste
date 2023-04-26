@@ -23,7 +23,7 @@ const Home = () => {
         .then((response) => {
           //console.log("getInventory", response);
           setInventory(response.data);
-          //console.log(response.data)
+          console.log(response.data);
         })
         .catch((error) => {
           console.error("Error fetching inventory:", error);
@@ -34,7 +34,7 @@ const Home = () => {
         .then((response) => {
           //console.log(response.data.name)
           setUserData(response.data);
-          console.log(userData);
+          console.log("userData", userData);
         })
         .catch((error) => {
           console.error("Error fetching user data:", error);
@@ -70,8 +70,7 @@ const Home = () => {
       <section className="section">
         <div className="box-main">
           <div className="firstHalf">
-            <div>Hello</div>
-            {/* <h1 className="title">{userData.name}</h1> */}
+            {/* <h1 className="title">{userData.restaurantName}</h1> */}
           </div>
         </div>
       </section>

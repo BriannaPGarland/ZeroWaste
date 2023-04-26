@@ -80,13 +80,7 @@ const Navbar = () => {
             <Link to="/Recipies">Recipies</Link>
           </li> */}
 
-          {user != null ? (
-            <li>
-              <Link to="/Analytics">Analytics</Link>
-            </li>
-          ) : (
-            <div />
-          )}
+          
         </ul>
 
         {user != null ? (

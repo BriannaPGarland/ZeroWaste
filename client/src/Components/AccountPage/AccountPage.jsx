@@ -5,6 +5,7 @@ import { auth } from "../../Authorization/FirebaseConfig";
 import Landing from "../LandingPage/LandingPage";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { BASE_URL } from "../../serverController";
 
 const AccountPage = () => {
   const [userData, setUserData] = useState(null);
@@ -24,7 +25,7 @@ const AccountPage = () => {
       console.log(uid);
 
       axios
-        .get(`http://localhost:3001/user/${uid}`)
+        .get(`${BASE_URL}/user/${uid}`)
         .then((response) => {
           setUserData(response.data);
           console.log(userData);

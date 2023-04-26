@@ -3,6 +3,7 @@ import "./Home.css";
 import arrow from "./Arrow.png";
 import FoodCard from "./FoodCard.jsx";
 import { auth } from "../../Authorization/FirebaseConfig";
+import { BASE_URL } from "../../serverController";
 
 const RotObj = () => {
   const [focusedIndex, setFocusedIndex] = useState(-1);
@@ -15,7 +16,7 @@ const RotObj = () => {
         if (user) {
           const uid = user.uid;
           const response = await fetch(
-            `http://localhost:3001/inventory/${uid}`
+            `${BASE_URL}/inventory/${uid}`
           );
           const data = await response.json();
           setInventory(data);

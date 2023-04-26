@@ -9,6 +9,7 @@ import { AuthorizeContext } from "../../Authorization/Authorize";
 import Modal from "react-modal";
 import axios from "axios";
 import Home from "../Home/Home";
+import { BASE_URL } from "../../serverController";
 
 const AccountSetup = () => {
   const { user } = useContext(AuthorizeContext);

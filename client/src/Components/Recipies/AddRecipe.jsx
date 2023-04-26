@@ -52,7 +52,7 @@ const AddRecipe = () => {
     };
 
     try {
-      await axios.post("http://localhost:3001/recipe", data);
+      await axios.post(`${BASE_URL}/recipe`, data);
       console.log("Recipe added successfully!");
       //TODO:clear fields and refresh page
     } catch (error) {

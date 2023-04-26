@@ -1,6 +1,7 @@
 import { auth } from "./FirebaseConfig";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { BASE_URL } from "../serverController";
 
 const AuthorizeContext = React.createContext();
 
@@ -14,7 +15,7 @@ const AuthorizeProvider = (props) => {
 
       // if (user && isNewUser) {
       //   axios
-      //     .post("http://localhost:3001/user", {
+      //     .post(`${BASE_URL}/user`, {
       //       email: user.email,
       //       uid: user.uid,
       //     })

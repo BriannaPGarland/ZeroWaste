@@ -16,6 +16,7 @@ import { AuthorizeProvider } from "./Authorization/Authorize";
 import SettingPage from "./Components/SettPage/SettPage";
 import AccountPage from "./Components/AccountPage/AccountPage";
 import AddRecipe from "./Components/Recipies/AddRecipe";
+import AccountSetup from "./Components/Login/AccountSetup";
 
 import axios from "axios";
 import { auth } from "./Authorization/FirebaseConfig";
@@ -88,6 +89,11 @@ const App = () => {
               <Route exact path="/Settings" element={<SettingPage />}></Route>
               <Route exact path="/Account" element={<AccountPage />}></Route>
               <Route exact path="/AddRecipe" element={<AddRecipe />}></Route>
+              <Route
+                exact
+                path="/AccountSetup"
+                element={<AccountSetup />}
+              ></Route>
             </Routes>
           </div>
         </div>

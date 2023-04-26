@@ -12,20 +12,32 @@ import Landing from "../LandingPage/LandingPage";
 const Home = () => {
   const { user } = useContext(AuthorizeContext);
   const [inventory, setInventory] = useState([]);
+  const [userData, setUserData] = useState(null);
 
   useEffect(() => {
     if (user != null) {
       var uid = user.uid;
-      console.log(uid);
+      //console.log(uid);
       axios
-        .get("http://localhost:3001/inventory/" + uid)
+        .get(`http://localhost:3001/inventory/${uid}`)
         .then((response) => {
-          console.log("getInventory", response);
+          //console.log("getInventory", response);
           setInventory(response.data);
           //console.log(response.data)
         })
         .catch((error) => {
           console.error("Error fetching inventory:", error);
+        });
+
+      axios
+        .get(`http://localhost:3001/user/${uid}`)
+        .then((response) => {
+          //console.log(response.data.name)
+          setUserData(response.data);
+          console.log(userData);
+        })
+        .catch((error) => {
+          console.error("Error fetching user data:", error);
         });
     }
   }, []);
@@ -58,7 +70,8 @@ const Home = () => {
       <section className="section">
         <div className="box-main">
           <div className="firstHalf">
-            <h1 className="title">{user.email}</h1>
+            <div>Hello</div>
+            {/* <h1 className="title">{userData.name}</h1> */}
           </div>
         </div>
       </section>
@@ -93,8 +106,7 @@ const Home = () => {
 
       <section className="inventoryDisp">
         {inventory.map((item, index) => {
-          console.log(index, item);
-
+          //console.log(index, item);
           return (
             <FoodCard
               key={item._id}

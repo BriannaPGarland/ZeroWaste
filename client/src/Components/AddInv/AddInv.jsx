@@ -7,33 +7,23 @@ import { auth } from "../../Authorization/FirebaseConfig";
 import Landing from "../LandingPage/LandingPage";
 
 const AddInv = () => {
-
-  
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState("");
   const [date, setDate] = useState("");
 
   const { user } = useContext(AuthorizeContext);
-const navigate =  useNavigate();
-useEffect(()=>{
-  if (!user) {
-
-    navigate("/")
-
-  }
-
-
-}, [])
-
-
-
-
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!user) {
+      navigate("/");
+    }
+  }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const token = await auth.currentUser.getIdToken(); 
+      const token = await auth.currentUser.getIdToken();
       const response = await axios.post(
         "http://localhost:3001/inventory",
         {
@@ -44,7 +34,7 @@ useEffect(()=>{
         },
         {
           headers: {
-            Authorization: `Bearer ${token}`, 
+            Authorization: `Bearer ${token}`,
           },
         }
       );

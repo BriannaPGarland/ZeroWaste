@@ -81,6 +81,9 @@
 }
 .foodexpiry{
   margin-bottom:5px;
+  margin-left:10px;
+  font-size:20px;
+  margin-top:15px;
 }
 
 .box-main {
@@ -163,7 +166,7 @@
 .foodcard {
   background-color: #fff;
   color: grey;
-  height: 160px;
+  height: 200px;
   width: 230px;
   border-radius: 20px;
   box-shadow: 5px 5px 3px black;
@@ -173,7 +176,8 @@
   background-color: white;
   margin: 15px;
   padding-top: 5px;
-  font-size: 30px;
+  font-size: 25px;
+  margin-top:5px;
 }
 .foodamount {
   background-color: white;

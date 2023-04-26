@@ -64,7 +64,7 @@ const Recipies = () => {
               <RecipeItem
                 key={recipe._id}
                 name={recipe.name}
-                numberOfUnits={recipe.numberOfUnits}
+                numberOfUnits= {5}
                 _id={recipe._id}
                 currentUserUid={currentUserUid}
                 onDelete={handleDelete}

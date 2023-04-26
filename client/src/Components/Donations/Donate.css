@@ -20,6 +20,10 @@
     margin-bottom:25px;
     
 }
+.notif{
+  font-size:14px;
+  color:greenyellow;
+}
 .rightItem {
     color:white;
     border-color: white;

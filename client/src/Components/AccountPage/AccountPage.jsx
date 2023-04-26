@@ -51,8 +51,8 @@ const AccountPage = () => {
           <input className="accIN" value={userData?.name}></input>
           <input className="accIN" type="email" value={userData?.email}></input>
           <input className="accIN" type="tel" value={userData?.phone}></input>
-          <input className="accIN" value={userData?.location}></input>
-          <input className="accIN" value={userData?.restaurant}></input>
+          <input className="accIN" value={userData?.address}></input>
+          <input className="accIN" value={userData?.restaurantName}></input>
           <input
             className="accIN"
             type="number"

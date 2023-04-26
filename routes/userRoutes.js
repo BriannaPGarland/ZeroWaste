@@ -45,10 +45,19 @@ router.get("/:uid", async (req, res) => {
 });
 
 router.post("/addUserToDb", async (req, res) => {
-  const { name, email, accountType, restaurantName, uid } = req.body;
+  const { name, email, phone, accountType, restaurantName, uid, address } =
+    req.body;
 
   try {
-    const newUser = new User({ name, email, accountType, restaurantName, uid });
+    const newUser = new User({
+      name,
+      email,
+      phone,
+      accountType,
+      restaurantName,
+      uid,
+      address,
+    });
     await newUser.save();
     res.status(201).json({ message: "User created successfully" });
   } catch (err) {

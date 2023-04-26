@@ -19,12 +19,15 @@ const AccountSetup = () => {
     e.preventDefault();
 
     // Check if all required fields are filled out
-    const { name, email, accountType, restaurantName } = e.target.elements;
+    const { name, email, phone, accountType, restaurantName, address } =
+      e.target.elements;
     if (
       !name.value ||
       !email.value ||
       !accountType.value ||
-      !restaurantName.value
+      !phone.value ||
+      !restaurantName.value ||
+      !address.value
     ) {
       setErrorMessage("Please fill out all required fields.");
       return;
@@ -37,6 +40,8 @@ const AccountSetup = () => {
       accountType: accountType.value,
       restaurantName: restaurantName.value,
       uid: user.uid,
+      phone: phone.value,
+      address: address.value,
     };
 
     // Make a POST request to your backend API to save the data to MongoDB
@@ -75,6 +80,13 @@ const AccountSetup = () => {
             name="email"
             defaultValue={user.email}
           />
+          <input
+            className="lgInput"
+            type="number"
+            placeholder="phone"
+            id="phone"
+            name="phone"
+          />
 
           <div className="dropdownbox">
             <select className="dropdownsgn" id="accountType" name="accountType">
@@ -90,6 +102,13 @@ const AccountSetup = () => {
             placeholder="Restaurant Name"
             id="restaurantName"
             name="restaurantName"
+          />
+          <input
+            className="lgInput"
+            type="text"
+            placeholder="address"
+            id="address"
+            name="address"
           />
 
           <button className="login-btn" type="submit">

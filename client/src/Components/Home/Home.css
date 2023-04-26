@@ -79,6 +79,9 @@
   width: 30%;
   text-align: right;
 }
+.foodexpiry{
+  margin-bottom:5px;
+}
 
 .box-main {
   display: flex;

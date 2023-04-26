@@ -8,6 +8,8 @@ import { AuthorizeContext } from "../../Authorization/Authorize";
 import axios from "axios";
 import { auth } from "../../Authorization/FirebaseConfig";
 import Landing from "../LandingPage/LandingPage";
+import { BASE_URL } from "../../serverController";
+
 
 const Home = () => {
   const { user } = useContext(AuthorizeContext);
@@ -30,7 +32,7 @@ const Home = () => {
       var uid = user.uid;
       //console.log(uid);
       axios
-        .get(`http://localhost:3001/inventory/${uid}`)
+        .get(`${BASE_URL}/inventory/${uid}`)
         .then((response) => {
           //console.log("getInventory", response);
           setInventory(response.data);
@@ -41,7 +43,7 @@ const Home = () => {
         });
 
       axios
-        .get(`http://localhost:3001/user/${uid}`)
+        .get(`${BASE_URL}/user/${uid}`)
         .then((response) => {
           //console.log(response.data.name)
           setUserData(response.data);

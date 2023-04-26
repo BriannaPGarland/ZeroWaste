@@ -2,8 +2,18 @@ import "./Donate.css";
 
 import React, { Component } from "react";
 
+import Modal from "react-modal";
+
 export default function shelterListItem(props) {
   const { name, numberTimesDonated } = props;
+
+  const text="";
+
+  const handleDonateClick = () =>{ 
+
+      document.getElementById('donBut').innerHTML = "Email Sent!";
+    
+  };
 
   return (
     <div className="donatePage">
@@ -15,7 +25,8 @@ export default function shelterListItem(props) {
         </div>
       </div>
 
-      <button className="rightItem">DONATE</button>
+      <button  className="rightItem"onClick={handleDonateClick}>DONATE</button>
+      <div className="notif" id='donBut'> </div>
     </div>
   );
 }

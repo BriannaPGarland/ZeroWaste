@@ -4,7 +4,7 @@ import React, { Component } from "react";
 
 export default function FoodCard(props) {
   const { name, quantity, date } = props;
-
+  console.log(date)
   return (
     <div className="foodcard">
       <div className="foodname">Name: {name}</div>

@@ -23,8 +23,8 @@ const Signup = () => {
     e.preventDefault();
 
     // Check if all required fields are filled out
-    const { name, email, password, accountType } = e.target.elements;
-    if (!name.value || !email.value || !password.value || !accountType.value) {
+    const { email, password } = e.target.elements;
+    if (!email.value || !password.value) {
       setErrorMessage("Please fill out all required fields.");
       openModal();
       return;
@@ -41,7 +41,7 @@ const Signup = () => {
       window.localStorage.setItem("user", JSON.stringify(userObject.user));
       SetAccCreationMessage("Account created successfully");
       setTimeout(() => {
-        navigate("/");
+        navigate("/AccountSetup");
       }, 3000);
     } catch (error) {
       setErrorMessage(error);
@@ -120,14 +120,14 @@ const Signup = () => {
               </Modal>
             </h2>
           )}
-          <input
+          {/* <input
             className="lgInput"
             type="text"
             placeholder="First & Last Name"
             id="name"
             name="name"
             //value={"test1 value"}
-          />
+          /> */}
           <input
             className="lgInput"
             type="text"
@@ -145,22 +145,22 @@ const Signup = () => {
             //value=""
           />
 
-          <div className="dropdownbox">
+          {/* <div className="dropdownbox">
             <select className="dropdownsgn" id="accountType" name="accountType">
               <option value="">Select Account Type</option>
               <option value="restaurant">Restaurant</option>
               <option value="communityOfNeed">Community Of Need</option>
             </select>
-          </div>
+          </div> */}
 
-          <input
+          {/* <input
             className="lgInput"
             type="text"
             placeholder="Restaurant Name"
             id="restaurantName"
             name="restaurantName"
             //value={"Artichoke"}
-          />
+          /> */}
 
           <button className="login-btn" type="submit">
             Create account

@@ -5,6 +5,7 @@ import RecipeItem from "./RecipeItem.jsx";
 import { auth } from "../../Authorization/FirebaseConfig";
 import axios from "axios";
 import { AuthorizeContext } from "../../Authorization/Authorize";
+import { BASE_URL } from "../../serverController";
 
 const Recipies = () => {
   const [recipes, setRecipes] = useState([]);
@@ -24,7 +25,7 @@ const Recipies = () => {
       setCurrentUserUid(uid);
 
       axios
-        .get(`http://localhost:3001/recipe/${uid}`)
+        .get(`${BASE_URL}/recipe/${uid}`)
         .then((res) => {
           setRecipes(res.data);
         })
@@ -36,7 +37,7 @@ const Recipies = () => {
 
   const handleDelete = (uid, id) => {
     axios
-      .delete(`http://localhost:3001/recipe/${uid}/${id}`)
+      .delete(`${BASE_URL}/recipe/${uid}/${id}`)
       .then((response) => {
         if (response.status === 200) {
           const newRecipes = recipes.filter((recipe) => recipe._id !== id);

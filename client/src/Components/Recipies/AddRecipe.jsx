@@ -5,6 +5,7 @@ import { auth } from "../../Authorization/FirebaseConfig";
 import { AuthorizeContext } from "../../Authorization/Authorize";
 import Landing from "../LandingPage/LandingPage";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "../../serverController";
 
 const AddRecipe = () => {
   const [name, setName] = useState("");

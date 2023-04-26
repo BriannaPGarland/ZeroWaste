@@ -5,6 +5,7 @@ import axios from "axios";
 import { AuthorizeContext } from "../../Authorization/Authorize";
 import { auth } from "../../Authorization/FirebaseConfig";
 import Landing from "../LandingPage/LandingPage";
+import { BASE_URL } from "../../serverController";
 
 const AddInv = () => {
   const [name, setName] = useState("");
@@ -25,7 +26,7 @@ const AddInv = () => {
     try {
       const token = await auth.currentUser.getIdToken();
       const response = await axios.post(
-        "http://localhost:3001/inventory",
+        `${BASE_URL}/inventory`,
         {
           name,
           quantity,

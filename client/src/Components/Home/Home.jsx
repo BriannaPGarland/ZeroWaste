@@ -16,6 +16,17 @@ const Home = () => {
   const [inventory, setInventory] = useState([]);
   const [userData, setUserData] = useState(null);
 
+  const [focusedIndex, setFocusedIndex] = useState(-1);
+  const focusStyle = {
+    transform: "scale(1.1)",
+    transition: "all 0.5s ease-in-out",
+  };
+  const defaultStyle = {
+    transform: "scale(1)",
+    transition: "all 0.5s ease-in-out",
+  };
+
+
   useEffect(() => {
     if (user != null) {
       var uid = user.uid;
@@ -42,7 +53,25 @@ const Home = () => {
           console.error("Error fetching user data:", error);
         });
     }
+    fetchInventory();
   }, []);
+
+  const fetchInventory = async () => {
+    try {
+      const user = auth.currentUser;
+      if (user) {
+        const uid = user.uid;
+        const response = await fetch(
+          `http://localhost:3001/inventory/${uid}`
+        );
+        const data = await response.json();
+        setInventory(data);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  };
+  fetchInventory(); 
 
   const handleClickScroll = () => {
     const element = document.getElementById("inv");
@@ -72,7 +101,9 @@ const Home = () => {
       <section className="section">
         <div className="box-main">
           <div className="firstHalf">
-            {/* <h1 className="title">{userData.restaurantName}</h1> */}
+            <div>
+            </div>
+              <h1 className="title">{userData?.restaurantName}</h1> 
           </div>
         </div>
       </section>
@@ -106,18 +137,15 @@ const Home = () => {
       </div>
 
       <section className="inventoryDisp">
-        {inventory.map((item, index) => {
-          //console.log(index, item);
-          return (
-            <FoodCard
-              key={item._id}
-              name={item.name}
-              quantity={item.quantity}
-              units="lbs"
-              date={item.date}
-            />
-          );
-        })}
+      {inventory.map((item, index) => (
+        <div
+          key={index}
+          className="spefic"
+          style={focusedIndex === index ? focusStyle : defaultStyle}
+        >
+          <FoodCard key={item.id} name={item.name} quantity={item.quantity} />
+        </div>
+      ))}
       </section>
     </div>
   );

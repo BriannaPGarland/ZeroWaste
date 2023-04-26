@@ -68,7 +68,7 @@ async function getExpiringIngredients(RestaurantObj){//Returns everything expiri
 
         for (let j = 0; j < storage.length; j++) {
             let bundle = storage[j];
-            let shelfLife = Date.parse(bundle.shelf_life);
+            let shelfLife = Date.parse(bundle.expire_date);
 
             // Calculate difference in days between today and shelf life
             let timeDiff = shelfLife - currentDate;

@@ -126,7 +126,6 @@ Added by siddhant
   margin-bottom: 35px;
   margin-top: 0px;
   width: 250px;
-  margin-left: 115px;
 }
 
 .SaveRecipe {
@@ -143,7 +142,8 @@ Added by siddhant
   border-radius: 0.25em;
   cursor: pointer;
   margin-top: 25px;
-  margin-left: 120px;
+  margin-bottom:25px;
+  margin-left:120px;
 }
 
 .ingtext {

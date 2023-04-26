@@ -58,7 +58,7 @@ const RotObj = () => {
         onClick={() => handleArrowClick(-1)}
       ></img>
 
-      {inventory.map((item, index) => (
+      {inventory.slice(0, 4).map((item, index) => (
         <div
           key={index}
           className="spefic"

@@ -197,3 +197,23 @@ input:focus {
 .signup {
   color: white;
 }
+.LGINButt{
+  margin-bottom: 50px;
+}
+.SignUpButt{
+  margin-bottom: 50px;
+}
+.AboutUs{
+  color:white;
+  height:350px;
+  background-color: rgb(5, 19, 65);
+}
+.abtUsTitle{
+  font-size: 40px;
+  margin-top:50px;
+  margin-bottom: 25px;
+}
+.abtContent{
+  margin-bottom:50px;
+  font-size:20px;
+}

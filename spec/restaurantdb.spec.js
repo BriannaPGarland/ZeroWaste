@@ -1,7 +1,7 @@
-require('dotenv').config({path:'zerowaste/.env'})
+require('dotenv').config()
 process.env.MONGO_URI = "mongodb+srv://Admin:vXtZ9j7tYBhjYIhM@zerowaste.ylulala.mongodb.net/test?retryWrites=true&w=majority"
 
-const Rest_DB_API = require("../src/scripts/restaurantsDB")
+const Rest_DB_API = require("../scripts/restaurantsDB")
 
 // Unique Identifier for Objects
 const ObjectId = require('mongodb').ObjectId;
@@ -70,7 +70,7 @@ describe("Testing RestaurantDB API Features ", function() {
 	it("Delete Restaurant", async function() { //testing Delete Restaunant
 		await Rest_DB_API.insertRestaurant(restaurant)
 		let result = await Rest_DB_API.deleteRestaurant(restaurant)
-		expect(result).toEqual(null)
+		expect(result).toEqual(undefined)
 	});
 
 

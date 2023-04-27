@@ -35,4 +35,5 @@ function sendNotification(notiType,Restaurant){
 
 
 
+
 module.exports = {sendNotification}

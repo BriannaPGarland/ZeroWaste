@@ -21,7 +21,6 @@ const mongoose = require("mongoose");
 //   }
 // });
 
-
 router.get("/", async (req, res) => {
   try {
     const uid = req.query.uid;
@@ -70,8 +69,6 @@ router.post("/", async (req, res) => {
   }
 });
 
-
-
 router.delete("/:id", async (req, res) => {
   try {
     const inventory = await Inventory.deleteOne({ _id: req.params.id });
@@ -97,7 +94,6 @@ async function getInventory(req, res, next) {
   next();
 }
 
-
 // router.get("/:id", async (req, res) => {
 //   //console.log(req.query)
 //   try {
@@ -108,12 +104,6 @@ async function getInventory(req, res, next) {
 //     res.status(500).json({ message: err.message });
 //   }
 // });
-
-
-
-
-
-
 
 router.get("/:uid/:id", async (req, res) => {
   //console.log(req.query)

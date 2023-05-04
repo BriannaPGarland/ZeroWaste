@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.729077a1.css",
+    "main.js": "/static/js/main.90a53017.js",
+    "static/js/787.af587a30.chunk.js": "/static/js/787.af587a30.chunk.js",
+    "static/media/OpenSans-VariableFont_wdth,wght.ttf": "/static/media/OpenSans-VariableFont_wdth,wght.ceb05254cedfa895b512.ttf",
+    "static/media/foodIMG2.png": "/static/media/foodIMG2.3dc73045b91f4e3e852d.png",
+    "static/media/LeagueSpartan-VariableFont_wght.ttf": "/static/media/LeagueSpartan-VariableFont_wght.596f54f303afb90cbfb0.ttf",
+    "static/media/foodIMG1.png": "/static/media/foodIMG1.e9881360780ef9c8b4eb.png",
+    "static/media/Arrow.png": "/static/media/Arrow.e00f5b699debe8c95bef.png",
+    "static/media/search.PNG": "/static/media/search.65587fe6874bddf4d484.PNG",
+    "static/media/zWlogo.png": "/static/media/zWlogo.b13444955c55f33b201a.png",
+    "static/media/Icon.png": "/static/media/Icon.c8c39d571f454a495386.png",
+    "static/media/foodIMG3.png": "/static/media/foodIMG3.4d408d5813800fbe8804.png",
+    "index.html": "/index.html",
+    "main.729077a1.css.map": "/static/css/main.729077a1.css.map",
+    "main.90a53017.js.map": "/static/js/main.90a53017.js.map",
+    "787.af587a30.chunk.js.map": "/static/js/787.af587a30.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.729077a1.css",
+    "static/js/main.90a53017.js"
+  ]
+}

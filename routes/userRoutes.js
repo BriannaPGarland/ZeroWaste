@@ -66,6 +66,22 @@ router.post("/addUserToDb", async (req, res) => {
   }
 });
 
+router.get("/shelter", async (req, res) => {
+  try {
+    const users = await User.find();
+    console.log("All users:", users);
+    const filteredUsers = users.filter(user => user.accountType.includes("communityOfNeed"));
+    console.log("Filtered users:", filteredUsers);
+    res.status(200).json(filteredUsers);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
+
+
+
 // DELETE user by UID
 router.delete("/:uid", async (req, res) => {
   const uid = req.params.uid;

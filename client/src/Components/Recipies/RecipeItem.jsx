@@ -12,9 +12,9 @@ export default function RecipeItem(props) {
         <div className="amountvalue">{numberOfUnits} per day</div>
         <div className="amountButtons">
           <div className="pencil">
-            <Link className="rec" to="/">
+            {/* <Link className="rec" to="/">
               <img className="editButt" src="pencil.png" />
-            </Link>
+            </Link> */}
           </div>
           <div className="trash">
             <button

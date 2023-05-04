@@ -47,10 +47,7 @@ const AccountSetup = () => {
 
     // Make a POST request to your backend API to save the data to MongoDB
     try {
-      const response = await axios.post(
-        "http://localhost:3001/user/addUserToDb",
-        data
-      );
+      const response = await axios.post(`${BASE_URL}/user/addUserToDb`, data);
       console.log(response.data);
       // Navigate to the next page after successful POST request
       navigate("/Home");

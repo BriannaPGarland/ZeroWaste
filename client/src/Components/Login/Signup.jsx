@@ -21,8 +21,6 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Check if all required fields are filled out
     const { email, password } = e.target.elements;
     if (!email.value || !password.value) {
       setErrorMessage("Please fill out all required fields.");
@@ -37,7 +35,7 @@ const Signup = () => {
         password.value
       );
       console.log(userObject);
-      // puttin the user credential s in the local storage and useing  to maintain the session
+
       window.localStorage.setItem("user", JSON.stringify(userObject.user));
       SetAccCreationMessage("Account created successfully");
       setTimeout(() => {
@@ -70,7 +68,6 @@ const Signup = () => {
   }
 
   function afterOpenModal() {
-    // references are now sync'd and can be accessed.
     subtitle.style.color = "#FF0000";
   }
 
@@ -167,10 +164,10 @@ const Signup = () => {
           </button>
         </form>
 
-        <div className="alt-login">
+        {/* <div className="alt-login">
           <div className="facebook"></div>
           <div className="google"></div>
-        </div>
+        </div> */}
 
         {/* <span>{accCreationMessage}</span> */}
       </div>

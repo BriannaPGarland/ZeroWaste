@@ -35,8 +35,6 @@ const App = () => {
     } else {
       return null;
     }
-    // const userToken = JSON.parse(tokenString);
-    // return userToken;
   };
 
   useEffect(() => {
@@ -50,18 +48,8 @@ const App = () => {
     if (loginResult != null) {
       setLoginToken(loginResult);
     } else {
-      //TODO : clear existing stuff from browser storage
     }
   }, []);
-
-  // if (!loginToken) {
-  //   return (
-  //     <div>
-
-  //       <Landing />
-  //     </div>
-  //   );
-  // }
 
   const checkToken = () => {
     if (!getToken()) {

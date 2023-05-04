@@ -11,6 +11,7 @@ const AddInv = () => {
   const [name, setName] = useState("");
   const [quantity, setQuantity] = useState("");
   const [date, setDate] = useState("");
+  const [alertMessage, setAlertMessage] = useState("");
 
   const { user } = useContext(AuthorizeContext);
   const navigate = useNavigate();
@@ -39,16 +40,22 @@ const AddInv = () => {
           },
         }
       );
-      //TODO :clear fields and refresh/navigate
+      setName("");
+      setQuantity("");
+      setDate("");
+      setAlertMessage("Item saved successfully!");
       console.log("Item saved successfully!", response.data);
     } catch (error) {
       console.error("Error saving item:", error);
+      setAlertMessage("Error saving item");
     }
   };
 
   return (
     <div className="addInvPage">
       <div className="title">Add Inventory Item</div>
+
+      {alertMessage && <div className="alert">{alertMessage}</div>}
 
       <form onSubmit={handleSubmit}>
         <input

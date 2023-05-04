@@ -140,11 +140,11 @@ const Login = () => {
           </button>
         </form>
         {/* {errorMessage && <p className="error">{errorMessage}</p>} */}
-        <p className="text">Or Login using</p>
-        <div className="alt-login">
+        {/* <p className="text">Or Login using</p> */}
+        {/* <div className="alt-login">
           <div className="facebook"></div>
           <div className="google"></div>
-        </div>
+        </div> */}
         <Link to="/Signup">
           <div className="signup">Create a new account</div>
         </Link>

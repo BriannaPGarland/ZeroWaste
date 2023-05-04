@@ -27,3 +27,6 @@ const recipeSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model("Recipe", recipeSchema, "Allrecipes");
+
+
+
